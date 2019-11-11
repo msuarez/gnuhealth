@@ -56,13 +56,15 @@
     <separator string="Extended Information" id="separator_extra_info" colspan="4"/>
     <newline/>
     <field name="info" colspan="4"/>
-    <group id="pol_footer" colspan="4" col="8">
+    <group id="pol_footer" colspan="4" col="10">
         <label name="page"/>
         <field name="page"/>
         <label name="federation_account"/>
         <field name="federation_account"/>
         <label name="author"/>
         <field name="author"/>
+        <label name="author_acct"/>
+        <field name="author_acct"/>
         <label name="node"/>
         <field name="node"/>
     </group>

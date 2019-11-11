@@ -1,22 +1,26 @@
-# Anonymous Pootle User, 2016.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-01-08 11:28+0000\n"
-"Last-Translator: Anonymous Pootle User\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-23 01:29+0000\n"
+"PO-Revision-Date: 2019-10-27 11:11+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_CN\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1452252512.0\n"
+"X-Generator: Translate Toolkit 2.2.5\n"
+"X-Pootle-Path: /zh_CN/GNUHEALTH/health_pediatrics/locale/zh_CN.po\n"
+"X-Pootle-Revision: 43839\n"
 
 msgctxt "error:gnuhealth.newborn:"
 msgid "The Newborn ID must be unique"
-msgstr ""
+msgstr "新生儿 ID 不能重复"
 
 msgctxt "error:gnuhealth.newborn:"
 msgid "There is already a newborn record for this patient"
-msgstr ""
+msgstr "此患者已经有一条新生儿记录"
 
 msgctxt "field:gnuhealth.neonatal.apgar,apgar_activity:"
 msgid "Activity"
@@ -32,7 +36,7 @@ msgstr "反应"
 
 msgctxt "field:gnuhealth.neonatal.apgar,apgar_minute:"
 msgid "Minute"
-msgstr "分钟"
+msgstr "分钟数"
 
 msgctxt "field:gnuhealth.neonatal.apgar,apgar_pulse:"
 msgid "Pulse"
@@ -44,7 +48,7 @@ msgstr "呼吸"
 
 msgctxt "field:gnuhealth.neonatal.apgar,apgar_score:"
 msgid "APGAR Score"
-msgstr "阿普伽新生儿评分"
+msgstr "APGAR 新生儿评分"
 
 msgctxt "field:gnuhealth.neonatal.apgar,create_date:"
 msgid "Create Date"
@@ -63,28 +67,28 @@ msgid "Newborn ID"
 msgstr "新生儿编号"
 
 msgctxt "field:gnuhealth.neonatal.apgar,rec_name:"
-msgid "Name"
-msgstr "名字"
+msgid "Record Name"
+msgstr "记录日期"
 
 msgctxt "field:gnuhealth.neonatal.apgar,write_date:"
 msgid "Write Date"
-msgstr "收件日期"
+msgstr "写入日期"
 
 msgctxt "field:gnuhealth.neonatal.apgar,write_uid:"
 msgid "Write User"
-msgstr "收件用户"
+msgstr "写入用户"
 
 msgctxt "field:gnuhealth.newborn,apgar1:"
 msgid "APGAR 1st minute"
-msgstr "出生后第一分钟的阿普伽评分"
+msgstr "出生后一分钟 APGAR 评分"
 
 msgctxt "field:gnuhealth.newborn,apgar5:"
 msgid "APGAR 5th minute"
-msgstr "出生后第五分钟的阿普伽评分"
+msgstr "出生后五分钟 APGAR 评分"
 
 msgctxt "field:gnuhealth.newborn,apgar_scores:"
 msgid "APGAR scores"
-msgstr "阿普伽新生儿评分"
+msgstr "APGAR 新生儿评分"
 
 msgctxt "field:gnuhealth.newborn,bd:"
 msgid "Stillbirth"
@@ -96,7 +100,7 @@ msgstr "出生日期"
 
 msgctxt "field:gnuhealth.newborn,cephalic_perimeter:"
 msgid "CP"
-msgstr ""
+msgstr "头周径"
 
 msgctxt "field:gnuhealth.newborn,cod:"
 msgid "Cause of death"
@@ -104,7 +108,7 @@ msgstr "死因"
 
 msgctxt "field:gnuhealth.newborn,congenital_diseases:"
 msgid "Congenital diseases"
-msgstr "先天性疾病 "
+msgstr "先天性疾病"
 
 msgctxt "field:gnuhealth.newborn,create_date:"
 msgid "Create Date"
@@ -132,7 +136,7 @@ msgstr "放出"
 
 msgctxt "field:gnuhealth.newborn,healthprof:"
 msgid "Health Professional"
-msgstr ""
+msgstr "健康专家"
 
 msgctxt "field:gnuhealth.newborn,id:"
 msgid "ID"
@@ -140,7 +144,7 @@ msgstr "ID"
 
 msgctxt "field:gnuhealth.newborn,length:"
 msgid "Length"
-msgstr "长度"
+msgstr "身长"
 
 msgctxt "field:gnuhealth.newborn,meconium:"
 msgid "Meconium"
@@ -160,23 +164,23 @@ msgstr "新生儿编号"
 
 msgctxt "field:gnuhealth.newborn,neonatal_ambiguous_genitalia:"
 msgid "Ambiguous Genitalia"
-msgstr "两性生殖器 "
+msgstr "外生殖器畸形"
 
 msgctxt "field:gnuhealth.newborn,neonatal_babinski_reflex:"
 msgid "Babinski Reflex"
-msgstr "巴彬斯奇反射 "
+msgstr "巴宾斯基反射"
 
 msgctxt "field:gnuhealth.newborn,neonatal_barlow:"
 msgid "Positive Barlow"
-msgstr "积极巴洛"
+msgstr ""
 
 msgctxt "field:gnuhealth.newborn,neonatal_blink_reflex:"
 msgid "Blink Reflex"
-msgstr "瞬目反射"
+msgstr "眨眼反射"
 
 msgctxt "field:gnuhealth.newborn,neonatal_erbs_palsy:"
 msgid "Erbs Palsy"
-msgstr "erbs麻痹"
+msgstr ""
 
 msgctxt "field:gnuhealth.newborn,neonatal_grasp_reflex:"
 msgid "Grasp Reflex"
@@ -192,27 +196,27 @@ msgstr "疝气"
 
 msgctxt "field:gnuhealth.newborn,neonatal_moro_reflex:"
 msgid "Moro Reflex"
-msgstr "莫罗反射"
+msgstr "惊跳反射"
 
 msgctxt "field:gnuhealth.newborn,neonatal_ortolani:"
 msgid "Positive Ortolani"
-msgstr "Positive Ortolani"
+msgstr ""
 
 msgctxt "field:gnuhealth.newborn,neonatal_palmar_crease:"
 msgid "Transversal Palmar Crease"
-msgstr "横掌抗皱"
+msgstr "手掌横折痕"
 
 msgctxt "field:gnuhealth.newborn,neonatal_polydactyly:"
 msgid "Polydactyly"
-msgstr "多指"
+msgstr "多指畸形"
 
 msgctxt "field:gnuhealth.newborn,neonatal_rooting_reflex:"
 msgid "Rooting Reflex"
-msgstr "觅食反射"
+msgstr "寻乳反射"
 
 msgctxt "field:gnuhealth.newborn,neonatal_stepping_reflex:"
 msgid "Stepping Reflex"
-msgstr "跨步反射"
+msgstr "踏步反射"
 
 msgctxt "field:gnuhealth.newborn,neonatal_sucking_reflex:"
 msgid "Sucking Reflex"
@@ -232,19 +236,19 @@ msgstr "马蹄内翻足"
 
 msgctxt "field:gnuhealth.newborn,neonatal_tonic_neck_reflex:"
 msgid "Tonic Neck Reflex"
-msgstr "紧张性颈反射"
+msgstr "强直性颈部反射"
 
 msgctxt "field:gnuhealth.newborn,newborn_name:"
 msgid "Name at Birth"
-msgstr "出生时的名字"
+msgstr "乳名"
 
 msgctxt "field:gnuhealth.newborn,notes:"
 msgid "Notes"
-msgstr "笔记"
+msgstr "说明"
 
 msgctxt "field:gnuhealth.newborn,patient:"
 msgid "Baby"
-msgstr ""
+msgstr "新生儿"
 
 msgctxt "field:gnuhealth.newborn,photo:"
 msgid "Picture"
@@ -271,20 +275,20 @@ msgid "Stimulation"
 msgstr "刺激"
 
 msgctxt "field:gnuhealth.newborn,rec_name:"
-msgid "Name"
-msgstr "名字"
+msgid "Record Name"
+msgstr "记录日期"
 
 msgctxt "field:gnuhealth.newborn,sex:"
 msgid "Sex"
-msgstr "性别"
+msgstr "出生性别"
 
 msgctxt "field:gnuhealth.newborn,signed_by:"
 msgid "Signed by"
-msgstr ""
+msgstr "签署人"
 
 msgctxt "field:gnuhealth.newborn,state:"
 msgid "State"
-msgstr ""
+msgstr "状态"
 
 msgctxt "field:gnuhealth.newborn,test_audition:"
 msgid "Audition"
@@ -296,11 +300,11 @@ msgstr "胆红素"
 
 msgctxt "field:gnuhealth.newborn,test_chagas:"
 msgid "Chagas"
-msgstr "查格斯"
+msgstr "南美锥虫病"
 
 msgctxt "field:gnuhealth.newborn,test_metabolic:"
 msgid "Metabolic (\"heel stick screening\")"
-msgstr "代谢"
+msgstr ""
 
 msgctxt "field:gnuhealth.newborn,test_toxo:"
 msgid "Toxoplasmosis"
@@ -320,11 +324,11 @@ msgstr "体重"
 
 msgctxt "field:gnuhealth.newborn,write_date:"
 msgid "Write Date"
-msgstr "收件日期"
+msgstr "写入日期"
 
 msgctxt "field:gnuhealth.newborn,write_uid:"
 msgid "Write User"
-msgstr "收件用户"
+msgstr "写入用户"
 
 msgctxt "field:gnuhealth.patient.disease,newborn_id:"
 msgid "Newborn ID"
@@ -356,7 +360,7 @@ msgstr "ID"
 
 msgctxt "field:gnuhealth.patient.psc,notes:"
 msgid "Notes"
-msgstr "笔记"
+msgstr "说明"
 
 msgctxt "field:gnuhealth.patient.psc,patient:"
 msgid "Patient"
@@ -368,15 +372,15 @@ msgstr "离校"
 
 msgctxt "field:gnuhealth.patient.psc,psc_aches_pains:"
 msgid "Complains of aches and pains"
-msgstr "抱怨疼痛"
+msgstr "疼痛的抱怨"
 
 msgctxt "field:gnuhealth.patient.psc,psc_act_as_younger:"
 msgid "Acts younger than children his or her age"
-msgstr "行为比同一年龄的要小"
+msgstr "与同龄人相比，行为偏幼稚"
 
 msgctxt "field:gnuhealth.patient.psc,psc_acts_as_driven_by_motor:"
 msgid "Acts as if driven by a motor"
-msgstr "仿佛由电动机驱动的行为"
+msgstr "行为好像在骑摩托车"
 
 msgctxt "field:gnuhealth.patient.psc,psc_afraid_of_new_situations:"
 msgid "Is afraid of new situations"
@@ -384,7 +388,7 @@ msgstr "是否害怕新环境"
 
 msgctxt "field:gnuhealth.patient.psc,psc_blames_others:"
 msgid "Blames others for his or her troubles"
-msgstr "指责别人为他或她的烦恼"
+msgstr "把他或她的麻烦归咎于他人"
 
 msgctxt "field:gnuhealth.patient.psc,psc_daydreams_too_much:"
 msgid "Daydreams too much"
@@ -404,11 +408,11 @@ msgstr "不遵守规则"
 
 msgctxt "field:gnuhealth.patient.psc,psc_does_not_show_feelings:"
 msgid "Does not show feelings"
-msgstr "不显示感情"
+msgstr "不表现出感情"
 
 msgctxt "field:gnuhealth.patient.psc,psc_down_on_self:"
 msgid "Is down on him or herself"
-msgstr "他或她"
+msgstr "对他或她自己不利"
 
 msgctxt "field:gnuhealth.patient.psc,psc_feels_hopeless:"
 msgid "Feels hopeless"
@@ -416,7 +420,7 @@ msgstr "觉得希望渺茫"
 
 msgctxt "field:gnuhealth.patient.psc,psc_feels_is_bad_child:"
 msgid "Feels he or she is bad"
-msgstr "觉得他或她是坏"
+msgstr "感觉他或她很糟糕"
 
 msgctxt "field:gnuhealth.patient.psc,psc_fidgety:"
 msgid "Fidgety, unable to sit still"
@@ -432,7 +436,7 @@ msgstr "频繁受伤"
 
 msgctxt "field:gnuhealth.patient.psc,psc_having_less_fun:"
 msgid "Seems to be having less fun"
-msgstr "似乎有乐趣却少了"
+msgstr "似乎没那么有乐趣"
 
 msgctxt "field:gnuhealth.patient.psc,psc_irritable_angry:"
 msgid "Is irritable, angry"
@@ -456,11 +460,11 @@ msgstr "感觉伤心，不高兴"
 
 msgctxt "field:gnuhealth.patient.psc,psc_school_grades_dropping:"
 msgid "School grades dropping"
-msgstr "学习分数下降"
+msgstr "学习成绩下降"
 
 msgctxt "field:gnuhealth.patient.psc,psc_spend_time_alone:"
 msgid "Spends more time alone"
-msgstr "发更多的时间独自一人"
+msgstr "花更多的时间独处"
 
 msgctxt "field:gnuhealth.patient.psc,psc_takes_things_from_others:"
 msgid "Takes things that do not belong to him or her"
@@ -476,19 +480,19 @@ msgstr "戏弄别人"
 
 msgctxt "field:gnuhealth.patient.psc,psc_tires_easily:"
 msgid "Tires easily, has little energy"
-msgstr "很容易疲劳，有很少的精力"
+msgstr "很容易疲劳，精力很少"
 
 msgctxt "field:gnuhealth.patient.psc,psc_total:"
 msgid "PSC Total"
-msgstr "所有的PSC"
+msgstr "PSC 总分"
 
 msgctxt "field:gnuhealth.patient.psc,psc_trouble_concentrating:"
 msgid "Has trouble concentrating"
-msgstr "集中精力有麻烦"
+msgstr "难以集中精力"
 
 msgctxt "field:gnuhealth.patient.psc,psc_trouble_sleeping:"
 msgid "Has trouble sleeping"
-msgstr "睡觉有麻烦"
+msgstr "难以入睡"
 
 msgctxt "field:gnuhealth.patient.psc,psc_trouble_with_teacher:"
 msgid "Has trouble with teacher"
@@ -496,71 +500,71 @@ msgstr "和教师有麻烦"
 
 msgctxt "field:gnuhealth.patient.psc,psc_visit_doctor_finds_ok:"
 msgid "Visits the doctor with doctor finding nothing wrong"
-msgstr "访问医生，发现正常"
+msgstr "看医生，没有发现异常"
 
 msgctxt "field:gnuhealth.patient.psc,psc_wants_to_be_with_parents:"
 msgid "Wants to be with you more than before"
-msgstr "想与你比以前更"
+msgstr "比以前更想和你在一起"
 
 msgctxt "field:gnuhealth.patient.psc,psc_worries_a_lot:"
 msgid "Worries a lot"
 msgstr "很担忧"
 
 msgctxt "field:gnuhealth.patient.psc,rec_name:"
-msgid "Name"
-msgstr "名字"
+msgid "Record Name"
+msgstr "记录日期"
 
 msgctxt "field:gnuhealth.patient.psc,user_id:"
 msgid "Health Professional"
-msgstr "专业卫生机构"
+msgstr "健康专家"
 
 msgctxt "field:gnuhealth.patient.psc,write_date:"
 msgid "Write Date"
-msgstr "收件日期"
+msgstr "写入日期"
 
 msgctxt "field:gnuhealth.patient.psc,write_uid:"
 msgid "Write User"
-msgstr "收件用户"
+msgstr "写入用户"
 
 msgctxt "help:gnuhealth.newborn,birth_date:"
 msgid "Date and Time of birth"
-msgstr ""
+msgstr "出生日期和时间"
 
 msgctxt "help:gnuhealth.newborn,cephalic_perimeter:"
 msgid "Cephalic Perimeter in centimeters (cm)"
-msgstr ""
+msgstr "头围（厘米）"
 
 msgctxt "help:gnuhealth.newborn,died_being_transferred:"
 msgid "The baby died being transferred to another health institution"
-msgstr "新生儿在被转到另一个医院的途中死亡"
+msgstr "新生儿在转院途中死亡"
 
 msgctxt "help:gnuhealth.newborn,healthprof:"
 msgid "Health professional"
-msgstr ""
+msgstr "健康专家"
 
 msgctxt "help:gnuhealth.newborn,length:"
 msgid "Length in centimeters (cm)"
-msgstr ""
+msgstr "长度（厘米）"
 
 msgctxt "help:gnuhealth.newborn,patient:"
 msgid "Patient associated to this newborn"
-msgstr ""
+msgstr "新生儿父母"
 
 msgctxt "help:gnuhealth.newborn,sex:"
 msgid ""
 "Sex at birth. It might differ from the current patient gender. This is the "
 "biological sex."
-msgstr ""
+msgstr "出生时的性别。它可能与当前患者的性别不同。这是生物学性别"
 
 msgctxt "help:gnuhealth.newborn,signed_by:"
 msgid "Health Professional that signed this document"
-msgstr ""
+msgstr "签署此文档的健康专家"
 
 msgctxt "help:gnuhealth.newborn,test_metabolic:"
 msgid ""
 "Test for Fenilketonuria, Congenital Hypothyroidism, Quistic Fibrosis, "
 "Galactosemia"
-msgstr "测试苯丙酮尿症，半乳糖血症，先天性甲状腺功能低下症，Quistica纤维化"
+msgstr "芬尼酮尿症、先天性甲状腺功能减退、quistic纤维化、半乳糖血症检测。 "
 
 msgctxt "help:gnuhealth.newborn,weight:"
 msgid "Weight in grams (g)"
@@ -569,11 +573,11 @@ msgstr "体重（克）"
 msgctxt "help:gnuhealth.patient.psc,evaluation_date:"
 msgid ""
 "Enter or select the date / ID of the appointment related to this evaluation"
-msgstr "输入或者选择与这个评估相关的预约的日期或编号"
+msgstr "输入或者选择与此评估相关的预约日期或编号"
 
 msgctxt "model:gnuhealth.neonatal.apgar,name:"
 msgid "Neonatal APGAR Score"
-msgstr "阿普伽新生儿评分"
+msgstr "新生儿阿普加评分"
 
 msgctxt "model:gnuhealth.newborn,name:"
 msgid "Newborn Information"
@@ -581,15 +585,15 @@ msgstr "新生儿信息"
 
 msgctxt "model:gnuhealth.patient.psc,name:"
 msgid "Pediatric Symptoms Checklist"
-msgstr "小儿症状清单"
+msgstr "儿科症状检查表"
 
 msgctxt "model:ir.action,name:act_newborn_form1"
 msgid "Neonatal Info"
-msgstr ""
+msgstr "新生儿信息"
 
 msgctxt "model:ir.action,name:act_psc_form1"
 msgid "PSC"
-msgstr "PSC"
+msgstr "PSC 评分"
 
 msgctxt "model:ir.action,name:gnuhealth_action_newborn"
 msgid "Newborn"
@@ -597,7 +601,7 @@ msgstr "新生儿"
 
 msgctxt "model:ir.action,name:gnuhealth_action_psc"
 msgid "PSC"
-msgstr "PSC"
+msgstr "PSC 评分"
 
 msgctxt "model:ir.action,name:report_newborn_card"
 msgid "Newborn ID"
@@ -609,15 +613,67 @@ msgstr "新生儿"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_edit_psc"
 msgid "PSC"
-msgstr "PSC"
+msgstr "PSC 评分"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_pediatrics"
 msgid "Pediatrics"
-msgstr "小儿科"
+msgstr "儿科"
 
 msgctxt "model:res.group,name:group_health_pediatrics_admin"
 msgid "Health Pediatrics Administration"
-msgstr "健康儿科学的管理部门"
+msgstr "Health 儿科管理"
+
+msgctxt "report:newborn.card:"
+msgid ","
+msgstr ""
+
+msgctxt "report:newborn.card:"
+msgid ":"
+msgstr ""
+
+msgctxt "report:newborn.card:"
+msgid "DoB"
+msgstr "出生日期"
+
+msgctxt "report:newborn.card:"
+msgid "Female"
+msgstr "女"
+
+msgctxt "report:newborn.card:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "report:newborn.card:"
+msgid "Male"
+msgstr "男"
+
+msgctxt "report:newborn.card:"
+msgid "Mother"
+msgstr "母亲"
+
+msgctxt "report:newborn.card:"
+msgid "Mother's"
+msgstr "母亲"
+
+msgctxt "report:newborn.card:"
+msgid "Name"
+msgstr "姓名"
+
+msgctxt "report:newborn.card:"
+msgid "PU"
+msgstr ""
+
+msgctxt "report:newborn.card:"
+msgid "and"
+msgstr "和"
+
+msgctxt "report:newborn.card:"
+msgid "cm"
+msgstr ""
+
+msgctxt "report:newborn.card:"
+msgid "gr"
+msgstr ""
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_activity:"
 msgid "None"
@@ -625,11 +681,11 @@ msgstr "没有"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_activity:"
 msgid "Some flexion"
-msgstr "一些前屈"
+msgstr "有些弯曲"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_activity:"
 msgid "flexed arms and legs"
-msgstr "弯曲的手臂和双腿"
+msgstr "手臂和腿弯曲"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_appearance:"
 msgid "acrocyanosis"
@@ -637,7 +693,7 @@ msgstr "手足发绀"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_appearance:"
 msgid "central cyanosis"
-msgstr "中央发绀"
+msgstr "中央型发绀"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_appearance:"
 msgid "no cyanosis"
@@ -649,7 +705,7 @@ msgstr "刺激时无反应"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_grimace:"
 msgid "cry or pull away when stimulated"
-msgstr "刺激时哭或者"
+msgstr "受刺激时哭泣或离开"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_grimace:"
 msgid "grimace when stimulated"
@@ -693,11 +749,11 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.newborn,state:"
 msgid "Signed"
-msgstr ""
+msgstr "已签署"
 
 msgctxt "selection:gnuhealth.newborn,state:"
 msgid "draft"
-msgstr ""
+msgstr "草案"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_absent_from_school:"
 msgid ""
@@ -713,7 +769,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_absent_from_school:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_aches_pains:"
 msgid ""
@@ -729,7 +785,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_aches_pains:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_act_as_younger:"
 msgid ""
@@ -745,7 +801,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_act_as_younger:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_acts_as_driven_by_motor:"
 msgid ""
@@ -761,7 +817,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_acts_as_driven_by_motor:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_afraid_of_new_situations:"
 msgid ""
@@ -777,7 +833,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_afraid_of_new_situations:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_blames_others:"
 msgid ""
@@ -793,7 +849,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_blames_others:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_daydreams_too_much:"
 msgid ""
@@ -809,7 +865,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_daydreams_too_much:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_distracted_easily:"
 msgid ""
@@ -825,7 +881,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_distracted_easily:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_get_people_feelings:"
 msgid ""
@@ -841,7 +897,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_get_people_feelings:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_listen_to_rules:"
 msgid ""
@@ -857,7 +913,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_listen_to_rules:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_show_feelings:"
 msgid ""
@@ -873,7 +929,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_show_feelings:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_down_on_self:"
 msgid ""
@@ -889,7 +945,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_down_on_self:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_feels_hopeless:"
 msgid ""
@@ -905,7 +961,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_feels_hopeless:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_feels_is_bad_child:"
 msgid ""
@@ -921,7 +977,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_feels_is_bad_child:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_fidgety:"
 msgid ""
@@ -937,7 +993,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_fidgety:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_fights_with_others:"
 msgid ""
@@ -953,7 +1009,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_fights_with_others:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_gets_hurt_often:"
 msgid ""
@@ -969,7 +1025,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_gets_hurt_often:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_having_less_fun:"
 msgid ""
@@ -985,7 +1041,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_having_less_fun:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_irritable_angry:"
 msgid ""
@@ -1001,7 +1057,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_irritable_angry:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_less_interest_in_school:"
 msgid ""
@@ -1017,7 +1073,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_less_interest_in_school:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_less_interested_in_friends:"
 msgid ""
@@ -1049,7 +1105,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_refuses_to_share:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_sad_unhappy:"
 msgid ""
@@ -1065,7 +1121,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_sad_unhappy:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_school_grades_dropping:"
 msgid ""
@@ -1081,7 +1137,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_school_grades_dropping:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_spend_time_alone:"
 msgid ""
@@ -1097,7 +1153,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_spend_time_alone:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_takes_things_from_others:"
 msgid ""
@@ -1113,7 +1169,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_takes_things_from_others:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_takes_unnecesary_risks:"
 msgid ""
@@ -1129,7 +1185,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_takes_unnecesary_risks:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_teases_others:"
 msgid ""
@@ -1145,7 +1201,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_teases_others:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_tires_easily:"
 msgid ""
@@ -1161,7 +1217,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_tires_easily:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_concentrating:"
 msgid ""
@@ -1177,7 +1233,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_concentrating:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_sleeping:"
 msgid ""
@@ -1193,7 +1249,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_sleeping:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_with_teacher:"
 msgid ""
@@ -1209,7 +1265,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_with_teacher:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_visit_doctor_finds_ok:"
 msgid ""
@@ -1225,7 +1281,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_visit_doctor_finds_ok:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_wants_to_be_with_parents:"
 msgid ""
@@ -1241,7 +1297,7 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_wants_to_be_with_parents:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_worries_a_lot:"
 msgid ""
@@ -1257,4 +1313,52 @@ msgstr "经常"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_worries_a_lot:"
 msgid "Sometimes"
-msgstr "有时"
+msgstr "偶尔"
+
+msgctxt "view:gnuhealth.neonatal.apgar:"
+msgid "APGAR"
+msgstr "APGAR 新生儿评分"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "End the newborn document ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Findings and Tests"
+msgstr "发现和测试"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Main"
+msgstr "主要"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Neonatal Reflex Check"
+msgstr "新生儿反射检查"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Neonatal Signs and Symptoms"
+msgstr "新生儿体征"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Notes"
+msgstr "说明"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Sign"
+msgstr "已签署"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Sign the process"
+msgstr ""
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Status"
+msgstr "状态"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Tests"
+msgstr "检测"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Time"
+msgstr "时间"

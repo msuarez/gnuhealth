@@ -6,6 +6,7 @@ from urllib.parse import urlparse
 from sql.functions import Extract
 from sql.conditionals import Coalesce
 from sql.aggregate import Max
+import logging
 
 from pywebdav.lib.errors import DAV_NotFound, DAV_Forbidden
 from trytond.tools import reduce_ids, grouped_slice
@@ -17,6 +18,7 @@ __all__ = ['Collection']
 
 CALDAV_NS = 'urn:ietf:params:xml:ns:caldav'
 
+logger = logging.getLogger(__name__)
 
 def _comp_filter_domain(dtstart, dtend):
     return ['OR',
@@ -580,13 +582,19 @@ class Collection(metaclass=PoolMeta):
         app = []
         app_values = {}
         comments = ''
+        patient = None
 
         if desc:
             comments = header_suffix + '\n' + desc
 
         if (patient_id):
-            patient, = Patient.search(
+            res = Patient.search(
                         [('puid', '=', patient_id)], limit=1)
+            #Warning if the patient ID is not found
+            if (len(res) > 0):
+                patient = res[0]
+            else:
+                logger.error ("Patient %s not found", patient_id)
 
         # If the ID is associated to a patient
         # create the appointment related to her / him

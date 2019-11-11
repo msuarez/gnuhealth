@@ -16,7 +16,7 @@ info = dict(config.items('tryton'))
 for key in ('depends', 'extras_depend', 'xml'):
     if key in info:
         info[key] = info[key].strip().splitlines()
-major_version, minor_version = 4, 6
+major_version, minor_version = 5, 0
 
 requires = []
 
@@ -44,7 +44,7 @@ setup(name='gnuhealth_caldav',
     long_description=read('README'),
     author='GNU Solidario',
     author_email='health@gnusolidario.org',
-    url='http://health.gnu.org',
+    url='https://www.gnuhealth.org',
     download_url='http://ftp.gnu.org/gnu/health/',
     keywords='GNUHealth calendar caldav',
     package_dir={'trytond.modules.calendar': '.'},

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-    <xpath expr="/tree/field[@name=&quot;active&quot;]" position="after">
+    <xpath expr="/tree/field[@name=&quot;subdivision&quot;]" position="after">
         <field name="is_school"/>
         <field name="is_work"/>
     </xpath>

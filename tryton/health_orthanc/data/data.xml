@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        <!-- Cron Orthanc User -->
+        <record model="res.user" id="user_orthanc">
+            <field name="login">user_cron_orthanc</field>
+            <field name="name">Cron Orthanc</field>
+            <field name="active" eval="False"/>
+        </record>
+        <record model="res.user-res.group" id="orthanc_user_group_health_admin">
+            <field name="user" ref="user_orthanc"/>
+            <field name="group" ref="health.group_health_admin"/>
+        </record>
+
+        <!-- Sync Orthanc servers -->
+        <record model="ir.cron" id="cron_orthanc_sync">
+            <field name="name">Sync Orthanc servers</field>
+            <field name="request_user" ref="res.user_admin"/>
+            <field name="user" ref="user_orthanc"/>
+            <field name="active" eval="True"/>
+            <field name="interval_number" eval="15"/>
+            <field name="interval_type">minutes</field>
+            <field name="number_calls" eval="-1"/>
+            <field name="repeat_missed" eval="False"/>
+            <field name="model">gnuhealth.orthanc.config</field>
+            <field name="function">sync</field>
+        </record>
+
+        <!-- Access rights
+                Default = Deny models and menu access
+                Providers = Read studies and patients with relevant menu access
+                Admin (Health Administration group) = Full access
+        -->
+
+        <!-- Menu access rights -->
+        <record model="ir.ui.menu-res.group" id="menu_access_orthanc_config_admin">
+            <field name="menu" ref="orthanc_config_menu"/>
+            <field name="group" ref="health.group_health_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_access_orthanc_admin">
+            <field name="menu" ref="orthanc_menu"/>
+            <field name="group" ref="health.group_health_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_access_orthanc_doctor">
+            <field name="menu" ref="orthanc_menu"/>
+            <field name="group" ref="health.group_health_doctor"/>
+        </record>
+
+        <!-- Default model access rights -->
+        <record model="ir.model.access" id="orthanc_access_config_default">
+            <field name="model" search="[('model', '=', 'gnuhealth.orthanc.config')]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="orthanc_access_study_default">
+            <field name="model" search="[('model', '=', 'gnuhealth.orthanc.study')]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="orthanc_access_patient_default">
+            <field name="model" search="[('model', '=', 'gnuhealth.orthanc.patient')]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <!-- Provider model access rights -->
+        <record model="ir.model.access" id="orthanc_access_config_provider">
+            <field name="model" search="[('model', '=', 'gnuhealth.orthanc.config')]"/>
+            <field name="group" ref="health.group_health_doctor"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="orthanc_access_study_provider">
+            <field name="model" search="[('model', '=', 'gnuhealth.orthanc.study')]"/>
+            <field name="group" ref="health.group_health_doctor"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="orthanc_access_patient_provider">
+            <field name="model" search="[('model', '=', 'gnuhealth.orthanc.patient')]"/>
+            <field name="group" ref="health.group_health_doctor"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <!-- Admin model access rights -->
+        <record model="ir.model.access" id="orthanc_access_config_admin">
+            <field name="model" search="[('model', '=', 'gnuhealth.orthanc.config')]"/>
+            <field name="group" ref="health.group_health_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="orthanc_access_study_admin">
+            <field name="model" search="[('model', '=', 'gnuhealth.orthanc.study')]"/>
+            <field name="group" ref="health.group_health_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="orthanc_access_patient_admin">
+            <field name="model" search="[('model', '=', 'gnuhealth.orthanc.patient')]"/>
+            <field name="group" ref="health.group_health_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+    </data>
+</tryton>

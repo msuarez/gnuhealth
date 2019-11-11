@@ -4,7 +4,7 @@
 #
 #    HL7 FHIR Python Reference Implementation
 #
-#    Copyright (C) 2014-2017 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2014-2017 Luis Falcon <falcon@gnuhealth.org>
 #    Copyright (C) 2014-2017 GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2014-2015 Chris Zimmerman <siv@riseup.net> 
 #

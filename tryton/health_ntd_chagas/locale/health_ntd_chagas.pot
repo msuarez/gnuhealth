@@ -75,7 +75,7 @@ msgid "Paint Date"
 msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,survey_date:"
@@ -104,6 +104,10 @@ msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,write_uid:"
 msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequence.setup,chagas_du_survey_sequence:"
+msgid "Chagas DU Survey Sequence"
 msgstr ""
 
 msgctxt "field:gnuhealth.sequences,chagas_du_survey_sequence:"
@@ -337,4 +341,20 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
 msgid "T. infestans"
+msgstr ""
+
+msgctxt "view:gnuhealth.chagas_du_survey:"
+msgid "Areas to Improve"
+msgstr ""
+
+msgctxt "view:gnuhealth.chagas_du_survey:"
+msgid "Notes"
+msgstr ""
+
+msgctxt "view:gnuhealth.chagas_du_survey:"
+msgid "Presence of triatomines"
+msgstr ""
+
+msgctxt "view:gnuhealth.chagas_du_survey:"
+msgid "Preventive Measures"
 msgstr ""

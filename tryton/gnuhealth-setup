@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# GNU Health installer
-# Version for 3.4 series
+# GNU Health HMIS node installer
+# Version for 3.6 series
 
 ##############################################################################
 #
 #    GNU Health Installer
 #
-#    Copyright (C) 2008-2019  Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2008-2019  Luis Falcon <falcon@gnuhealth.org>
 #    Copyright (C) 2008-2019  GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2014 Bruno M. Villasanti <bvillasanti@thymbra.com>
 #
@@ -30,8 +30,8 @@
 # Variables declaration
 #-----------------------------------------------------------------------------
 
-#GNU Health installer version
-VERSION="3.4.1"
+#GNU Health HMIS installer version
+VERSION="3.6.0"
 
 # Colors constants
 NONE="$(tput sgr0)"
@@ -44,13 +44,13 @@ WHITE="\n$(tput setaf 7)"
 INSTDIR="$PWD"
 GNUHEALTH_INST_DIR="$PWD"
 GNUHEALTH_VERSION=$(cat version)
-TRYTON_VERSION="4.6"
+TRYTON_VERSION="5.0"
 TRYTON_BASE_URL="http://downloads.tryton.org"
 
 GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
 TRANSLATE_URL="http://translate.gnusolidario.org"
 UPDATE_DOWNLOAD_DIR="/tmp/gnuhealth_update"
-TRYTON_PATCHES="security/get_login_trytond-46.patch.asc"
+TRYTON_PATCHES=""
 
 
 #-----------------------------------------------------------------------------
@@ -72,14 +72,14 @@ help()
 {
     cat << EOF
 
-This is GNU Health Setup ${VERSION}
+This is GNU Health HMIS Setup ${VERSION}
 
 usage: `basename $0` command
 
 Command:
  
   version : Show version
-  install  : Install a GNU Health server
+  install  : Install a GNU Health HMIS server
   help  : shows this message
 
 EOF
@@ -88,7 +88,7 @@ EOF
 
 show_version () {
     case $1 in
-        version) message "INFO" "This is is GNU Health install v ${VERSION}"; exit 0;;
+        version) message "INFO" "This is is GNU Health HMIS setup v ${VERSION}"; exit 0;;
     esac
 
 }
@@ -103,13 +103,6 @@ check_requirements() {
         bailout
     fi
 
-    echo -n " -> Looking for 2to3... "
-
-    if ! type 2to3 2>/dev/null ; then
-        message "ERROR" "2to3 command not found. Please install it or check your PATH variable"
-        bailout
-    fi
-
     echo -n " -> Looking for patch... "
 
     if ! type patch 2>/dev/null ; then
@@ -120,12 +113,12 @@ check_requirements() {
     # PYTHON version [3.x]
     echo -n " -> Looking for the Python Interpreter command... "
 
-    if ! type python 2>/dev/null ; then
+    if ! type python3 2>/dev/null ; then
         message "ERROR" "Python interpreter not found. Please install it or check your PATH variable."
         bailout
     fi
 
-    local PVERSION=$(python -V 2>&1 | grep 3.[4-9].[0-9])
+    local PVERSION=$(python3 -V 2>&1 | grep 3.[4-9].[0-9])
 
     if test "${PVERSION}" ; then
         message "INFO" "Found ${PVERSION}"
@@ -138,7 +131,7 @@ check_requirements() {
     # PIP command
     echo " -> Looking for PIP command..."
 
-    # Alternative pip names on Debian/ArchLinux/RedHat based distros:
+    # PIP names on Debian/ArchLinux/RedHat based distros:
     local PIP_NAMES="pip pip3 pip-python"
     PIP_NAME=""
     for NAME in ${PIP_NAMES}; do
@@ -242,10 +235,10 @@ install_python_dependencies() {
     local PIP_WRAPT="wrapt"
     local PIP_WERKZEUG="werkzeug"
     local PIP_DATEUTIL="python-dateutil"
-    local PIP_PSYCOPG2="psycopg2"
+    local PIP_PSYCOPG2="psycopg2-binary"
     local PIP_PYTZ="pytz"
     local PIP_LDAP="python-ldap"
-    local PIP_VOBJECT="vobject"
+    local PIP_VOBJECT="vobject==0.9.5"
     local PIP_QRCODE="qrcode"
     local PIP_PYBARCODE="python-barcode"
     local PIP_SIX="six"
@@ -260,6 +253,10 @@ install_python_dependencies() {
     local PIP_BCRYPT="bcrypt"
     local PIP_NUMPY="numpy"
     local PIP_UNOCONV="unoconv"
+    local PIP_MAGIC="python-magic"
+    local PIP_PASSLIB="passlib"
+    local PIP_BEREN="beren"
+    local PIP_PENDULUM="pendulum"
 
     # Operating System specific package selection
     # Skip PYTHON-LDAP installation since it tries to install / compile it system-wide
@@ -268,7 +265,7 @@ install_python_dependencies() {
 
     local PIP_PKGS="$PIP_NUMPY $PIP_PYTZ $PIP_WRAPT $PIP_WERKZEUG $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT \
         $PIP_QRCODE $PIP_PYBARCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL $PIP_CONFIGPARSER \
-        $PIP_WEBDAV3 $PIP_BCRYPT $PIP_UNOCONV"
+        $PIP_WEBDAV3 $PIP_BCRYPT $PIP_UNOCONV $PIP_MAGIC $PIP_PASSLIB $PIP_BEREN $PIP_PENDULUM"
     
     message "INFO" "Installing python dependencies with pip-${PIP_VERSION} ..."
 
@@ -356,7 +353,11 @@ install_tryton_modules() {
     done
     message "INFO" "OK."
 
-    message "INFO" "Copying GNU Health modules to the Tryton modules directory..."
+}
+
+gnuhealth_packages() {
+
+    message "INFO" "Copying GNU Health HMIS packages to the Tryton modules directory..."
     cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR} || bailout
     ln -si ${MODULES_DIR}/health* .
     rm -f ./health_webdav3_server
@@ -390,25 +391,6 @@ install_tryton_modules() {
     cp -a ${GNUHEALTH_INST_DIR}/doc/* ${DOC_DIR} || bailout
 
     message "INFO" "OK."
-
-}
-
-convert_to_python3 () {
-    local MODULES_PYTHON2="account account_invoice account_product company country currency party product stock stock_lot purchase account_invoice_stock stock_supply purchase_request"
-    message "INFO" "Converting to Python3 the Tryton Modules"
-
-    cd ${MODULES_DIR} || bailout
-    for module in ${MODULES_PYTHON2}
-        do
-        mod="./trytond_${module}-*" 
-        message "INFO" "Converting module : ${module}"
-        find ${mod} -name "*.py" -exec 2to3 -wn {} \; || bailout
-        done
-    message "INFO" "Conversion of standard Tryton modules done"
-
-    message "INFO" "Converting to Python3 the Tryton Kernel"
-    cd .. 
-    find ./trytond-* -name "*.py" -exec 2to3 -wn {} \; || bailout
 
 }
 
@@ -493,7 +475,7 @@ cleanup() {
 
 installation_ok() {
     touch ${BASEDIR}/.installation_ok || bailout
-    message "INFO" "Installation of GNU Health version ${GNUHEALTH_VERSION} successful !"
+    message "INFO" "Installation of GNU Health HMIS version ${GNUHEALTH_VERSION} successful !"
 }
 
 bailout() {
@@ -515,7 +497,7 @@ bailout() {
 
 install() {
     
-    message "INFO" "Starting GNU Health ${GNUHEALTH_VERSION} installation..."
+    message "INFO" "Starting GNU Health HMIS node ${GNUHEALTH_VERSION} installation..."
 
     # (1) Check requirements.
     check_requirements
@@ -529,8 +511,8 @@ install() {
     # (4) Download Tryton modules.
     install_tryton_modules
 
-    # (5) Convert to Python 3
-    convert_to_python3
+    # (5) Install GNU HEALTH packages.
+    gnuhealth_packages
 
     # (6) Apply Patches to Tryton Kernel
     apply_patches
@@ -538,10 +520,10 @@ install() {
     # (7) BASH Profile
     bash_profile
 
-    # (8) Startup script
+    # (7) Install startup script
     startup_script
     
-    # (9) Clean
+    # (8) Cleanup
     cleanup
 }
 

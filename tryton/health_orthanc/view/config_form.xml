@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<form>
+    <group string="Server information" id="orthanc_group_server_info">
+        <group string="General" yfill="1" id="orthanc_group_general_config">
+            <label name="label"/>
+            <field name="label"/>
+            <label name="domain"/>
+            <field name="domain"/>
+            <label name="sync_time"/>
+            <field name="sync_time"/>
+            <label name="since_sync_readable"/>
+            <field name="since_sync_readable"/>
+            <label name="last"/>
+            <field name="last"/>
+            <label name="validated"/>
+            <field name="validated" readonly="1"/>
+            <label name="link"/>
+            <field name="link" widget="url"/>
+        </group>
+        <group string="User" yfill="1" id="orthanc_group_user_config">
+            <label name="user"/>
+            <field name="user"/>
+            <label name="password"/>
+            <field name="password"/>
+        </group>
+    </group>
+    <newline/>
+    <button name="do_sync" help="Synchronize from Orthanc server" string="Sync" icon="gnuhealth-execute" confirm="Synchronize?"/>
+</form>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<form>
+    <label name="patient"/>
+    <field name="patient"/>
+    <label name="description"/>
+    <field name="description"/>
+    <label name="date"/>
+    <field name="date"/>
+    <label name="institution"/>
+    <field name="institution"/>
+    <label name="ref_phys"/>
+    <field name="ref_phys"/>
+    <label name="ident"/>
+    <field name="ident"/>
+    <label name="uuid"/>
+    <field name="uuid"/>
+    <label name="link"/>
+    <field name="link" widget="url"/>
+    <label name="server"/>
+    <field name="server"/>
+    <label name="imaging_test"/>
+    <field name="imaging_test"/>
+</form>

@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2019 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2008-2019 Luis Falcon <falcon@gnuhealth.org>
 #    Copyright (C) 2011-2019 GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2015 Cédric Krier
 #    Copyright (C) 2014-2015 Chris Zimmerman <siv@riseup.net>
@@ -39,7 +39,7 @@ from sql import Literal, Join, Table, Null
 from sql.functions import Overlay, Position
 
 from trytond.model import ModelView, ModelSingleton, ModelSQL, \
-    ValueMixin, fields, Unique
+    ValueMixin, fields, Unique, tree
 from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.transaction import Transaction
 from trytond import backend
@@ -327,7 +327,8 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     @staticmethod
     def default_address_country():
         Fedcountry = Pool().get('gnuhealth.federation.country.config')(1)
-        return int(Fedcountry.country)
+        if (Fedcountry and Fedcountry.country):
+            return int(Fedcountry.country)
 
     @classmethod
     def __setup__(cls):
@@ -376,7 +377,8 @@ class Party(ModelSQL, ModelView):
         ('pgfs', 'Prefix Given Family, Suffix'),
         ('gf', 'Given Family'),
         ('fg', 'Family, Given'),
-        ], 'Name Representation',
+        ('cjk', 'CJK: Family+Given'),
+        ], 'Name Representation', sort=False,
         states={'invisible': Not(Bool(Eval('is_person')))})
 
 
@@ -791,6 +793,11 @@ class Party(ModelSQL, ModelView):
                             family = pname.family + ', '
                         res = family + given
 
+                    if self.name_representation == 'cjk':
+                        if pname.family:
+                            family = pname.family
+                        res = family + given
+
                     if not self.name_representation:
                         # Default value
                         if family:
@@ -1010,6 +1017,7 @@ class PageOfLife(ModelSQL, ModelView):
     institution = fields.Many2One('gnuhealth.institution', 'Institution')
     node = fields.Char("Node")
     author = fields.Char("Author")
+    author_acct = fields.Char("Author account")
 
     @staticmethod
     def default_institution():
@@ -1872,22 +1880,40 @@ class HealthProfessional(ModelSQL, ModelView):
 
     def get_rec_name(self, name):
         if self.name:
-            res = self.name.name
-            if self.name.lastname:
-                res = self.name.lastname + ', ' + self.name.name
+            res = self.name.rec_name
         return res
 
 class HealthProfessionalSpecialties(ModelSQL, ModelView):
     'Health Professional Specialties'
     __name__ = 'gnuhealth.hp_specialty'
 
-    name = fields.Many2One('gnuhealth.healthprofessional', 'Health Professional')
+    name = fields.Many2One('gnuhealth.healthprofessional', \
+            'Health Professional', required=True)
 
     specialty = fields.Many2One(
-        'gnuhealth.specialty', 'Specialty', help='Specialty Code')
+        'gnuhealth.specialty', 'Specialty', required=True, \
+            help='Specialty Code')
 
     def get_rec_name(self, name):
         return self.specialty.name
+
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('specialty',) + tuple(clause[1:]),
+            ]
+    @classmethod
+    def __setup__(cls):
+        super(HealthProfessionalSpecialties, cls).__setup__()
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('name_uniq', Unique(t,t.name, t.specialty), \
+                'This specialty is already assigned to the Health Professional'),
+        ]
 
 
 class PhysicianSP(ModelSQL, ModelView):
@@ -1941,7 +1967,7 @@ class FamilyMember(ModelSQL, ModelView):
 
 
 # Use the template as in Product category.
-class MedicamentCategory(ModelSQL, ModelView):
+class MedicamentCategory(tree(separator=' / '), ModelSQL, ModelView):
     'Medicament Category'
     __name__ = 'gnuhealth.medicament.category'
 
@@ -1958,11 +1984,6 @@ class MedicamentCategory(ModelSQL, ModelView):
     def __setup__(cls):
         super(MedicamentCategory, cls).__setup__()
         cls._order.insert(0, ('name', 'ASC'))
-
-    @classmethod
-    def validate(cls, categories):
-        super(MedicamentCategory, cls).validate(categories)
-        cls.check_recursion(categories, rec_name='name')
 
     def get_rec_name(self, name):
         if self.parent:
@@ -2221,7 +2242,7 @@ class ImmunizationSchedule(ModelSQL, ModelView):
                 'The schedule code must be unique'),
         ]
 
-class PathologyCategory(ModelSQL, ModelView):
+class PathologyCategory(tree(separator=' / '), ModelSQL, ModelView):
     'Disease Categories'
     __name__ = 'gnuhealth.pathology.category'
 
@@ -2240,7 +2261,6 @@ class PathologyCategory(ModelSQL, ModelView):
     @classmethod
     def validate(cls, categories):
         super(PathologyCategory, cls).validate(categories)
-        cls.check_recursion(categories, rec_name='name')
 
     def get_rec_name(self, name):
         if self.parent:
@@ -3256,10 +3276,8 @@ class PatientData(ModelSQL, ModelView):
         return res
 
     def get_rec_name(self, name):
-        if self.name.lastname:
-            return self.name.lastname + ', ' + self.name.name
-        else:
-            return self.name.name
+        if self.name:
+            return self.name.rec_name
 
     # Search by the patient name, lastname or PUID
 
@@ -5324,6 +5342,14 @@ class PatientEvaluation(ModelSQL, ModelView):
         Pol = Pool().get('gnuhealth.pol')
         pol = []
 
+        # Summarize the encounter note taking as SOAP
+        soap = \
+            "S: " + evaluation.chief_complaint + "\n--\n" + \
+                    evaluation.present_illness +"\n" + \
+            "O: " + evaluation.evaluation_summary + "\n" + \
+            "A: " + evaluation.diagnosis.rec_name + "\n" + \
+            "P: " + evaluation.directions
+
         vals = {
             'page': str(uuid4()),
             'person': evaluation.patient.name.id,
@@ -5334,8 +5360,9 @@ class PatientEvaluation(ModelSQL, ModelView):
             'medical_context':'encounter',
             'relevance':'important',
             'summary': evaluation.chief_complaint,
-            'info': evaluation.evaluation_summary,
-            'author': evaluation.healthprof.name.name,
+            'info': soap,
+            'author': evaluation.healthprof.name.rec_name,
+            'author_acct': evaluation.healthprof.name.federation_account,
             'node': evaluation.institution.name.name,
             }
         if (evaluation.diagnosis):

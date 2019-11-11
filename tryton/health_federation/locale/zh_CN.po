@@ -1,0 +1,382 @@
+#
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: 2019-10-27 09:44+0800\n"
+"Last-Translator:  <tumashu@163.com>\n"
+"Language-Team: Chinese (simplified)\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgctxt "error:gnuhealth.federation.object:"
+msgid "The Model is already defined !"
+msgstr "此模型已经定义！"
+
+msgctxt "error:gnuhealth.federation.queue:"
+msgid "The Message ID must be unique !"
+msgstr "消息ID不能重复！"
+
+msgctxt "field:gnuhealth.federation.config,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.federation.config,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.federation.config,enabled:"
+msgid "Enabled"
+msgstr "启用"
+
+msgctxt "field:gnuhealth.federation.config,host:"
+msgid "Thalamus server"
+msgstr "Thalamus 消息服务器"
+
+msgctxt "field:gnuhealth.federation.config,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.federation.config,password:"
+msgid "Password"
+msgstr "密码"
+
+msgctxt "field:gnuhealth.federation.config,port:"
+msgid "Port"
+msgstr "端口"
+
+msgctxt "field:gnuhealth.federation.config,rec_name:"
+msgid "Record Name"
+msgstr "记录名称"
+
+msgctxt "field:gnuhealth.federation.config,ssl:"
+msgid "SSL"
+msgstr "SSL"
+
+msgctxt "field:gnuhealth.federation.config,user:"
+msgid "User"
+msgstr "帐户"
+
+msgctxt "field:gnuhealth.federation.config,verify_ssl:"
+msgid "Verify SSL cert"
+msgstr "验证 SSL 证书"
+
+msgctxt "field:gnuhealth.federation.config,write_date:"
+msgid "Write Date"
+msgstr "写入日期"
+
+msgctxt "field:gnuhealth.federation.config,write_uid:"
+msgid "Write User"
+msgstr "写入用户"
+
+msgctxt "field:gnuhealth.federation.object,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.federation.object,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.federation.object,enabled:"
+msgid "Enabled"
+msgstr "启用"
+
+msgctxt "field:gnuhealth.federation.object,fields:"
+msgid "Fields"
+msgstr "字段"
+
+msgctxt "field:gnuhealth.federation.object,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.federation.object,model:"
+msgid "Model"
+msgstr "模型"
+
+msgctxt "field:gnuhealth.federation.object,rec_name:"
+msgid "Record Name"
+msgstr "记录名称"
+
+msgctxt "field:gnuhealth.federation.object,write_date:"
+msgid "Write Date"
+msgstr "写入日期"
+
+msgctxt "field:gnuhealth.federation.object,write_uid:"
+msgid "Write User"
+msgstr "写入用户"
+
+msgctxt "field:gnuhealth.federation.queue,args:"
+msgid "Arguments"
+msgstr "参数"
+
+msgctxt "field:gnuhealth.federation.queue,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.federation.queue,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.federation.queue,federation_locator:"
+msgid "Fed ID"
+msgstr "医联体ID"
+
+msgctxt "field:gnuhealth.federation.queue,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.federation.queue,method:"
+msgid "Method"
+msgstr "方法"
+
+msgctxt "field:gnuhealth.federation.queue,model:"
+msgid "Model"
+msgstr "模型"
+
+msgctxt "field:gnuhealth.federation.queue,msgid:"
+msgid "Message ID"
+msgstr "消息ID"
+
+msgctxt "field:gnuhealth.federation.queue,node:"
+msgid "Node"
+msgstr "节点"
+
+msgctxt "field:gnuhealth.federation.queue,rec_name:"
+msgid "Record Name"
+msgstr "记录名称"
+
+msgctxt "field:gnuhealth.federation.queue,state:"
+msgid "Status"
+msgstr "状态"
+
+msgctxt "field:gnuhealth.federation.queue,time_stamp:"
+msgid "Timestamp"
+msgstr "时间戳"
+
+msgctxt "field:gnuhealth.federation.queue,url_suffix:"
+msgid "URL suffix"
+msgstr "URL 后缀"
+
+msgctxt "field:gnuhealth.federation.queue,write_date:"
+msgid "Write Date"
+msgstr "写入日期"
+
+msgctxt "field:gnuhealth.federation.queue,write_uid:"
+msgid "Write User"
+msgstr "写入用户"
+
+msgctxt "field:gnuhealth.pol,fsync:"
+msgid "Fsync"
+msgstr "同步"
+
+msgctxt "field:party.party,fsync:"
+msgid "Fsync"
+msgstr "同步"
+
+msgctxt "help:gnuhealth.federation.config,enabled:"
+msgid "Mark if the node is active in the Federation"
+msgstr "如果当前节点已经在医联体中激活，就作标记"
+
+msgctxt "help:gnuhealth.federation.config,host:"
+msgid "GNU Health Thalamus server"
+msgstr "GNU Health Thalamus 消息服务器"
+
+msgctxt "help:gnuhealth.federation.config,password:"
+msgid "Password of the institution admin user in the Federation"
+msgstr "医联体分配给医疗机构管理员的帐户和密码"
+
+msgctxt "help:gnuhealth.federation.config,port:"
+msgid "Thalamus port"
+msgstr "Thalamus 端口"
+
+msgctxt "help:gnuhealth.federation.config,ssl:"
+msgid "Use encrypted communication via SSL"
+msgstr "使用 SSl 对通信过程加密"
+
+msgctxt "help:gnuhealth.federation.config,user:"
+msgid "Admin associated to this institution"
+msgstr "当前医疗机构的管理员"
+
+msgctxt "help:gnuhealth.federation.config,verify_ssl:"
+msgid ""
+"Check this option if your certificate has been emitted by a CA authority. If "
+"it is a self-signed certifiate leave it unchecked"
+msgstr "如果证书是由CA机构颁发的，就选中此选项，自签证书不要选中此项。"
+
+msgctxt "help:gnuhealth.federation.object,enabled:"
+msgid "Check if the model is active to participate on the Federation"
+msgstr "如果模型已经加入医联体，就选中此项目"
+
+msgctxt "help:gnuhealth.federation.object,fields:"
+msgid ""
+"Contains a list of the local model fields that participate on the "
+"federation.\n"
+"Each line will have the format field:endpoint:key"
+msgstr ""
+"加入医联体的本地模型的字段组成的列表。\n"
+"每行都使用格式：field:endpoint:key”"
+
+msgctxt "help:gnuhealth.federation.object,model:"
+msgid "Local Model"
+msgstr "本地模型"
+
+msgctxt "help:gnuhealth.federation.queue,args:"
+msgid "Arguments"
+msgstr "参数"
+
+msgctxt "help:gnuhealth.federation.queue,federation_locator:"
+msgid ""
+"Unique locator in Federation, such as person Federation account or Page of "
+"Life code"
+msgstr "医联体中独一无二的定位器，例如：医联体个人帐户或者健康档案页编码"
+
+msgctxt "help:gnuhealth.federation.queue,model:"
+msgid "Source Model"
+msgstr "源模型"
+
+msgctxt "help:gnuhealth.federation.queue,msgid:"
+msgid "Message UID"
+msgstr "消息 UID"
+
+msgctxt "help:gnuhealth.federation.queue,node:"
+msgid "The originating node id"
+msgstr "源节点ID"
+
+msgctxt "help:gnuhealth.federation.queue,time_stamp:"
+msgid "UTC timestamp at the moment of writing record on the node"
+msgstr "节点写入记录时的UTC时间戳“"
+
+msgctxt "help:gnuhealth.federation.queue,url_suffix:"
+msgid "suffix to be passed to the URL"
+msgstr "传递给 URL 的后缀"
+
+msgctxt "help:gnuhealth.pol,fsync:"
+msgid "If active, this record information will be sent to the Federation"
+msgstr "如果激活，此记录信息将发送到医联体"
+
+msgctxt "help:party.party,fsync:"
+msgid "If active, this record information will be sent to the Federation"
+msgstr "如果激活，此记录信息将发送到医联体"
+
+msgctxt "model:gnuhealth.federation.config,name:"
+msgid "Federation Node Configuration"
+msgstr "医联体节点配置"
+
+msgctxt "model:gnuhealth.federation.object,name:"
+msgid "Federation Object"
+msgstr "医联体对象"
+
+msgctxt "model:gnuhealth.federation.queue,name:"
+msgid "Federation Queue"
+msgstr "医联体消息队列"
+
+msgctxt "model:ir.action,name:gnuhealth_action_federation_config"
+msgid "Node Configuration"
+msgstr "节点配置"
+
+msgctxt "model:ir.action,name:gnuhealth_action_federation_object"
+msgid "Federation Objects"
+msgstr "医联体对象"
+
+msgctxt "model:ir.action,name:gnuhealth_action_federation_queue"
+msgid "Federation Queue Manager"
+msgstr "医联体消息队列管理器"
+
+msgctxt "model:ir.action.act_window.domain,name:act_gnuhealth_fedq_domain_all"
+msgid "All"
+msgstr "所有"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_gnuhealth_fedq_domain_failed"
+msgid "Failed"
+msgstr "失败"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_gnuhealth_fedq_domain_queued"
+msgid "Queued"
+msgstr "已加入队列"
+
+msgctxt "model:ir.action.act_window.domain,name:act_gnuhealth_fedq_domain_sent"
+msgid "Sent"
+msgstr "已发送"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_federation_config"
+msgid "Node Configuration"
+msgstr "节点设置"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_federation_object"
+msgid "Federation Objects"
+msgstr "医联体对象"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_federation_queue"
+msgid "Federation Queue Manager"
+msgstr "医联体消息队列管理器"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_federation"
+msgid "Federation"
+msgstr "医联体"
+
+msgctxt "model:res.group,name:group_health_federation_admin"
+msgid "Health Federation Administration"
+msgstr "Health 医联体管理"
+
+msgctxt "selection:gnuhealth.federation.queue,method:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.federation.queue,method:"
+msgid "DELETE"
+msgstr "DELETE"
+
+msgctxt "selection:gnuhealth.federation.queue,method:"
+msgid "GET"
+msgstr "GET"
+
+msgctxt "selection:gnuhealth.federation.queue,method:"
+msgid "PATCH"
+msgstr "PATCH"
+
+msgctxt "selection:gnuhealth.federation.queue,method:"
+msgid "POST"
+msgstr "POST"
+
+msgctxt "selection:gnuhealth.federation.queue,state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.federation.queue,state:"
+msgid "Failed"
+msgstr "失败"
+
+msgctxt "selection:gnuhealth.federation.queue,state:"
+msgid "Queued"
+msgstr "已加入队列"
+
+msgctxt "selection:gnuhealth.federation.queue,state:"
+msgid "Sent"
+msgstr "已发送"
+
+msgctxt "view:gnuhealth.federation.config:"
+msgid "Test Connection"
+msgstr "测试连接"
+
+msgctxt "view:gnuhealth.federation.config:"
+msgid "Test Connection to Thalamus server"
+msgstr "Thalamus 消息服务器连接测试"
+
+msgctxt "view:gnuhealth.federation.config:"
+msgid "Test Thalamus connection"
+msgstr "Thalamus 消息服务器连接测试"
+
+msgctxt "view:gnuhealth.federation.queue:"
+msgid "Arguments"
+msgstr "参数"
+
+msgctxt "view:gnuhealth.federation.queue:"
+msgid "Send"
+msgstr "发送"
+
+msgctxt "view:gnuhealth.federation.queue:"
+msgid "Send the record to the Federation"
+msgstr "将此记录发送到医联体"

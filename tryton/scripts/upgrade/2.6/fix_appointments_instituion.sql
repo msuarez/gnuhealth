@@ -1,6 +1,6 @@
 /*
 # GNU HEALTH : The Free Health and Hospital Information System
-# (c) 2008-2014 Luis Falcon <falcon@gnu.org>
+# (c) 2008-2014 Luis Falcon <falcon@gnuhealth.org>
 # (c) 2008-2014 GNU Solidario <info@gnusolidario.org>
 
 # Program name : fix_appointments_instituion.sql

@@ -26,6 +26,10 @@ msgctxt "field:account.invoice,patient:"
 msgid "Patient"
 msgstr ""
 
+msgctxt "field:gnuhealth.health_service,company:"
+msgid "Company"
+msgstr ""
+
 msgctxt "field:gnuhealth.health_service,create_date:"
 msgid "Create Date"
 msgstr ""
@@ -59,7 +63,7 @@ msgid "Patient"
 msgstr ""
 
 msgctxt "field:gnuhealth.health_service,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.health_service,service_date:"
@@ -119,7 +123,7 @@ msgid "Qty"
 msgstr ""
 
 msgctxt "field:gnuhealth.health_service.line,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.health_service.line,to_date:"
@@ -140,6 +144,10 @@ msgstr ""
 
 msgctxt "field:gnuhealth.prescription.order,service:"
 msgid "Service"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequence.setup,health_service_sequence:"
+msgid "Health Service Sequence"
 msgstr ""
 
 msgctxt "field:gnuhealth.sequences,health_service_sequence:"
@@ -246,12 +254,128 @@ msgctxt "model:res.group,name:group_health_services_admin"
 msgid "Health Services Administration"
 msgstr ""
 
+msgctxt "report:health_services.report:"
+msgid "-"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "//"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid ":"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "Address"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "D"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "Description"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "From"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "Health Service"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "ID :"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "Institution :"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "Invoice"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "Invoice to :"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "PUID"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "Patient :"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "Patient Contact Information"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "Qty"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "Service"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "Tel"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "To"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "ate"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "e"
+msgstr ""
+
+msgctxt "report:health_services.report:"
+msgid "mail"
+msgstr ""
+
 msgctxt "selection:gnuhealth.health_service,state:"
 msgid "Draft"
 msgstr ""
 
 msgctxt "selection:gnuhealth.health_service,state:"
 msgid "Invoiced"
+msgstr ""
+
+msgctxt "view:account.invoice:"
+msgid "Health"
+msgstr ""
+
+msgctxt "view:gnuhealth.health_service:"
+msgid "Set to Draft"
+msgstr ""
+
+msgctxt "view:gnuhealth.prescription.order:"
+msgid "Transfer medicaments to services ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.prescription.order:"
+msgid "Update Service document with this prescription lines"
+msgstr ""
+
+msgctxt "view:gnuhealth.prescription.order:"
+msgid "Update Services"
+msgstr ""
+
+msgctxt "view:gnuhealth.service.invoice.init:"
+msgid "Create Invoices"
+msgstr ""
+
+msgctxt "view:gnuhealth.service.invoice.init:"
+msgid "Do you want to generate the Invoice(s) ?"
 msgstr ""
 
 msgctxt ""

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#    Copyright (C) 2011-2019 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2011-2019 Luis Falcon <falcon@gnuhealth.org>
 #    Copyright (C) 2011 Cédric Krier
 
 #    This program is free software: you can redistribute it and/or modify
@@ -31,7 +31,7 @@ info = dict(config.items('tryton'))
 for key in ('depends', 'extras_depend', 'xml'):
     if key in info:
         info[key] = info[key].strip().splitlines()
-major_version, minor_version = 4, 6
+major_version, minor_version = 5, 0
 
 requires = []
 
@@ -54,7 +54,7 @@ setup(name='gnuhealth_lab',
     description=info.get('description', 'Occhiolino LIMS: The GNU Health Laboratory Information Management System'),
     author=info.get('author', 'GNU Solidario'),
     author_email=info.get('email', 'health@gnusolidario.org'),
-    url=info.get('website', 'http://health.gnu.org/'),
+    url=info.get('website', 'https://www.gnuhealth.org/'),
     download_url='http://ftp.gnu.org/gnu/health/',
     package_dir={'trytond.modules.health_lab': '.'},
     packages=[

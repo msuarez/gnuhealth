@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2019 Luis Falcon <lfalcon@gnu.org>
+#    Copyright (C) 2008-2019 Luis Falcon <lfalcon@gnuhealth.org>
 #    Copyright (C) 2013  Sebastián Marro <smarro@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify

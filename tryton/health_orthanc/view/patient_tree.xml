@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tree>
+    <field name="patient" string="Local patient" expand="1"/>
+    <field name="name" string="Orthanc patient" expand="1"/>
+    <field name="ident" string="Orthanc PatientID" expand="1"/>
+    <field name="link" widget="url"/>
+</tree>

@@ -1,27 +1,31 @@
-# Anonymous Pootle User, 2016.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2016-01-08 11:28+0000\n"
-"Last-Translator: Anonymous Pootle User\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-23 01:29+0000\n"
+"PO-Revision-Date: 2019-10-27 10:34+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_CN\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1452252495.0\n"
+"X-Generator: Translate Toolkit 2.2.5\n"
+"X-Pootle-Path: /zh_CN/GNUHEALTH/health_icu/locale/zh_CN.po\n"
+"X-Pootle-Revision: 43825\n"
 
 msgctxt "error:gnuhealth.icu.ventilation:"
 msgid ""
 "Our records indicate that the patient is already on Mechanical Ventilation !"
-msgstr "我们的记录显示病人已经在进行机械通气！"
+msgstr "记录显示此患者正在使用呼吸机！"
 
 msgctxt "error:gnuhealth.inpatient.icu:"
 msgid "Our records indicate that the patient is already admitted at ICU"
-msgstr "我们的记录表明患者在ICU已被确认"
+msgstr "记录显示此患者已经在ICU"
 
 msgctxt "field:gnuhealth.icu.apache2,aado2:"
 msgid "A-a DO2"
-msgstr "肺泡-动脉氧分压差2"
+msgstr "肺泡-动脉氧压差"
 
 msgctxt "field:gnuhealth.icu.apache2,age:"
 msgid "Age"
@@ -29,7 +33,7 @@ msgstr "年龄"
 
 msgctxt "field:gnuhealth.icu.apache2,apache_score:"
 msgid "Score"
-msgstr "得分"
+msgstr "评分"
 
 msgctxt "field:gnuhealth.icu.apache2,arf:"
 msgid "ARF"
@@ -49,11 +53,11 @@ msgstr "创建用户"
 
 msgctxt "field:gnuhealth.icu.apache2,fio2:"
 msgid "FiO2"
-msgstr "吸入氧气分数2"
+msgstr "氧合"
 
 msgctxt "field:gnuhealth.icu.apache2,gcs:"
 msgid "GSC"
-msgstr "气体一固体色谱法"
+msgstr "格拉斯哥昏迷评分表"
 
 msgctxt "field:gnuhealth.icu.apache2,heart_rate:"
 msgid "Heart Rate"
@@ -73,27 +77,27 @@ msgstr "ID"
 
 msgctxt "field:gnuhealth.icu.apache2,mean_ap:"
 msgid "MAP"
-msgstr "平均气道压"
+msgstr "平均动脉压"
 
 msgctxt "field:gnuhealth.icu.apache2,name:"
 msgid "Registration Code"
-msgstr "注册代码"
+msgstr "住院编号"
 
 msgctxt "field:gnuhealth.icu.apache2,paco2:"
 msgid "PaCO2"
-msgstr "动脉血二氧化碳分压"
+msgstr "动脉二氧化碳分压"
 
 msgctxt "field:gnuhealth.icu.apache2,pao2:"
 msgid "PaO2"
-msgstr "动脉血氧分压"
+msgstr "动脉氧分压"
 
 msgctxt "field:gnuhealth.icu.apache2,ph:"
 msgid "pH"
-msgstr "ph值"
+msgstr "动脉血PH值"
 
 msgctxt "field:gnuhealth.icu.apache2,rec_name:"
-msgid "Name"
-msgstr "名字"
+msgid "Record Name"
+msgstr "记录名称"
 
 msgctxt "field:gnuhealth.icu.apache2,respiratory_rate:"
 msgid "Respiratory Rate"
@@ -105,31 +109,31 @@ msgstr "日期"
 
 msgctxt "field:gnuhealth.icu.apache2,serum_creatinine:"
 msgid "Creatinine"
-msgstr "肌酐"
+msgstr "血肌酐"
 
 msgctxt "field:gnuhealth.icu.apache2,serum_potassium:"
 msgid "Potassium"
-msgstr "钾"
+msgstr "血钾"
 
 msgctxt "field:gnuhealth.icu.apache2,serum_sodium:"
 msgid "Sodium"
-msgstr "钠"
+msgstr "血钠"
 
 msgctxt "field:gnuhealth.icu.apache2,temperature:"
 msgid "Temperature"
-msgstr "温度"
+msgstr "体温"
 
 msgctxt "field:gnuhealth.icu.apache2,wbc:"
 msgid "WBC"
-msgstr "康婴儿保育站"
+msgstr "白细胞计数"
 
 msgctxt "field:gnuhealth.icu.apache2,write_date:"
 msgid "Write Date"
-msgstr "请您写日期"
+msgstr "写入日期"
 
 msgctxt "field:gnuhealth.icu.apache2,write_uid:"
 msgid "Write User"
-msgstr "请您写用户"
+msgstr "写入用户"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,air_leak:"
 msgid "Air Leak"
@@ -168,8 +172,8 @@ msgid "Oscillation"
 msgstr "振荡"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,rec_name:"
-msgid "Name"
-msgstr "名字"
+msgid "Record Name"
+msgstr "记录名称"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,remarks:"
 msgid "Remarks"
@@ -185,11 +189,11 @@ msgstr "厘米水柱压力"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,write_date:"
 msgid "Write Date"
-msgstr "请您写日期"
+msgstr "写入日期"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,write_uid:"
 msgid "Write User"
-msgstr "请您写用户"
+msgstr "写入用户"
 
 msgctxt "field:gnuhealth.icu.glasgow,create_date:"
 msgid "Create Date"
@@ -205,19 +209,19 @@ msgstr "日期"
 
 msgctxt "field:gnuhealth.icu.glasgow,glasgow:"
 msgid "Glasgow"
-msgstr "格拉斯哥"
+msgstr "格拉斯哥评分"
 
 msgctxt "field:gnuhealth.icu.glasgow,glasgow_eyes:"
 msgid "Eyes"
-msgstr "双眼"
+msgstr "睁眼反应"
 
 msgctxt "field:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid "Motor"
-msgstr "运动"
+msgstr "肢体反应"
 
 msgctxt "field:gnuhealth.icu.glasgow,glasgow_verbal:"
 msgid "Verbal"
-msgstr "言语"
+msgstr "语言反应"
 
 msgctxt "field:gnuhealth.icu.glasgow,id:"
 msgid "ID"
@@ -225,19 +229,19 @@ msgstr "ID"
 
 msgctxt "field:gnuhealth.icu.glasgow,name:"
 msgid "Registration Code"
-msgstr "注册代码"
+msgstr "住院编号"
 
 msgctxt "field:gnuhealth.icu.glasgow,rec_name:"
-msgid "Name"
-msgstr "名字"
+msgid "Record Name"
+msgstr "记录名称"
 
 msgctxt "field:gnuhealth.icu.glasgow,write_date:"
 msgid "Write Date"
-msgstr "请您写日期"
+msgstr "写入日期"
 
 msgctxt "field:gnuhealth.icu.glasgow,write_uid:"
 msgid "Write User"
-msgstr "请您写用户"
+msgstr "写入用户"
 
 msgctxt "field:gnuhealth.icu.ventilation,create_date:"
 msgid "Create Date"
@@ -261,7 +265,7 @@ msgstr "ID"
 
 msgctxt "field:gnuhealth.icu.ventilation,mv_end:"
 msgid "To"
-msgstr "转入的床位"
+msgstr "换床后的床位"
 
 msgctxt "field:gnuhealth.icu.ventilation,mv_period:"
 msgid "Duration"
@@ -273,11 +277,11 @@ msgstr "原来的床位"
 
 msgctxt "field:gnuhealth.icu.ventilation,name:"
 msgid "Patient ICU Admission"
-msgstr "ICU接纳患者"
+msgstr "患者入ICU病房"
 
 msgctxt "field:gnuhealth.icu.ventilation,rec_name:"
-msgid "Name"
-msgstr "名字"
+msgid "Record Name"
+msgstr "记录名称"
 
 msgctxt "field:gnuhealth.icu.ventilation,remarks:"
 msgid "Remarks"
@@ -293,15 +297,15 @@ msgstr "类型"
 
 msgctxt "field:gnuhealth.icu.ventilation,write_date:"
 msgid "Write Date"
-msgstr "请您写日期"
+msgstr "写入日期"
 
 msgctxt "field:gnuhealth.icu.ventilation,write_uid:"
 msgid "Write User"
-msgstr "请您写用户"
+msgstr "写入用户"
 
 msgctxt "field:gnuhealth.inpatient.icu,admitted:"
 msgid "Admitted"
-msgstr "已被承认"
+msgstr "已批准"
 
 msgctxt "field:gnuhealth.inpatient.icu,create_date:"
 msgid "Create Date"
@@ -313,15 +317,15 @@ msgstr "创建用户"
 
 msgctxt "field:gnuhealth.inpatient.icu,discharged_from_icu:"
 msgid "Discharged"
-msgstr "放出"
+msgstr "出ICU病房"
 
 msgctxt "field:gnuhealth.inpatient.icu,icu_admission_date:"
 msgid "ICU Admission"
-msgstr "加护病房住院"
+msgstr "入ICU病房"
 
 msgctxt "field:gnuhealth.inpatient.icu,icu_discharge_date:"
 msgid "Discharge"
-msgstr "出院"
+msgstr "出ICU病房"
 
 msgctxt "field:gnuhealth.inpatient.icu,icu_stay:"
 msgid "Duration"
@@ -337,19 +341,19 @@ msgstr "机械通气史"
 
 msgctxt "field:gnuhealth.inpatient.icu,name:"
 msgid "Registration Code"
-msgstr "注册代码"
+msgstr "住院编号"
 
 msgctxt "field:gnuhealth.inpatient.icu,rec_name:"
-msgid "Name"
-msgstr "名字"
+msgid "Record Name"
+msgstr "记录名称"
 
 msgctxt "field:gnuhealth.inpatient.icu,write_date:"
 msgid "Write Date"
-msgstr "请您写日期"
+msgstr "写入日期"
 
 msgctxt "field:gnuhealth.inpatient.icu,write_uid:"
 msgid "Write User"
-msgstr "请您写用户"
+msgstr "写入用户"
 
 msgctxt "field:gnuhealth.inpatient.registration,icu:"
 msgid "ICU"
@@ -357,7 +361,7 @@ msgstr "重症监护病房"
 
 msgctxt "field:gnuhealth.inpatient.registration,icu_admissions:"
 msgid "ICU Admissions"
-msgstr "ICU入院"
+msgstr "入ICU病房"
 
 msgctxt "field:gnuhealth.patient.rounding,anisocoria:"
 msgid "Anisocoria"
@@ -393,7 +397,7 @@ msgstr "透析"
 
 msgctxt "field:gnuhealth.patient.rounding,ecg:"
 msgid "Inpatient ECG"
-msgstr ""
+msgstr "住院患者心电图"
 
 msgctxt "field:gnuhealth.patient.rounding,edema:"
 msgid "Edema"
@@ -405,7 +409,7 @@ msgstr "吸入氧气分数2"
 
 msgctxt "field:gnuhealth.patient.rounding,gcs:"
 msgid "GCS"
-msgstr "凝胶层析柱扫描"
+msgstr "格拉斯哥昏迷评分表"
 
 msgctxt "field:gnuhealth.patient.rounding,icu_patient:"
 msgid "ICU"
@@ -433,7 +437,7 @@ msgstr "氧气面罩"
 
 msgctxt "field:gnuhealth.patient.rounding,paradoxical_expansion:"
 msgid "Paradoxical"
-msgstr "反常的"
+msgstr "反常"
 
 msgctxt "field:gnuhealth.patient.rounding,peep:"
 msgid "PEEP"
@@ -523,7 +527,8 @@ msgctxt "help:gnuhealth.icu.apache2,gcs:"
 msgid ""
 "Last Glasgow Coma Scale You can use the GSC calculator from the Patient "
 "Evaluation Form."
-msgstr "患者上一次格拉斯哥昏迷分级可通过患者的评分表上气固色谱法计算结果来得到。"
+msgstr ""
+"最近一次格拉斯哥昏迷评分，可以使用患者评估表格中的格拉斯哥分数计算器计算。"
 
 msgctxt "help:gnuhealth.icu.apache2,mean_ap:"
 msgid "Mean Arterial Pressure"
@@ -531,7 +536,7 @@ msgstr "平均动脉压"
 
 msgctxt "help:gnuhealth.icu.apache2,score_date:"
 msgid "Date of the score"
-msgstr "分数的日期"
+msgstr "评分日期"
 
 msgctxt "help:gnuhealth.icu.apache2,temperature:"
 msgid "Rectal temperature"
@@ -574,7 +579,7 @@ msgstr "当患者被正确安置在ICU时此项将被设置"
 
 msgctxt "help:gnuhealth.inpatient.icu,icu_admission_date:"
 msgid "ICU Admission Date"
-msgstr "入住ICU日期"
+msgstr "入ICU病房日期"
 
 msgctxt "help:gnuhealth.inpatient.registration,icu:"
 msgid ""
@@ -616,7 +621,7 @@ msgstr "肺动脉导管 - PAC -"
 
 msgctxt "model:gnuhealth.icu.apache2,name:"
 msgid "Apache II scoring"
-msgstr "急性生理评分"
+msgstr "急性生理与慢性健康评分"
 
 msgctxt "model:gnuhealth.icu.chest_drainage,name:"
 msgid "Chest Drainage Asessment"
@@ -636,11 +641,11 @@ msgstr "ICU患者信息"
 
 msgctxt "model:ir.action,name:act_apache_form1"
 msgid "APACHE II"
-msgstr "急性生理评分"
+msgstr "急性生理与慢性健康评分"
 
 msgctxt "model:ir.action,name:act_ecg_form1"
 msgid "Inpatient ECGs"
-msgstr ""
+msgstr "住院患者心电图"
 
 msgctxt "model:ir.action,name:act_glasgow_form1"
 msgid "Glasgow Coma Scale"
@@ -648,15 +653,15 @@ msgstr "格拉斯哥昏迷量表"
 
 msgctxt "model:ir.action,name:action_gnuhealth_icu_apache2_form"
 msgid "APACHE II Score"
-msgstr "急性生理评分"
+msgstr "急性生理与慢性健康评分"
 
 msgctxt "model:ir.action,name:action_gnuhealth_icu_ecg_form1"
 msgid "ECGs"
-msgstr ""
+msgstr "心电图"
 
 msgctxt "model:ir.action,name:action_gnuhealth_icu_glasgow_form"
 msgid "GCS"
-msgstr "凝胶层析柱扫描"
+msgstr "格拉斯哥昏迷评分表"
 
 msgctxt "model:ir.action,name:action_gnuhealth_inpatient_icu_form"
 msgid "Patient ICU Info"
@@ -668,15 +673,15 @@ msgstr "重症监护"
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_icu_apache2_list"
 msgid "APACHE II Score"
-msgstr "急性生理评分"
+msgstr "急性生理与慢性健康评分"
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_icu_ecgs_list1"
 msgid "ECGs"
-msgstr ""
+msgstr "心电图"
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_icu_glasgow_list"
 msgid "GCS"
-msgstr "凝胶层析柱扫描"
+msgstr "格拉斯哥昏迷评分表"
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_inpatient_icu_list"
 msgid "Patient ICU Info"
@@ -732,64 +737,64 @@ msgstr "右胸膜"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_eyes:"
 msgid "1 : Does not Open Eyes"
-msgstr "1：不要睁开双眼"
+msgstr "1：刺激不睁眼"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_eyes:"
 msgid "2 : Opens eyes in response to painful stimuli"
-msgstr "2：受到疼痛刺激睁开双眼"
+msgstr "2：疼痛刺激睁眼"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_eyes:"
 msgid "3 : Opens eyes in response to voice"
-msgstr "3：听到声音睁开双眼"
+msgstr "3：呼唤睁眼"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_eyes:"
 msgid "4 : Opens eyes spontaneously"
-msgstr "4：自动睁开双眼"
+msgstr "4：自动睁眼"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid "1 : Makes no movement"
-msgstr "1：没有动静"
+msgstr "1：无任何反应"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid "2 : Extension to painful stimuli - decerebrate response -"
-msgstr "2：疼痛刺激的延伸 - 无脑特征的响应 -"
+msgstr "2：刺痛肢体有过伸反应（去大脑强直）"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid ""
 "3 : Abnormal flexion to painful stimuli             (decorticate response)"
-msgstr "3：受疼痛刺激的异常弯曲(去皮质反应)"
+msgstr "3：刺痛肢体有屈曲反应（去皮质强直）"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid "4 : Flexion / Withdrawal to painful stimuli"
-msgstr "4：疼痛刺激引起的弯曲/回避"
+msgstr "4：对刺痛能躲避"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid "5 : localizes painful stimuli"
-msgstr "5：自发型疼痛"
+msgstr "5：对刺痛能定位"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid "6 : Obeys commands"
-msgstr "6：服从命令"
+msgstr "6：可依指令动作"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_verbal:"
 msgid "1 : Makes no sounds"
-msgstr "1：没有声音"
+msgstr "1：任何刺激均无语言反映"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_verbal:"
 msgid "2 : Incomprehensible sounds"
-msgstr "2：异常的声音"
+msgstr "2：语言糢糊不清，言语难辨"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_verbal:"
 msgid "3 : Utters inappropriate words"
-msgstr "3：发出不适当字眼"
+msgstr "3：语言错乱，但字意可辨"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_verbal:"
 msgid "4 : Confused, disoriented"
-msgstr "4：混淆，定向障碍"
+msgstr "4：对话混淆不清，不能准确回答有关人物、时间、地点等应答错误"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_verbal:"
 msgid "5 : Oriented, converses normally"
-msgstr "5：方向感清晰，正常地交谈"
+msgstr "5：对人物、时间、地点等定向正常"
 
 msgctxt "selection:gnuhealth.icu.ventilation,ventilation:"
 msgid ""
@@ -821,15 +826,15 @@ msgstr "无"
 
 msgctxt "selection:gnuhealth.patient.rounding,bowel_sounds:"
 msgid "Decreased"
-msgstr "减少"
+msgstr "已减少"
 
 msgctxt "selection:gnuhealth.patient.rounding,bowel_sounds:"
 msgid "Increased"
-msgstr "增加"
+msgstr "已增加"
 
 msgctxt "selection:gnuhealth.patient.rounding,bowel_sounds:"
 msgid "Normal"
-msgstr "正常的"
+msgstr "正常"
 
 msgctxt "selection:gnuhealth.patient.rounding,chest_expansion:"
 msgid ""
@@ -853,7 +858,7 @@ msgstr "全身性水肿"
 
 msgctxt "selection:gnuhealth.patient.rounding,edema:"
 msgid "None"
-msgstr "毫无"
+msgstr "无"
 
 msgctxt "selection:gnuhealth.patient.rounding,edema:"
 msgid "Peripheral"
@@ -869,7 +874,7 @@ msgstr "瞳孔散大"
 
 msgctxt "selection:gnuhealth.patient.rounding,pupil_dilation:"
 msgid "Normal"
-msgstr "正常的"
+msgstr "正常"
 
 msgctxt "selection:gnuhealth.patient.rounding,pupillary_reactivity:"
 msgid ""
@@ -877,15 +882,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.rounding,pupillary_reactivity:"
 msgid "Brisk"
-msgstr "敏锐的"
+msgstr "敏锐"
 
 msgctxt "selection:gnuhealth.patient.rounding,pupillary_reactivity:"
 msgid "Nonreactive"
-msgstr "无反应的"
+msgstr "无反应"
 
 msgctxt "selection:gnuhealth.patient.rounding,pupillary_reactivity:"
 msgid "Sluggish"
-msgstr "呆滞的"
+msgstr "呆滞"
 
 msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
 msgid ""
@@ -893,7 +898,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
 msgid "Deep"
-msgstr "深部的"
+msgstr "深部"
 
 msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
 msgid "Intercostal"
@@ -929,7 +934,7 @@ msgstr "黑便"
 
 msgctxt "selection:gnuhealth.patient.rounding,stools:"
 msgid "Normal"
-msgstr "正常的"
+msgstr "正常"
 
 msgctxt "selection:gnuhealth.patient.rounding,trachea_alignment:"
 msgid ""
@@ -957,7 +962,7 @@ msgstr "中心静脉导管"
 
 msgctxt "selection:gnuhealth.patient.rounding,venous_access:"
 msgid "None"
-msgstr "毫无"
+msgstr "无"
 
 msgctxt "selection:gnuhealth.patient.rounding,venous_access:"
 msgid "Peripheral"
@@ -973,8 +978,60 @@ msgstr "吐血"
 
 msgctxt "selection:gnuhealth.patient.rounding,vomiting:"
 msgid "None"
-msgstr "毫无"
+msgstr "无"
 
 msgctxt "selection:gnuhealth.patient.rounding,vomiting:"
 msgid "Vomiting"
 msgstr "呕吐"
+
+msgctxt "view:gnuhealth.icu.apache2:"
+msgid "Chronic"
+msgstr "慢性的"
+
+msgctxt "view:gnuhealth.icu.apache2:"
+msgid "Physiological"
+msgstr "生理学"
+
+msgctxt "view:gnuhealth.icu.glasgow:"
+msgid "Time"
+msgstr "时间"
+
+msgctxt "view:gnuhealth.icu.ventilation:"
+msgid "Mechanical Ventilation"
+msgstr "机械通气"
+
+msgctxt "view:gnuhealth.inpatient.icu:"
+msgid "Period"
+msgstr "期间"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Blood and Skin"
+msgstr "血液和皮肤"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Cardiovascular"
+msgstr "心血管相关"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Chest Expansion"
+msgstr "胸部扩张"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Digestive and Abdomen"
+msgstr "消化系统和腹部"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "ICU"
+msgstr "重症监护病房"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Neurologic"
+msgstr "神经学"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Respiratory"
+msgstr "呼吸系统"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Xray"
+msgstr "X光"

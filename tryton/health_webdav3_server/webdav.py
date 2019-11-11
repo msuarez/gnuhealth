@@ -90,7 +90,6 @@ class Collection(ModelSQL, ModelView):
     @classmethod
     def validate(cls, collections):
         super(Collection, cls).validate(collections)
-        cls.check_recursion(collections, rec_name='name')
         cls.check_attachment(collections)
 
     @classmethod

@@ -1,15 +1,14 @@
 [Unit]
-Description=Tryton Server Daemon for GNU Health
-Requires=postgresql.service
+Description=GNU Health Server
+After=network.target
 
 [Service]
 Type=simple
 User=gnuhealth
-
-SyslogIdentifier=gnuhealth
-
-ExecStart=/home/gnuhealth/gnuhealth/tryton/server/trytond-2.8.2/bin/trytond
-
+WorkingDirectory=/home/gnuhealth
+ExecStart=/home/gnuhealth/start_gnuhealth.sh
+Restart=on-abort
 
 [Install]
 WantedBy=multi-user.target
+

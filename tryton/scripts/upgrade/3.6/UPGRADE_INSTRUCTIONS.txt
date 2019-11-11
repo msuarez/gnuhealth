@@ -1,0 +1,25 @@
+
+This information comes from the Tryton migration. You should check the latest updates :
++ https://discuss.tryton.org/t/migration-from-4-6-to-4-8/440
++ https://discuss.tryton.org/t/migration-from-4-8-to-5-0
+
+
+BEFORE THE UPGRADE:
+
+1) Assign rules linked to users to a group (must be done before update).
+
+2) Check taxes and tax codes definitions (inactivate old children taxes and add them to the right codes)
+
+3) Before update, set an accounting category to all products which have accounts and taxes defined (see issue3805 )
+
+4) Execute the script "before.sql"
+
+5) update tryton server (./trytond --all)
+
+AFTER THE UPGRADE:
+
+1) Execute the script "after.sql"
+
+2) synchronize records from Administration > Models > Models > Data
+
+3) You should create the WriteOff Methods and Payment Methods to override the cash journals used for invoice payments and writeoff journals used for writeoff reconciliation. (see Tryton issue7450)

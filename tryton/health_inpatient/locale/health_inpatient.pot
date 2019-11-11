@@ -97,7 +97,7 @@ msgid "Reason"
 msgstr ""
 
 msgctxt "field:gnuhealth.bed.transfer,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.bed.transfer,transfer_date:"
@@ -153,7 +153,7 @@ msgid "Diet type"
 msgstr ""
 
 msgctxt "field:gnuhealth.diet.therapeutic,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.diet.therapeutic,write_date:"
@@ -185,7 +185,7 @@ msgid "Registration Code"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.diet,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.diet,remarks:"
@@ -233,7 +233,7 @@ msgid "Food"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.meal,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.meal,write_date:"
@@ -289,7 +289,7 @@ msgid "Date"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.meal.order,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.meal.order,remarks:"
@@ -329,7 +329,7 @@ msgid "Meal Order"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.meal.order.item,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.meal.order.item,remarks:"
@@ -433,7 +433,7 @@ msgid "x"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.medication,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.medication,route:"
@@ -481,7 +481,7 @@ msgid "Medication"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.medication.admin_time,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.medication.admin_time,remarks:"
@@ -529,7 +529,7 @@ msgid "Medication"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.medication.log,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.medication.log,remarks:"
@@ -637,7 +637,7 @@ msgid "PUID"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.registration,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.registration,state:"
@@ -666,6 +666,14 @@ msgstr ""
 
 msgctxt "field:gnuhealth.patient.evaluation,inpatient_registration_code:"
 msgid "IPC"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequence.setup,inpatient_meal_order_sequence:"
+msgid "Inpatient Meal Sequence"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequence.setup,inpatient_registration_sequence:"
+msgid "Inpatient Sequence"
 msgstr ""
 
 msgctxt "field:gnuhealth.sequences,inpatient_meal_order_sequence:"
@@ -1446,6 +1454,174 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.inpatient.registration,state:"
 msgid "hospitalized"
+msgstr ""
+
+msgctxt "view:gnuhealth.diet.therapeutic:"
+msgid "Diet Description and Indications"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.meal.order:"
+msgid "Cancel"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.meal.order:"
+msgid "Cancel order"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.meal.order:"
+msgid "Cancel the this meal order ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.meal.order:"
+msgid "Create order"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.meal.order:"
+msgid "Done"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.meal.order:"
+msgid "Generate"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.meal.order:"
+msgid "Generate the meal order ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.meal.order:"
+msgid "The meal order is done"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.meal.order:"
+msgid "The meal order will be closed"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "Administration"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "Adverse Reactions and Notes"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "Dosage"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "Extra Info"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "General Info"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "Medication"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "Status"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "Treatment period"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Administrative data"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Admission"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Admit the patient in the health institution and assign the bed"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Cancel"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Cancel Registration"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Cancel the patient registration process ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Care Plan"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Clean Bed"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Click when Bed has been cleaned"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Confirm"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Confirm Registration / Make the reservation"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Confirm that the bed has been cleaned and is now ready to use"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Discharge"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Discharge Info"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Discharge Patient"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Discharge Plan"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Medication Plan"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Notes"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Nursing Plan"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Nutrition"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Other nutrition notes / directions"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Patient Admission"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Status"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "You are about to discharge the patient from the health institution."
 msgstr ""
 
 msgctxt ""

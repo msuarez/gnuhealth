@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#    Copyright (C) 2014-2017 Luis Falcon <lfalcon@gnu.org>
+#    Copyright (C) 2014-2017 Luis Falcon <lfalcon@gnuhealth.org>
 #    Copyright (C) 2014-2017 GNU Solidario <health@gnusolidario.org>
 
 #    This program is free software: you can redistribute it and/or modify
@@ -27,7 +27,7 @@ setup(name='fhir',
     description='HL7 FHIR Library',
     author='Luis Falcon',
     author_email='lfalcon@gnusolidario.org',
-    url='http://health.gnu.org',
+    url='https://www.gnuhealth.org',
     download_url='http://ftp.gnu.org/gnu/health/',
     package_dir={'fhir': '.'},
     packages=['fhir'],

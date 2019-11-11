@@ -1,6 +1,936 @@
+changeset:   3442:8c8b27fa3b8f
+tag:         tip
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 09 18:11:02 2019 +0000
+summary:     GH HMIS client plugins : Update version to 3.6
+
+changeset:   3441:fb60f30de213
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 09 17:59:38 2019 +0000
+summary:     GNU Health camera plugin: Allow to close the camera window with Alt+F4 or clickinh on close
+
+changeset:   3440:26a7a43ad340
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Fri Nov 08 06:56:01 2019 +0000
+summary:     HMIS server : update URL and to version RC3
+
+changeset:   3439:88f4b17dc530
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Wed Nov 06 21:10:43 2019 +0000
+summary:     GNU Health GTK Client. Set focus on GH command line - CLI
+
+changeset:   3438:eb2797610f42
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Wed Nov 06 19:20:08 2019 +0000
+summary:     HMIS . Use vobject package version 0.9.5
+
+changeset:   3437:c13e27b3bd0f
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Wed Nov 06 19:14:27 2019 +0000
+summary:     HMIS : health_caldav . log error when the patient ID coming from the caldav client is not found
+
+changeset:   3436:bf9990658f30
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Wed Nov 06 08:03:14 2019 +0000
+summary:     HMIS . Localization. Update Chinese (zh_CN) translation files
+
+changeset:   3435:45f35ec886d6
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Mon Nov 04 20:17:14 2019 +0000
+summary:     GNU Health webDAV server . Force Python 3
+
+changeset:   3434:77aab2685b1e
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Mon Nov 04 18:04:02 2019 +0000
+summary:     HMIS Demo DB Downloader refactor and allow command line argument for DB version
+
+changeset:   3433:92d543e5131b
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Mon Nov 04 16:22:51 2019 +0000
+summary:     remove obsolete python script for demo db. We use the postgresql dump
+
+changeset:   3432:1f28df8a70b5
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Mon Nov 04 16:20:30 2019 +0000
+summary:     Update service file documentation
+
+changeset:   3431:3a97892bcf1e
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 02 11:21:28 2019 +0000
+summary:     HMIS server. health. Fix editable attribute in HP tree view
+
+changeset:   3430:cb5c2094a22e
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Fri Nov 01 14:22:47 2019 +0000
+summary:     HMIS server. health. Fix bug related to HP specialties https://savannah.gnu.org/bugs/?57148
+
+changeset:   3429:8714dec41129
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Thu Oct 31 23:41:48 2019 +0000
+summary:     Federation Resource Locator plugin : Fix icon path
+
+changeset:   3428:b9fc9d2ad520
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Thu Oct 31 16:33:01 2019 +0000
+summary:     health: Check for federation country before assigning it to the Domiciliary Unit
+
+changeset:   3427:08f2c468cae7
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Thu Oct 31 09:51:46 2019 +0000
+summary:     HMIS Server: health. Page of Life on patient evaluation. Use info field to hold the SOAP evaluation
+
+changeset:   3426:8602e06a0b51
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Wed Oct 30 19:49:53 2019 +0000
+summary:     HMIS server: health . Summarize the encounter note taking as SOAP for encounter Page of Life
+
+changeset:   3425:6de3ef31b926
+user:        Chris Zimmerman <chris@teffalump.com>
+date:        Tue Oct 29 09:31:31 2019 -0700
+summary:     health_orthanc: log exceptions and use new method parameters
+
+changeset:   3424:a2d56948ea9d
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Tue Oct 29 15:39:22 2019 +0000
+summary:     GH HMIS server. health_federation : Fix author account value
+
+changeset:   3423:f58a2069f5e6
+parent:      3421:b61d9bab3600
+parent:      3422:496f16e88c5a
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Tue Oct 29 12:21:43 2019 +0000
+summary:     Merge Chris beren library update
+
+changeset:   3422:496f16e88c5a
+parent:      3420:a1c5ff440c2d
+user:        Chris Zimmerman <chris@teffalump.com>
+date:        Mon Oct 28 11:17:41 2019 -0700
+summary:     health_orthanc: Update library version
+
+changeset:   3421:b61d9bab3600
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Tue Oct 29 12:15:34 2019 +0000
+summary:     HMIS Server.health_federation, health : Page of Life: Add HP federation account when creating a new evaluation . Use Name representation for health professional in Page of Life.
+
+changeset:   3420:a1c5ff440c2d
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sun Oct 27 09:44:29 2019 +0000
+summary:     localization : Update 3.6 strings for Chinese zh_CN
+
+changeset:   3419:3acfd5b4262d
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Oct 26 19:28:36 2019 +0100
+summary:     GH HMIS server. health core. Update get_rec_name on patient and health professional. Thank you Tumashu !
+
+changeset:   3418:1445baaedd14
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Oct 26 19:26:33 2019 +0100
+summary:     GH client : Update version to 3.6RC2
+
+changeset:   3417:cb7ccbd498cc
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Oct 26 16:41:29 2019 +0100
+summary:     GH HMIS server. Update orthanc library to beren
+
+changeset:   3416:ca0c2b258d7b
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Oct 26 16:21:00 2019 +0100
+summary:     GNU Health HMIS server. Update to 3.6RC2
+
+changeset:   3415:6ea449e57f4b
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Oct 26 16:20:20 2019 +0100
+summary:     Remove obsolete serverpass
+
+changeset:   3414:e01fdfddb541
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Fri Oct 25 19:21:53 2019 +0100
+summary:     HMIS server. health_orthanc: Add translation template file
+
+changeset:   3413:22d5207ed954
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Fri Oct 25 18:33:25 2019 +0100
+summary:     Localization : Update template files including report and views
+
+changeset:   3412:1a4a2899aab2
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Fri Oct 25 15:47:14 2019 +0100
+summary:     Localization : health package. Update template files including report and views
+
+changeset:   3411:2c67462a92fc
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Fri Oct 25 13:12:40 2019 +0100
+summary:     Apply tree mixin patch
+
+changeset:   3410:482381d2f377
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Fri Oct 25 11:58:46 2019 +0100
+summary:     remove emtpy po files to avoid warning in translation
+
+changeset:   3409:1ee4bb02a6ca
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Thu Oct 24 18:49:07 2019 +0100
+summary:     GNU Health GTK Client : Include in the plugins search path the gnuhealth_plugins dir on users local dir
+
+changeset:   3408:e215a2bd202b
+user:        Chris Zimmerman <chris@teffalump.com>
+date:        Thu Oct 24 07:49:03 2019 -0700
+summary:     health_orthanc: Add missing ids to group and page elements
+
+changeset:   3407:596d3bebcd96
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Thu Oct 24 11:12:46 2019 +0100
+summary:     Health HMIS : Update language templates for 3.6 series
+
+changeset:   3406:e983e845e68e
+user:        Chris Zimmerman <chris@teffalump.com>
+date:        Sun Oct 20 17:51:35 2019 -0700
+summary:     health_orthanc: Add wizard package to setup.py
+
+changeset:   3405:3e34428f2d54
+parent:      3403:4268338ba1a3
+parent:      3404:f87e37b8bf34
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sun Oct 20 19:53:11 2019 +0100
+summary:     Merge health_orthanc package name changes
+
+changeset:   3404:f87e37b8bf34
+parent:      3402:1c575479b47b
+user:        Chris Zimmerman <chris@teffalump.com>
+date:        Sat Oct 19 18:24:09 2019 -0700
+summary:     Update package name
+
+changeset:   3403:4268338ba1a3
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sun Oct 20 19:48:10 2019 +0100
+summary:     HMIS: Remove check_recursion method
+
+changeset:   3402:1c575479b47b
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Thu Oct 17 13:39:32 2019 +0100
+summary:     GNU Health Federation Portal : Use SSL and port 8443 as default to communicate with Thalamus
+
+changeset:   3401:3da3fbeaff90
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Tue Oct 08 21:46:24 2019 +0100
+summary:     GNU Health GTK Client : Update to 3.6 Release Candidate 1
+
+changeset:   3400:d95563f72de1
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Tue Oct 08 21:45:50 2019 +0100
+summary:     GNU Health HMIS server : Update to 3.6 Release Candidate 1
+
+changeset:   3399:74b4e7863e7b
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Mon Oct 07 13:06:35 2019 +0100
+summary:     HMIS server. Implement CJK name representation, task https://savannah.gnu.org/task/?15311
+
+changeset:   3398:74ca22400b75
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Fri Oct 04 22:54:42 2019 +0100
+summary:     gnuhealth client : Include activity window
+
+changeset:   3397:c5a007d7f4a9
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Fri Oct 04 21:56:47 2019 +0100
+summary:     Update Luis email to falcon@gnuhealth.org
+
+changeset:   3396:7ce2090acdb7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Sep 18 12:10:20 2019 +0100
+summary:     thalamus: update README.rst
+
+changeset:   3395:01d6d5db3cec
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Sep 18 12:06:44 2019 +0100
+summary:     thalamus: Update documentation. Include uWSGI as default
+
+changeset:   3394:9bc85b7283ed
+user:        Chris Zimmerman <chris@teffalump.com>
+date:        Tue Sep 10 21:06:34 2019 -0700
+summary:     health_orthanc: Add requirements file to manifest
+
+changeset:   3393:63e113075ee0
+user:        Mathias Behrle <mbehrle@m9s.biz>
+date:        Sun Sep 08 20:07:27 2019 +0200
+summary:     Add dependencies for health_orthanc to pip installs.
+
+changeset:   3392:04b70c90c471
+user:        Mathias Behrle <mbehrle@m9s.biz>
+date:        Sun Sep 08 20:02:33 2019 +0200
+summary:     Add missing passlib to pip installation packages.
+
+changeset:   3391:6f85c9f444cc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Sep 09 11:45:14 2019 +0100
+summary:     thalamus: Add uWSGI default configuration file
+
+changeset:   3390:ba69bf111bfe
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Sep 09 11:31:36 2019 +0100
+summary:     health HMIS: Update setup.py of packages to match Trytond 5.0
+
+changeset:   3389:f4d6d42bf056
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Sep 09 11:30:22 2019 +0100
+summary:     Thalamus: bind to 0.0.0.0 in gunicorn config
+
+changeset:   3388:7acacc1ece38
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Sep 09 11:26:16 2019 +0100
+summary:     health_orthanc: update psycopg2 to psycopg2-binary
+
+changeset:   3387:9bd8309784d8
+user:        Chris Zimmerman <chris@teffalump.com>
+date:        Sun Sep 08 17:13:57 2019 -0700
+summary:     health_orthanc: Add setup.py; Bump version
+
+changeset:   3386:8f2099fb96d6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Sep 06 11:20:32 2019 +0100
+summary:     health_federation: Show error message when user and/or passwords are empty in the HMIS node configuration
+
+changeset:   3385:0375c3af6936
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 05 23:19:01 2019 +0100
+summary:     thalamus: remove extra empty line in config file
+
+changeset:   3384:39d2750d88a7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 05 23:18:30 2019 +0100
+summary:     gnuhealth federation portal: gunicorn default bind to any IPv4 address
+
+changeset:   3383:e6eb5aa1cbd2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 05 23:14:03 2019 +0100
+summary:     gnuhealth federation portal: Use SSL by default at the GNU Health portal
+
+changeset:   3382:590bd1b9c78a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 05 13:50:11 2019 +0100
+summary:     health: fix the model for modules for the command line
+
+changeset:   3381:c7731e546fab
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Sep 04 20:50:56 2019 +0100
+summary:     health: Add mod command to show current system modules / packages
+
+changeset:   3380:ea6255706780
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Aug 08 11:24:08 2019 +0100
+summary:     gnuhealth client : Use GNU Health standard action icon
+
+changeset:   3379:8304de6e2416
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Aug 08 11:07:21 2019 +0100
+summary:     gnuhealth client : use gh prefix for header and footer to avoid conflicts with current hader
+
+changeset:   3378:4da4a673c76a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 07 22:51:24 2019 +0100
+summary:     gnuhealth client : update form and fix traceback for buttons
+
+changeset:   3377:50eb409590d7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 07 19:19:36 2019 +0100
+summary:     GNU Health plugins : Update FRL to GI
+
+changeset:   3376:6c14ba04dc16
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 07 17:15:47 2019 +0100
+summary:     gnuhealth camera plugin : Encode image for JSON compatibility
+
+changeset:   3375:e04158ad306c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 07 15:43:14 2019 +0100
+summary:     gnuhealth camera plugin: Iniial python3 / GI conversion
+
+changeset:   3374:52c5a9cf51a4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 07 15:40:10 2019 +0100
+summary:     gnuhealth client : Use original rpc.py
+
+changeset:   3373:82e024078d95
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 07 15:39:12 2019 +0100
+summary:     gnuhealth client: Return error dialog // Remove check version
+
+changeset:   3372:bbecc7c1d8d8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 07 12:36:02 2019 +0100
+summary:     gnuhealth-client : Add gnuhealth_plugins dir at HOME if it does not exist
+
+changeset:   3371:e530a9089648
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 07 11:14:14 2019 +0100
+summary:     gnuhealth plugins: Update version numbers to development 3.5
+
+changeset:   3370:707e9981f138
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 02 12:34:40 2019 +0100
+summary:     gnuhealth-client: Remove check version
+
+changeset:   3369:b8d14c3a7980
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 02 12:28:48 2019 +0100
+summary:     gnuhealth-client: Remove PDA mode entries
+
+changeset:   3368:22bf4a525855
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 02 12:13:15 2019 +0100
+summary:     gnuhealth-client : Remove roundup / bug button
+
+changeset:   3367:c9e8f725df7f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 31 22:47:31 2019 +0100
+summary:     gnuhealth-client : Initial port based on Tryton 5.2 GTK client // remove pygtkcompat dependency
+
+changeset:   3366:17038493267f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 28 11:24:50 2019 +0100
+summary:     gnuhealth-client : use gnuhealth-client.conf file
+
+changeset:   3365:521a6de8cdd3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jul 25 18:33:25 2019 +0100
+summary:     task #15315: Upgrade to Trytond 5.0: Include python-magic library in gnuhealth-setup
+
+changeset:   3364:1550c283f5f6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jul 25 18:28:15 2019 +0100
+summary:     task #15315: Upgrade to Trytond 5.0: Update view to fit new data model on address
+
+changeset:   3363:084a88dd91c0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jul 25 18:06:10 2019 +0100
+summary:     gnuhealth-client: Always use the user / host / DB information on the client subtitle, instead of the profile name
+
+changeset:   3362:3ff88a888e7f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 24 19:17:33 2019 +0100
+summary:     Add GNU Health CLI
+
+changeset:   3361:ead649b3eb39
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jul 18 18:58:21 2019 +0100
+summary:     Initial update to GNU Health client 3.5, based on Tryton GTK client 5.0.12
+
+changeset:   3360:0ce9ddccf20a
+parent:      3358:c983b94562da
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 12 15:25:57 2019 +0100
+summary:     FRL: Fix bug #56619: FRL: Search results append to the existing list
+
+changeset:   3359:c71061d6c148
+branch:      stable
+parent:      3309:eefc9b1a3ff2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 10 19:54:53 2019 +0100
+summary:     thalamus : update to 0.9.9
+
+changeset:   3358:c983b94562da
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 10 19:48:56 2019 +0100
+summary:     thalamus: Update version to 0.9.9
+
+changeset:   3357:a39249fb19ae
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 10 15:59:23 2019 +0100
+summary:     task #15315: Upgrade to Trytond 5.0. Initial upgrade documentation
+
+changeset:   3356:b19e3bb7ce82
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 10 15:23:48 2019 +0100
+summary:     Update GH HMIS Development version to 3.5
+
+changeset:   3355:f664f5092032
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 10 15:21:05 2019 +0100
+summary:     task #15315: Upgrade to Trytond 5.0 : Update gnuhealth-setup
+
+changeset:   3354:cd7650d45274
+user:        leonardo@Xubuntu
+date:        Mon Jul 01 11:04:52 2019 -0300
+summary:     gnuhealth portal: Update styles top menu account component
+
+changeset:   3353:9a9af0f25c0d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 29 13:45:29 2019 +0100
+summary:     Include top menu and functionality for account component , Add and Edit buttons
+
+changeset:   3352:a379399281fe
+user:        leonardo@Xubuntu
+date:        Thu Jun 27 19:48:10 2019 -0300
+summary:     gnuhealth portal: Add Responsive Grid
+
+changeset:   3351:c8da1798331c
+user:        leonardo@Xubuntu
+date:        Mon Jun 24 16:31:21 2019 -0300
+summary:     gnuhealth portal: Update styles (about)
+
+changeset:   3350:d64fd4a12127
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 24 16:03:35 2019 +0100
+summary:     gnu health portal : Update styles
+
+changeset:   3349:2d241d4efaea
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 24 15:59:28 2019 +0100
+summary:     GNU Health portal : Update styles
+
+changeset:   3348:cf6fc4ca06a3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 24 15:50:27 2019 +0100
+summary:     gnuhealth portal : Updated / improved css / styles . Thank you Leo !
+
+changeset:   3347:e0dd18780462
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 19 20:12:05 2019 +0100
+summary:     thalamus: Use the active status that comes from the client in the POST method
+
+changeset:   3346:ff6b88387bbf
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 16 13:44:56 2019 +0100
+summary:     gnuhealth portal : Include active and deceased fields on the account form. Optimize css
+
+changeset:   3345:5ed514cb7f7e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 16 12:19:48 2019 +0100
+summary:     gnuhealth portal: Use keydown instead of keyup to prevent forcing submission on login
+
+changeset:   3344:a1e2c1e7edb4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 16 12:12:30 2019 +0100
+summary:     gnuhealth portal: Prevent form submission upon federation id generation
+
+changeset:   3343:cc2c666c1665
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 14 18:14:12 2019 +0100
+summary:     gnuhealth portal : Account password confirmation
+
+changeset:   3342:c71e304f66dc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 13 22:39:54 2019 +0100
+summary:     gnuhealth portal: prevent multiple posts on account creation . Cleanup debugging info
+
+changeset:   3341:430795a8beff
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 13 19:14:21 2019 +0100
+summary:     gnuhealth portal : Add vue.config.js for SSL and other customizations
+
+changeset:   3340:96af5df17f8f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 13 19:12:56 2019 +0100
+summary:     thalamus: Use flask-cors
+
+changeset:   3339:e52d19adb148
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 13 13:06:15 2019 +0100
+summary:     gnuhealth portal: Add automatic Account federation ID with same nomenclature as in the HMIS node // Include default country code
+
+changeset:   3338:2ee213c404c9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 12 11:13:23 2019 +0100
+summary:     gnuhealth portal : Force uppercase from the frontend side on the account id
+
+changeset:   3337:8fb94e5a2138
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 12 09:50:45 2019 +0100
+summary:     thalamus : Force uppercase on person ID
+
+changeset:   3336:5a1a4e673719
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 11 23:12:56 2019 +0100
+summary:     gnuhealth portal: Fix data var in account post method . Lint
+
+changeset:   3335:99b5004b2343
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 11 14:33:28 2019 +0100
+summary:     gnuhealth portal: Improve login form style
+
+changeset:   3334:9d8616ac5f92
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 11 13:41:56 2019 +0100
+summary:     gnuhealth portal: Fix CSS comments. Add style for password fields
+
+changeset:   3333:62a253133daa
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 11 12:33:21 2019 +0100
+summary:     gnuhealth portal : Use login/logout buttons. Global styles for GH forms
+
+changeset:   3332:c315f49b6a0f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 10 20:00:03 2019 +0100
+summary:     gnuhealth portal: Refactor. Include navigation components
+
+changeset:   3331:38d2fde742c2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 08 18:17:20 2019 +0100
+summary:     gnuhealth_portal: Improve workplace navigation for components entries. Code cleanup
+
+changeset:   3330:44b29773be7c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 08 12:08:29 2019 +0100
+summary:     gnuhealth_portal: Login. Cleanup code. Subit form validation on enter in password field
+
+changeset:   3329:ab284001c713
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 03 13:39:30 2019 +0100
+summary:     Task #15288: GH HMIS queue manager: Implement command line args check and push for queued messages
+
+changeset:   3328:62010d7ecd05
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 02 21:56:34 2019 +0100
+summary:     health_federation: task #15288: GH Federation manager. Initial setup. Show number of messages in the queue
+
+changeset:   3327:55b184294a67
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu May 30 14:41:22 2019 +0100
+summary:     Federation Portal : Toggle view display. Fix endpoint for person. Cleanup code
+
+changeset:   3326:0bb928f3478b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed May 29 22:37:28 2019 +0100
+summary:     Federation Portal: Include initial validation for Login form
+
+changeset:   3325:96c531c48b69
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue May 28 18:53:13 2019 +0100
+summary:     Include vee-validate package for validation
+
+changeset:   3324:7d934e2b42e4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue May 28 12:20:30 2019 +0100
+summary:     Federation Portal : Include accounts component. Add conditional rendering for forms
+
+changeset:   3323:77b4a2981d88
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 27 15:12:28 2019 +0100
+summary:     Federation Portal: Fix typo on thalamus server input form name
+
+changeset:   3322:26651113c34c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 26 20:47:09 2019 +0100
+summary:     Federation portal : Include thalamus server in the login page. Use a single component for demographics. cleanup code
+
+changeset:   3321:3788342c6611
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 26 12:00:17 2019 +0100
+summary:     Federation Portal: scaffold layout for workplace component
+
+changeset:   3320:eeaf336778eb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 25 16:45:09 2019 +0100
+summary:     GH Portal : Cleanup code. Remove original authentication signal in favor of vuex mutation
+
+changeset:   3319:2dae2fbcc8b4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 25 16:36:28 2019 +0100
+summary:     GH Portal : Remove Home and about routes upon successful login. Cleanup code
+
+changeset:   3318:77a15311085d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 25 06:54:58 2019 +0100
+summary:     FRL : Update plugin version to 3.4.1
+
+changeset:   3317:abe06d536d00
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 25 06:49:56 2019 +0100
+summary:     Federation Resource Locator: Update federation account _id to id to match new GH HIS postgreSQL schema
+
+changeset:   3316:6733595ffb78
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri May 24 14:14:21 2019 +0100
+summary:     GNU health Portal : Use HTTPS and connect directly to gunicorn in connecttion string
+
+changeset:   3315:8e61ea5d325c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri May 24 14:12:51 2019 +0100
+summary:     thalamus : Fix psycopg query when table value is dynamic
+
+changeset:   3314:3b5c8a9bd7fb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 19 11:55:20 2019 +0100
+summary:     GH Portal: task #15244: GNU Health Federation Portal. Initial commit
+
+changeset:   3313:7c8966fcaf5e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu May 09 13:39:54 2019 +0100
+summary:     thalamus : Remove debug info from Login class
+
+changeset:   3312:3f76a4c63d01
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu May 09 13:34:59 2019 +0100
+summary:     thalamus : Create Login class as a placeholder and initial requests from federation nodes, such as the Federation Portal
+
+changeset:   3311:74bb315f46cf
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 27 20:38:04 2019 +0100
+summary:     Thalamus : Allow CORS requests from JS frontends, such as the GH Federation Portal
+
+changeset:   3310:221d810809c0
+parent:      3291:e837c48d33f5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 20 11:23:29 2019 +0100
+summary:     Thalamus : Use psycopg2-binary package to avoid postgresql-devel and compiling the package
+
+changeset:   3309:eefc9b1a3ff2
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 20 11:06:33 2019 +0100
+summary:     gnuhealth-client : Update version to 3.4.4
+
+changeset:   3308:1d22c3ad3303
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 14:52:33 2019 +0100
+summary:     gnuhealth client : use black as the text color in the GNU Health command line
+
+changeset:   3307:ff8521d939f1
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:10:48 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4516: Do not override exception variable in 'except as'
+
+changeset:   3306:15d4997faa4f
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:06:56 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4514: Allow to click button on readonly record in tree view
+
+changeset:   3305:a4ccfe557104
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:05:59 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4510: Use string from node attribute
+
+changeset:   3304:d6b6ae8ebb80
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:04:49 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4509: Use idle_add to set active on combobox from match selected of dropdown
+
+changeset:   3303:6c5836c9cf2f
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:03:33 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4508: Do not use set_text of Many2One and Reference when setting only string
+
+changeset:   3302:fc69cc78f43f
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:02:11 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4507: Clean active_* keys from context when executing an action
+
+changeset:   3301:d3c1b46768ca
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:01:07 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4506: Delay execution of CellRendererBinary callbacks
+
+changeset:   3300:a70ccc5f6bdd
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:59:58 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4502: Ensure sort key always return an integer
+
+changeset:   3299:6571b47a55b6
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:58:22 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4501: Remove call to window_list_toplevels when destroying NoModal
+
+changeset:   3298:a730142bd7ce
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:56:03 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4500: Always append ':' at the end of the string
+
+changeset:   3297:b5ac8668632f
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:53:50 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4498: Connect dict widgets to the right activate callback
+
+changeset:   3296:8a20d6e04fb8
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:52:34 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4494: Use filled login to select profile
+
+changeset:   3295:757ef79edae6
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:51:19 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4493: Improve profile edition with empty and similar value
+
+changeset:   3294:0670fb177bf8
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:49:53 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4492: Do not recycle first record as product result
+
+changeset:   3293:e8c269e82cce
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:48:08 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4491: Ensure translate_widget_set is always called with string
+
+changeset:   3292:d1d2c54c0fe0
+branch:      stable
+parent:      3267:61b7bc7b1a78
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:39:28 2019 +0100
+summary:     gnuhealth client : Apply tryton changeset 4487: Fix domain inversion of child_of mixing M2O and Reference fields
+
+changeset:   3291:e837c48d33f5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 14:52:33 2019 +0100
+summary:     gnuhealth client : use black as the text color in the GNU Health command line
+
+changeset:   3290:6b9219f06d36
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:10:48 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4516: Do not override exception variable in 'except as'
+
+changeset:   3289:7cbef84e8f23
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:06:56 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4514: Allow to click button on readonly record in tree view
+
+changeset:   3288:08162c3f6a21
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:05:59 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4510: Use string from node attribute
+
+changeset:   3287:01af24363087
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:04:49 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4509: Use idle_add to set active on combobox from match selected of dropdown
+
+changeset:   3286:185d2c67e74f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:03:33 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4508: Do not use set_text of Many2One and Reference when setting only string
+
+changeset:   3285:fb613c34bc24
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:02:11 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4507: Clean active_* keys from context when executing an action
+
+changeset:   3284:5af8f002d3b9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:01:07 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4506: Delay execution of CellRendererBinary callbacks
+
+changeset:   3283:90117356774f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:59:58 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4502: Ensure sort key always return an integer
+
+changeset:   3282:c9e06a9833e6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:58:22 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4501: Remove call to window_list_toplevels when destroying NoModal
+
+changeset:   3281:c7db4addd52d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:56:03 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4500: Always append ':' at the end of the string
+
+changeset:   3280:5ec6a61400fc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:53:50 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4498: Connect dict widgets to the right activate callback
+
+changeset:   3279:f5952f60dddb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:52:34 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4494: Use filled login to select profile
+
+changeset:   3278:be209d25ffbc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:51:19 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4493: Improve profile edition with empty and similar value
+
+changeset:   3277:01eca992d00e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:49:53 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4492: Do not recycle first record as product result
+
+changeset:   3276:9c737de85bc5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:48:08 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4491: Ensure translate_widget_set is always called with string
+
+changeset:   3275:05c03e643b59
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:39:28 2019 +0100
+summary:     gnuhealth client : Apply tryton changeset 4487: Fix domain inversion of child_of mixing M2O and Reference fields
+
+changeset:   3274:1deffd26078b
+user:        Chris Zimmerman <chris@teffalump.com>
+date:        Sat Mar 30 18:26:48 2019 -0700
+summary:     Task #15167: Add orthanc studies to imaging test results
+
+changeset:   3273:d9d96607433d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 30 15:55:17 2019 +0000
+summary:     Thalamus: Add root user to the demo datafile
+
+changeset:   3272:6e66a942d188
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Mar 20 11:04:40 2019 +0000
+summary:     Update GPL header dates
+
+changeset:   3271:e0e28bf1e5e5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 09 16:06:14 2019 +0000
+summary:     Update man page from HMIS core module and other docs
+
+changeset:   3270:7f18a000b67a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 09 15:25:27 2019 +0000
+summary:     update version files from HMIS  to 3.4.1
+
+changeset:   3269:6d131b6f10b6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 09 15:22:07 2019 +0000
+summary:     Update Changelog
+
+changeset:   3268:0066e3acae0f
+parent:      3266:f2fa96e89503
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 09 15:21:54 2019 +0000
+summary:     Update README file
+
+changeset:   3267:61b7bc7b1a78
+branch:      stable
+parent:      3265:bf2bf726ac59
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 17 23:17:20 2019 +0000
+summary:     GNU Health Setup : Fix bug #55942: pyBarcode has been removed from pypi
+
+changeset:   3266:f2fa96e89503
+parent:      3252:d7a226189360
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 17 23:17:20 2019 +0000
+summary:     GNU Health Setup : Fix bug #55942: pyBarcode has been removed from pypi
+
+changeset:   3265:bf2bf726ac59
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 09 16:23:21 2019 +0000
+summary:     HMIS : Update GPL dates
+
+changeset:   3264:09626eeeefa5
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 09 16:22:46 2019 +0000
+summary:     Update Changelog
+
 changeset:   3263:64e2d8aeaaf3
 branch:      stable
-tag:         tip
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Mar 09 16:06:14 2019 +0000
 summary:     Update man page from HMIS core module and other docs
@@ -25,7 +955,6 @@ summary:     Update README file
 
 changeset:   3259:e856b91b8528
 branch:      stable
-tag:         tip
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Mar 02 19:02:10 2019 +0000
 summary:     Update gnuhealth-control header

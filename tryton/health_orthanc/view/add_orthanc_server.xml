@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<form>
+    <group string="Server information" yfill="1" id="orthanc_group_add_server">
+        <label name="label"/>
+        <field name="label"/>
+        <label name="domain"/>
+        <field name="domain"/>
+    </group>
+    <group string="User credentials" yfill="1" id="orthanc_group_add_credentials">
+        <label name="user"/>
+        <field name="user"/>
+        <label name="password"/>
+        <field name="password"/>
+    </group>
+</form>

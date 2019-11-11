@@ -39,7 +39,7 @@ msgid "ID"
 msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,write_date:"
@@ -67,7 +67,7 @@ msgid "ID"
 msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,sector:"
@@ -99,7 +99,7 @@ msgid "ID"
 msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,specialty:"
@@ -159,7 +159,7 @@ msgid "ID"
 msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,write_date:"
@@ -262,6 +262,238 @@ msgctxt "model:ir.ui.menu,name:menu_top_diseases_open"
 msgid "Top Diseases"
 msgstr ""
 
+msgctxt "report:gnuhealth.summary.report:"
+msgid "-"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "0"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "0-4"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "10-14"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "100"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "104"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "105+ years old"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "15 – 45"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "15-19"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "20-24"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "25-29"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "30-34"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "35-39"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "40-44"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "45 – 60"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "45-49"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "5 – 14"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "5-9"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "50-54"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "55-59"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "60-64"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "65-69"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "70-74"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "75-79"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "80-84"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "85-89"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "90-94"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "95-"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "99"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "< 5"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "> 6"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Age range"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Birth"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Death"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Diagnostics"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Dx"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Evaluations"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Female"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "GNU Health Summary Report"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "In health system"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "In t"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Living Population"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Male"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Male stacked"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "No Age"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "No DoB"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Non-Dx"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Period"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Population Pyramid"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Print Date:"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Registrations"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "at"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "certs"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "chart"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "his period"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "new"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "to"
+msgstr ""
+
+msgctxt "report:gnuhealth.summary.report:"
+msgid "Σ"
+msgstr ""
+
 msgctxt "selection:gnuhealth.evaluations.open.start,group_by:"
 msgid "Doctor"
 msgstr ""
@@ -272,6 +504,30 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.evaluations.open.start,group_by:"
 msgid "Specialty"
+msgstr ""
+
+msgctxt "view:gnuhealth.evaluations_doctor:"
+msgid "Evaluations"
+msgstr ""
+
+msgctxt "view:gnuhealth.evaluations_sector:"
+msgid "Evaluations"
+msgstr ""
+
+msgctxt "view:gnuhealth.evaluations_specialty:"
+msgid "Evaluations"
+msgstr ""
+
+msgctxt "view:gnuhealth.summary.report.open.start:"
+msgid "Main"
+msgstr ""
+
+msgctxt "view:gnuhealth.summary.report.open.start:"
+msgid "Sections"
+msgstr ""
+
+msgctxt "view:gnuhealth.top_diseases:"
+msgid "Cases"
 msgstr ""
 
 msgctxt "wizard_button:gnuhealth.evaluations.open,start,end:"

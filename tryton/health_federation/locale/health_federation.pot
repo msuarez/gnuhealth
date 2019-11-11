@@ -1,0 +1,372 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:gnuhealth.federation.object:"
+msgid "The Model is already defined !"
+msgstr ""
+
+msgctxt "error:gnuhealth.federation.queue:"
+msgid "The Message ID must be unique !"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.config,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.config,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.config,enabled:"
+msgid "Enabled"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.config,host:"
+msgid "Thalamus server"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.config,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.config,password:"
+msgid "Password"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.config,port:"
+msgid "Port"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.config,rec_name:"
+msgid "Record Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.config,ssl:"
+msgid "SSL"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.config,user:"
+msgid "User"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.config,verify_ssl:"
+msgid "Verify SSL cert"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.config,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.config,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.object,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.object,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.object,enabled:"
+msgid "Enabled"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.object,fields:"
+msgid "Fields"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.object,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.object,model:"
+msgid "Model"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.object,rec_name:"
+msgid "Record Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.object,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.object,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.queue,args:"
+msgid "Arguments"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.queue,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.queue,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.queue,federation_locator:"
+msgid "Fed ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.queue,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.queue,method:"
+msgid "Method"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.queue,model:"
+msgid "Model"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.queue,msgid:"
+msgid "Message ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.queue,node:"
+msgid "Node"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.queue,rec_name:"
+msgid "Record Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.queue,state:"
+msgid "Status"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.queue,time_stamp:"
+msgid "Timestamp"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.queue,url_suffix:"
+msgid "URL suffix"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.queue,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.federation.queue,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.pol,fsync:"
+msgid "Fsync"
+msgstr ""
+
+msgctxt "field:party.party,fsync:"
+msgid "Fsync"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.config,enabled:"
+msgid "Mark if the node is active in the Federation"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.config,host:"
+msgid "GNU Health Thalamus server"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.config,password:"
+msgid "Password of the institution admin user in the Federation"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.config,port:"
+msgid "Thalamus port"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.config,ssl:"
+msgid "Use encrypted communication via SSL"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.config,user:"
+msgid "Admin associated to this institution"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.config,verify_ssl:"
+msgid ""
+"Check this option if your certificate has been emitted by a CA authority. If"
+" it is a self-signed certifiate leave it unchecked"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.object,enabled:"
+msgid "Check if the model is active to participate on the Federation"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.object,fields:"
+msgid ""
+"Contains a list of the local model fields that participate on the federation.\n"
+"Each line will have the format field:endpoint:key"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.object,model:"
+msgid "Local Model"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.queue,args:"
+msgid "Arguments"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.queue,federation_locator:"
+msgid ""
+"Unique locator in Federation, such as person Federation account or Page of "
+"Life code"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.queue,model:"
+msgid "Source Model"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.queue,msgid:"
+msgid "Message UID"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.queue,node:"
+msgid "The originating node id"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.queue,time_stamp:"
+msgid "UTC timestamp at the moment of writing record on the node"
+msgstr ""
+
+msgctxt "help:gnuhealth.federation.queue,url_suffix:"
+msgid "suffix to be passed to the URL"
+msgstr ""
+
+msgctxt "help:gnuhealth.pol,fsync:"
+msgid "If active, this record information will be sent to the Federation"
+msgstr ""
+
+msgctxt "help:party.party,fsync:"
+msgid "If active, this record information will be sent to the Federation"
+msgstr ""
+
+msgctxt "model:gnuhealth.federation.config,name:"
+msgid "Federation Node Configuration"
+msgstr ""
+
+msgctxt "model:gnuhealth.federation.object,name:"
+msgid "Federation Object"
+msgstr ""
+
+msgctxt "model:gnuhealth.federation.queue,name:"
+msgid "Federation Queue"
+msgstr ""
+
+msgctxt "model:ir.action,name:gnuhealth_action_federation_config"
+msgid "Node Configuration"
+msgstr ""
+
+msgctxt "model:ir.action,name:gnuhealth_action_federation_object"
+msgid "Federation Objects"
+msgstr ""
+
+msgctxt "model:ir.action,name:gnuhealth_action_federation_queue"
+msgid "Federation Queue Manager"
+msgstr ""
+
+msgctxt "model:ir.action.act_window.domain,name:act_gnuhealth_fedq_domain_all"
+msgid "All"
+msgstr ""
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_gnuhealth_fedq_domain_failed"
+msgid "Failed"
+msgstr ""
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_gnuhealth_fedq_domain_queued"
+msgid "Queued"
+msgstr ""
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_gnuhealth_fedq_domain_sent"
+msgid "Sent"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_federation_config"
+msgid "Node Configuration"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_federation_object"
+msgid "Federation Objects"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_federation_queue"
+msgid "Federation Queue Manager"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_federation"
+msgid "Federation"
+msgstr ""
+
+msgctxt "model:res.group,name:group_health_federation_admin"
+msgid "Health Federation Administration"
+msgstr ""
+
+msgctxt "selection:gnuhealth.federation.queue,method:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.federation.queue,method:"
+msgid "DELETE"
+msgstr ""
+
+msgctxt "selection:gnuhealth.federation.queue,method:"
+msgid "GET"
+msgstr ""
+
+msgctxt "selection:gnuhealth.federation.queue,method:"
+msgid "PATCH"
+msgstr ""
+
+msgctxt "selection:gnuhealth.federation.queue,method:"
+msgid "POST"
+msgstr ""
+
+msgctxt "selection:gnuhealth.federation.queue,state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.federation.queue,state:"
+msgid "Failed"
+msgstr ""
+
+msgctxt "selection:gnuhealth.federation.queue,state:"
+msgid "Queued"
+msgstr ""
+
+msgctxt "selection:gnuhealth.federation.queue,state:"
+msgid "Sent"
+msgstr ""
+
+msgctxt "view:gnuhealth.federation.config:"
+msgid "Test Connection"
+msgstr ""
+
+msgctxt "view:gnuhealth.federation.config:"
+msgid "Test Connection to Thalamus server"
+msgstr ""
+
+msgctxt "view:gnuhealth.federation.config:"
+msgid "Test Thalamus connection"
+msgstr ""
+
+msgctxt "view:gnuhealth.federation.queue:"
+msgid "Arguments"
+msgstr ""
+
+msgctxt "view:gnuhealth.federation.queue:"
+msgid "Send"
+msgstr ""
+
+msgctxt "view:gnuhealth.federation.queue:"
+msgid "Send the record to the Federation"
+msgstr ""

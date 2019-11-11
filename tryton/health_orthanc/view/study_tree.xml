@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tree>
+    <field name="patient" expand="1"/>
+    <field name="description" expand="1"/>
+    <field name="date" expand="1"/>
+    <field name="institution" expand="1"/>
+    <field name="ref_phys" expand="1"/>
+    <field name="req_phys" expand="1"/>
+    <field name="link" widget="url"/>
+</tree>
