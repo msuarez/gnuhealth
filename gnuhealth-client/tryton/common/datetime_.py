@@ -1,19 +1,14 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gettext
 import datetime
 
-import pygtk
-
-pygtk.require('2.0')
-
-import gobject
-import gtk
+from gi.repository import Gdk, GObject, Gtk
 
 from dateutil.relativedelta import relativedelta
 from dateutil.parser import parse
 
-from datetime_strftime import datetime_strftime as strftime
+from .common import IconFactory
 
 __all__ = ['Date', 'CellRendererDate', 'Time', 'CellRendererTime', 'DateTime']
 
@@ -21,59 +16,75 @@ _ = gettext.gettext
 
 
 def date_parse(text, format_='%x'):
+    try:
+        return datetime.datetime.strptime(text, format_)
+    except ValueError:
+        pass
     formatted_date = datetime.date(1988, 7, 16).strftime(format_)
-    dayfirst = formatted_date.index('16') == 0
-    monthfirst = formatted_date.index('7') <= 1
+    try:
+        dayfirst = formatted_date.index('16') == 0
+    except ValueError:
+        dayfirst = False
+    try:
+        monthfirst = formatted_date.index('7') <= 1
+    except ValueError:
+        monthfirst = False
     yearfirst = not dayfirst and not monthfirst
     return parse(text, dayfirst=dayfirst, yearfirst=yearfirst, ignoretz=True)
 
 
-class Date(gtk.Entry):
+class Date(Gtk.Entry):
     __gtype_name__ = 'Date'
     __gproperties__ = {
-        'value': (gobject.TYPE_PYOBJECT,
+        'value': (GObject.TYPE_PYOBJECT,
             _('Value'),
             _('Displayed value'),
-            gobject.PARAM_READABLE | gobject.PARAM_WRITABLE),
-        'format': (gobject.TYPE_STRING,
+            GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE),
+        'format': (GObject.TYPE_STRING,
             '%x',
             _('Format'),
             _('Display format'),
-            gobject.PARAM_READABLE | gobject.PARAM_WRITABLE),
+            GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE),
         }
     __gsignals__ = {
-        'date-changed': (gobject.SIGNAL_RUN_LAST | gobject.SIGNAL_ACTION,
-            gobject.TYPE_NONE, ()),
+        'date-changed': (
+            GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
+            GObject.TYPE_NONE, ()),
         }
 
     def __init__(self):
         self.__date = None
         self.__format = '%x'
 
-        gtk.Entry.__init__(self)
+        Gtk.Entry.__init__(self)
 
-        self.set_width_chars(12)
+        self.set_width_chars(20)
 
         self.connect('focus-out-event', self.focus_out)
         self.connect('activate', self.activate)
 
         # Calendar Popup
-        self.set_icon_from_stock(gtk.ENTRY_ICON_SECONDARY, 'tryton-find')
-        self.set_icon_tooltip_text(gtk.ENTRY_ICON_SECONDARY,
+        self.set_icon_from_pixbuf(
+            Gtk.EntryIconPosition.PRIMARY,
+            IconFactory.get_pixbuf('tryton-date', Gtk.IconSize.MENU))
+        self.set_icon_tooltip_text(
+            Gtk.EntryIconPosition.PRIMARY,
             _('Open the calendar'))
         self.connect('icon-press', self.icon_press)
 
-        self.__cal_popup = gtk.Window(gtk.WINDOW_POPUP)
+        self.__cal_popup = Gtk.Window(type=Gtk.WindowType.POPUP)
         self.__cal_popup.set_events(
-            self.__cal_popup.get_events() | gtk.gdk.KEY_PRESS_MASK)
+            self.__cal_popup.get_events() | Gdk.EventMask.KEY_PRESS_MASK)
         self.__cal_popup.set_resizable(False)
         self.__cal_popup.connect('delete-event', self.cal_popup_closed)
         self.__cal_popup.connect('key-press-event', self.cal_popup_key_pressed)
         self.__cal_popup.connect('button-press-event',
             self.cal_popup_button_pressed)
 
-        self.__calendar = gtk.Calendar()
-        cal_options = gtk.CALENDAR_SHOW_DAY_NAMES | gtk.CALENDAR_SHOW_HEADING
+        self.__calendar = Gtk.Calendar()
+        cal_options = (
+            Gtk.CalendarDisplayOptions.SHOW_DAY_NAMES |
+            Gtk.CalendarDisplayOptions.SHOW_HEADING)
         self.__calendar.set_display_options(cal_options)
         self.__cal_popup.add(self.__calendar)
         self.__calendar.connect('day-selected', self.cal_popup_changed)
@@ -96,11 +107,11 @@ class Date(gtk.Entry):
         if not self.__date:
             self.set_text('')
             return
-        self.set_text(strftime(self.__date, self.__format))
+        self.set_text(self.__date.strftime(self.__format))
 
     def icon_press(self, entry, icon_pos, event):
         self.grab_focus()
-        if icon_pos == gtk.ENTRY_ICON_SECONDARY:
+        if icon_pos == Gtk.EntryIconPosition.PRIMARY:
             self.cal_popup_open()
 
     def cal_popup_open(self):
@@ -125,18 +136,19 @@ class Date(gtk.Entry):
         self.cal_popup_hide()
 
     def cal_popup_key_pressed(self, calendar, event):
-        if event.keyval != gtk.keysyms.Escape:
+        if event.keyval != Gdk.KEY_Escape:
             return False
 
-        self.stop_emission('key-press-event')
+        self.stop_emission_by_name('key-press-event')
         self.cal_popup_hide()
         return True
 
     def cal_popup_button_pressed(self, calendar, event):
         child = event.window
-        if child != calendar.window:
+        window = calendar.get_window()
+        if child != window:
             while child:
-                if child == calendar.window:
+                if child == window:
                     return False
                 child = child.get_parent()
         self.cal_popup_hide()
@@ -152,9 +164,11 @@ class Date(gtk.Entry):
         self.emit('date-changed')
 
     def focus_out(self, entry, event):
+        previous_date = self.__date
         self.parse()
         self.update_label()
-        self.emit('date-changed')
+        if self.__date != previous_date:
+            self.emit('date-changed')
         return False
 
     def activate(self, entry=None):
@@ -165,7 +179,7 @@ class Date(gtk.Entry):
 
     def do_set_property(self, prop, value):
         if prop.name == 'value':
-            if isinstance(value, basestring):
+            if isinstance(value, str):
                 self.set_text(value)
                 self.parse()
                 value = self.__date
@@ -175,6 +189,7 @@ class Date(gtk.Entry):
                 assert isinstance(value, datetime.date), value
             self.__date = value
             self.update_label()
+            self.emit('date-changed')
         elif prop.name == 'format':
             self.__format = value
             self.update_label()
@@ -185,73 +200,96 @@ class Date(gtk.Entry):
         elif prop.name == 'format':
             return self.__format
 
-gobject.type_register(Date)
+
+GObject.type_register(Date)
 
 
-class CellRendererDate(gtk.CellRendererText):
+class CellRendererDate(Gtk.CellRendererText):
     __gproperties__ = {
-        'format': (gobject.TYPE_STRING,
+        'format': (GObject.TYPE_STRING,
             _('Format'),
             _('Display format'),
             '%x',
-            gobject.PARAM_READABLE | gobject.PARAM_WRITABLE),
+            GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE),
         }
 
     def __init__(self):
         self.__format = '%x'
+        self.__entry = None
+        self.__focus_out_id = 0
 
-        gtk.CellRendererText.__init__(self)
+        Gtk.CellRendererText.__init__(self)
 
     def do_set_property(self, prop, value):
         if prop.name == 'format':
             self.__format = value
             return
-        gtk.CellRendererText.set_property(self, prop, value)
+        Gtk.CellRendererText.set_property(self, prop, value)
 
     def do_get_property(self, prop):
         if prop.name == 'format':
             return self.__format
-        return gtk.CellRendererText.get_property(self, prop)
+        return Gtk.CellRendererText.get_property(self, prop)
 
     def do_start_editing(
             self, event, widget, path, background_area, cell_area, flags):
-        widget = add_operators(Date())  # TODO add_operators has option
-        widget.props.format = self.props.format
-        widget.props.value = self.props.text
-        if self.props.background_set:
-            widget.modify_base(gtk.STATE_NORMAL, self.props.background_gdk)
-        if self.props.foreground_set:
-            widget.modify_fg(gtk.STATE_NORMAL, self.props.foreground_gdk)
-        widget.grab_focus()
-        widget.show()
-        return widget
+        if not self.props.editable:
+            return
+        self.__entry = add_operators(Date())  # TODO add_operators has option
+        self.__entry.props.format = self.props.format
+        self.__entry.props.value = self.props.text
+        self.__entry.set_has_frame(False)
+        self.__entry.connect('editing-done', self.__editing_done)
+        self.__focus_out_id = self.__entry.connect(
+            'focus-out-event', self.__focus_out_event)
+        # XXX focus-out-event
+        self.__entry.show()
+        return self.__entry
 
-gobject.type_register(CellRendererDate)
+    def __editing_done(self, entry):
+        self.__entry = None
+        if self.__focus_out_id:
+            entry.disconnect(self.__focus_out_id)
+        canceled = entry.props.editing_canceled
+        self.stop_editing(canceled)
+        if canceled:
+            return
+        # TODO emit edited
+
+    def __focus_out_event(self, entry, event):
+        entry.props.editing_canceled = True
+        entry.editing_done()
+        entry.remove_widget()
+        return False
 
 
-class Time(gtk.ComboBoxEntry):
+GObject.type_register(CellRendererDate)
+
+
+class Time(Gtk.ComboBox):
     __gtype_name__ = 'Time'
     __gproperties__ = {
-        'value': (gobject.TYPE_PYOBJECT,
+        'value': (GObject.TYPE_PYOBJECT,
             _('Value'),
             _('Displayed value'),
-            gobject.PARAM_READABLE | gobject.PARAM_WRITABLE),
-        'format': (gobject.TYPE_STRING,
+            GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE),
+        'format': (GObject.TYPE_STRING,
             _('Format'),
             _('Display format'),
             '%X',
-            gobject.PARAM_READABLE | gobject.PARAM_WRITABLE),
+            GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE),
         }
     __gsignals__ = {
-        'time-changed': (gobject.SIGNAL_RUN_LAST | gobject.SIGNAL_ACTION,
-            gobject.TYPE_NONE, ()),
+        'time-changed': (
+            GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
+            GObject.TYPE_NONE, ()),
         }
 
     def __init__(self):
         self.__time = None
         self.__format = '%X'
 
-        gtk.ComboBoxEntry.__init__(self)
+        Gtk.ComboBox.__init__(self, has_entry=True)
 
         self.__entry = self.get_child()
         self.__entry.set_width_chars(10)
@@ -260,11 +298,11 @@ class Time(gtk.ComboBoxEntry):
         self.__entry.connect('activate', self.activate)
         self.connect('changed', self.changed)
 
-        self.__model = gtk.ListStore(
-            gobject.TYPE_STRING, gobject.TYPE_PYOBJECT)
+        self.__model = Gtk.ListStore(
+            GObject.TYPE_STRING, GObject.TYPE_PYOBJECT)
         self.update_model()
         self.set_model(self.__model)
-        self.set_text_column(0)
+        self.set_entry_text_column(0)
 
     def parse(self):
         text = self.__entry.get_text()
@@ -313,7 +351,7 @@ class Time(gtk.ComboBoxEntry):
 
     def do_set_property(self, prop, value):
         if prop.name == 'value':
-            if isinstance(value, basestring):
+            if isinstance(value, str):
                 self.__entry.set_text(value)
                 self.parse()
                 value = self.__time
@@ -322,6 +360,7 @@ class Time(gtk.ComboBoxEntry):
                     value = value.time()
             self.__time = value
             self.update_label()
+            self.emit('time-changed')
         elif prop.name == 'format':
             self.__format = value
             self.update_label()
@@ -333,89 +372,110 @@ class Time(gtk.ComboBoxEntry):
         elif prop.name == 'format':
             return self.__format
 
-gobject.type_register(Time)
+
+GObject.type_register(Time)
 
 
-class CellRendererTime(gtk.CellRendererText):
+class CellRendererTime(Gtk.CellRendererCombo):
     __gproperties__ = {
-        'format': (gobject.TYPE_STRING,
+        'format': (GObject.TYPE_STRING,
             '%X',
             _('Format'),
             _('Display format'),
-            gobject.PARAM_READABLE | gobject.PARAM_WRITABLE),
+            GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE),
         }
 
     def __init__(self):
         self.__format = '%X'
+        self.__combo = None
+        self.__focus_out_id = 0
 
-        gtk.CellRendererText.__init__(self)
+        Gtk.CellRendererText.__init__(self)
 
     def do_set_property(self, prop, value):
         if prop.name == 'format':
             self.__format = value
             return
-        gtk.CellRendererText.set_property(self, prop, value)
+        Gtk.CellRendererText.set_property(self, prop, value)
 
     def do_get_property(self, prop):
         if prop.name == 'format':
             return self.__format
-        return gtk.CellRendererText.get_property(self, prop)
+        return Gtk.CellRendererText.get_property(self, prop)
 
     def do_start_editing(
             self, event, widget, path, background_area, cell_area, flags):
         if not self.props.editable:
             return
-        widget = add_operators(Time())  # TODO add_operators has option
-        widget.props.format = self.props.format
-        widget.props.value = self.props.text
-        if self.props.background_set:
-            widget.modify_base(gtk.STATE_NORMAL, self.props.background_gdk)
-        if self.props.foreground_set:
-            widget.modify_fg(gtk.STATE_NORMAL, self.props.foreground_gdk)
-        widget.grab_focus()
-        widget.show()
-        return widget
+        self.__combo = add_operators(Time())  # TODO add_operators has option
+        self.__combo.props.format = self.props.format
+        self.__combo.props.value = self.props.text
+        self.__combo.props.has_frame = False
+        self.__combo.connect('editing-done', self.__editing_done)
+        # TODO: connect to changed
+        self.__focus_out_id = self.__combo.connect(
+            'focus-out-event', self.__focus_out_event)
+        self.__combo.show()
+        return self.__combo
 
-gobject.type_register(CellRendererTime)
+    def __editing_done(self, combo):
+        self.__combo = None
+        canceled = combo.props.editing_canceled
+        self.stop_editing(canceled)
+        if canceled:
+            return
+        # TODO emit edited
+
+    def __focus_out_event(self, combo, event):
+        self.__editing_done(combo)
+        return False
 
 
-class DateTime(gtk.HBox):
+GObject.type_register(CellRendererTime)
+
+
+class DateTime(Gtk.HBox):
     __gtype_name__ = 'DateTime'
     __gproperties__ = {
-        'value': (gobject.TYPE_PYOBJECT,
+        'value': (GObject.TYPE_PYOBJECT,
             _('Value'),
             _('Displayed value'),
-            gobject.PARAM_READABLE | gobject.PARAM_WRITABLE),
-        'date-format': (gobject.TYPE_STRING,
+            GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE),
+        'date-format': (GObject.TYPE_STRING,
             '%x',
             _('Date Format'),
             _('Displayed date format'),
-            gobject.PARAM_READABLE | gobject.PARAM_WRITABLE),
-        'time-format': (gobject.TYPE_STRING,
+            GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE),
+        'time-format': (GObject.TYPE_STRING,
             '%X',
             _('Date Format'),
             _('Displayed date format'),
-            gobject.PARAM_READABLE | gobject.PARAM_WRITABLE),
+            GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE),
         }
     __gsignals__ = {
-        'datetime-changed': (gobject.SIGNAL_RUN_LAST | gobject.SIGNAL_ACTION,
-            gobject.TYPE_NONE, ()),
+        'datetime-changed': (
+            GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
+            GObject.TYPE_NONE, ()),
         }
 
     def __init__(self):
-        gtk.HBox.__init__(self, spacing=4)
+        Gtk.HBox.__init__(self, spacing=4)
 
         self.__date = Date()
-        self.pack_start(self.__date, True, True, 0)
+        self.pack_start(self.__date, expand=True, fill=True, padding=0)
         self.__date.show()
         self.__date.connect('date-changed',
             lambda e: self.emit('datetime-changed'))
 
         self.__time = Time()
-        self.pack_start(self.__time, True, True, 0)
+        self.pack_start(self.__time, expand=True, fill=True, padding=0)
         self.__time.show()
         self.__time.connect('time-changed',
             lambda e: self.emit('datetime-changed'))
+
+    def parse(self):
+        self.__date.parse()
+        self.__time.parse()
 
     def do_set_property(self, prop, value):
         if prop.name == 'value':
@@ -455,17 +515,14 @@ class DateTime(gtk.HBox):
         self.__date.modify_text(state, color)
         self.__time.child.modify_text(state, color)
 
-gobject.type_register(DateTime)
+
+GObject.type_register(DateTime)
 
 
 def popup_position(widget, popup):
     allocation = widget.get_allocation()
-    if hasattr(widget.window, 'get_root_coords'):
-        x, y = widget.window.get_root_coords(allocation.x, allocation.y)
-    else:
-        x, y = widget.window.get_origin()
-    width, height = popup.size_request()
-    popup.move(x + allocation.width - width, y + allocation.height)
+    x, y = widget.get_window().get_root_coords(allocation.x, allocation.y)
+    popup.move(x, y + allocation.height)
 
 
 def popup_show(popup):
@@ -473,18 +530,19 @@ def popup_show(popup):
     popup.grab_focus()
     popup.grab_add()
 
-    cursor = gtk.gdk.Cursor(gtk.gdk.ARROW)
-    gtk.gdk.pointer_grab(popup.window, True,
-        (gtk.gdk.BUTTON_PRESS_MASK
-            | gtk.gdk.BUTTON_RELEASE_MASK
-            | gtk.gdk.POINTER_MOTION_MASK),
-        None, cursor, 0L)
+    window = popup.get_window()
+    display = window.get_display()
+    seat = display.get_default_seat()
+    seat.grab(window, Gdk.SeatCapabilities.ALL, True, None, None, None, None)
 
 
 def popup_hide(popup):
     popup.hide()
     popup.grab_remove()
-    gtk.gdk.pointer_ungrab(0L)
+    window = popup.get_window()
+    display = window.get_display()
+    seat = display.get_default_seat()
+    seat.ungrab()
 
 
 def timelist_set_list(model, min_, max_, format_):
@@ -494,10 +552,10 @@ def timelist_set_list(model, min_, max_, format_):
         model.append((time.strftime(format_), time))
         hour = time.hour
         minute = time.minute + delta
-        hour += minute / 60
+        hour, minute = divmod(minute, 60)
+        hour += time.hour
         if hour >= 24:
             break
-        minute = minute % 60
         time = datetime.time(hour, minute)
 
 
@@ -516,7 +574,7 @@ def add_operators(widget):
                 except TypeError:
                     return False
             return True
-        elif event.keyval in (gtk.keysyms.KP_Equal, gtk.keysyms.equal):
+        elif event.keyval in (Gdk.KEY_KP_Equal, Gdk.KEY_equal):
             widget.props.value = datetime.datetime.now()
             return True
         return False
@@ -525,55 +583,56 @@ def add_operators(widget):
         for child in widget.get_children():
             add_operators(child)
         return widget
-    if isinstance(widget, gtk.ComboBoxEntry):
+    if isinstance(widget, Gtk.ComboBox):
         editable = widget.get_child()
     else:
         editable = widget
     editable.connect('key-press-event', key_press)
     return widget
 
+
 OPERATORS = {
-    gtk.keysyms.S: relativedelta(seconds=-1),
-    gtk.keysyms.s: relativedelta(seconds=1),
-    gtk.keysyms.I: relativedelta(minutes=-1),
-    gtk.keysyms.i: relativedelta(minutes=1),
-    gtk.keysyms.H: relativedelta(hours=-1),
-    gtk.keysyms.h: relativedelta(hours=1),
-    gtk.keysyms.D: relativedelta(days=-1),
-    gtk.keysyms.d: relativedelta(days=1),
-    gtk.keysyms.W: relativedelta(weeks=-1),
-    gtk.keysyms.w: relativedelta(weeks=1),
-    gtk.keysyms.M: relativedelta(months=-1),
-    gtk.keysyms.m: relativedelta(months=1),
-    gtk.keysyms.Y: relativedelta(years=-1),
-    gtk.keysyms.y: relativedelta(years=1),
+    Gdk.KEY_S: relativedelta(seconds=-1),
+    Gdk.KEY_s: relativedelta(seconds=1),
+    Gdk.KEY_I: relativedelta(minutes=-1),
+    Gdk.KEY_i: relativedelta(minutes=1),
+    Gdk.KEY_H: relativedelta(hours=-1),
+    Gdk.KEY_h: relativedelta(hours=1),
+    Gdk.KEY_D: relativedelta(days=-1),
+    Gdk.KEY_d: relativedelta(days=1),
+    Gdk.KEY_W: relativedelta(weeks=-1),
+    Gdk.KEY_w: relativedelta(weeks=1),
+    Gdk.KEY_M: relativedelta(months=-1),
+    Gdk.KEY_m: relativedelta(months=1),
+    Gdk.KEY_Y: relativedelta(years=-1),
+    Gdk.KEY_y: relativedelta(years=1),
     }
 
 if __name__ == '__main__':
-    win = gtk.Window()
-    win.connect('delete-event', gtk.main_quit)
+    win = Gtk.Window()
+    win.connect('delete-event', Gtk.main_quit)
 
-    v = gtk.VBox()
+    v = Gtk.VBox()
     v.show()
 
     d = add_operators(Date())
     d.show()
-    v.pack_start(d, False, False)
+    v.pack_start(d, expand=False, fill=False, padding=0)
 
     t = add_operators(Time())
     t.show()
-    v.pack_start(t, False, False)
+    v.pack_start(t, expand=False, fill=False, padding=0)
 
     t = add_operators(Time())
     t.props.format = '%H:%M'
     t.show()
-    v.pack_start(t, False, False)
+    v.pack_start(t, expand=False, fill=False, padding=0)
 
     dt = add_operators(DateTime())
     dt.show()
-    v.pack_start(dt, False, False)
+    v.pack_start(dt, expand=False, fill=False, padding=0)
 
     win.add(v)
     win.show()
 
-    gtk.main()
+    Gtk.main()

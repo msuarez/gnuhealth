@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 "Signal event"
 
@@ -6,7 +6,8 @@
 class SignalEvent(object):
     "Signal event"
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
+        super(SignalEvent, self).__init__(*args, **kwargs)
         self.__connects = {}
 
     def signal(self, signal, signal_data=None):
@@ -25,7 +26,7 @@ class SignalEvent(object):
 
     def signal_unconnect(self, key, signal=None):
         if signal is None:
-            signal = self.__connects.keys()
+            signal = list(self.__connects.keys())
         else:
             signal = [signal]
         for sig in signal:

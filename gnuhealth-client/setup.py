@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # This file if part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 
@@ -18,7 +18,7 @@ setup(name=name,
     long_description=long_desc,
     author='GNU Solidario',
     author_email='health@gnu.org',
-    url='http://health.gnu.org',
+    url='http://www.gnuhealth.org',
     download_url=download_url,
     keywords='eHealth ERM HMIS LIMS',
     scripts=['bin/gnuhealth-client'],
@@ -31,22 +31,22 @@ setup(name=name,
         'Intended Audience :: Science/Research',
         'License :: OSI Approved :: GNU General Public License (GPL)',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.7',
         'Topic :: Scientific/Engineering :: Bio-Informatics',
         'Topic :: Scientific/Engineering :: Medical Science Apps.',
         ],
     platforms='any',
-    license='GPL v3',
+    license='GPL v3+',
+    python_requires='>=3.6,<4',
     install_requires=[
+        'pycairo',
         "python-dateutil",
-        "chardet",
+        'PyGObject',
         ],
     extras_require={
-        'cdecimal': ['cdecimal'],
-        'calendar': ['GooCalendar'],
+        'calendar': ['GooCalendar>=0.5'],
         },
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
-    python_requires='>=2.7,<3',
 )

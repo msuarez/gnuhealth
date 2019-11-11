@@ -1,15 +1,18 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 "Preference"
 import gettext
-import gtk
 import copy
-from tryton.gui.window.view_form.screen import Screen
-from tryton.config import GNUHEALTH_ICON
-from tryton.common import RPCExecute, RPCException, Login
-from tryton.gui.window.nomodal import NoModal
-from tryton.exceptions import TrytonError
+
+from gi.repository import Gdk, Gtk
+
 import tryton.rpc as rpc
+from tryton.common import RPCExecute, RPCException, IconFactory
+from tryton.common.underline import set_underline
+from tryton.config import GNUHEALTH_ICON
+from tryton.gui import Main
+from tryton.gui.window.nomodal import NoModal
+from tryton.gui.window.view_form.screen import Screen
 
 _ = gettext.gettext
 
@@ -20,21 +23,31 @@ class Preference(NoModal):
     def __init__(self, user, callback):
         NoModal.__init__(self)
         self.callback = callback
-        self.win = gtk.Dialog(_('Preferences'), self.parent,
-            gtk.DIALOG_DESTROY_WITH_PARENT)
-        self.win.set_position(gtk.WIN_POS_CENTER_ON_PARENT)
+        self.win = Gtk.Dialog(
+            title=_('Preferences'), transient_for=self.parent,
+            destroy_with_parent=True)
+        Main().add_window(self.win)
+        self.win.set_position(Gtk.WindowPosition.CENTER_ON_PARENT)
         self.win.set_icon(GNUHEALTH_ICON)
 
-        self.accel_group = gtk.AccelGroup()
+        self.accel_group = Gtk.AccelGroup()
         self.win.add_accel_group(self.accel_group)
 
-        self.but_cancel = self.win.add_button(gtk.STOCK_CANCEL,
-                gtk.RESPONSE_CANCEL)
-        self.but_ok = self.win.add_button(gtk.STOCK_OK, gtk.RESPONSE_OK)
-        self.but_ok.add_accelerator('clicked', self.accel_group,
-                gtk.keysyms.Return, gtk.gdk.CONTROL_MASK, gtk.ACCEL_VISIBLE)
+        self.but_cancel = self.win.add_button(
+            set_underline(_("Cancel")), Gtk.ResponseType.CANCEL)
+        self.but_cancel.set_image(
+            IconFactory.get_image('tryton-cancel', Gtk.IconSize.BUTTON))
+        self.but_cancel.set_always_show_image(True)
+        self.but_ok = self.win.add_button(
+            set_underline(_("OK")), Gtk.ResponseType.OK)
+        self.but_ok.set_image(
+            IconFactory.get_image('tryton-ok', Gtk.IconSize.BUTTON))
+        self.but_ok.set_always_show_image(True)
+        self.but_ok.add_accelerator(
+            'clicked', self.accel_group, Gdk.KEY_Return,
+            Gdk.ModifierType.CONTROL_MASK, Gtk.AccelFlags.VISIBLE)
 
-        self.win.set_default_response(gtk.RESPONSE_OK)
+        self.win.set_default_response(Gtk.ResponseType.OK)
         self.win.connect('response', self.response)
 
         try:
@@ -45,9 +58,9 @@ class Preference(NoModal):
             self.win = None
             return
 
-        title = gtk.Label(_('Edit User Preferences'))
+        title = Gtk.Label(label=_('Edit User Preferences'))
         title.show()
-        self.win.vbox.pack_start(title, expand=False, fill=True)
+        self.win.vbox.pack_start(title, expand=False, fill=True, padding=0)
         self.screen = Screen('res.user', mode=[])
         # Reset readonly set automaticly by MODELACCESS
         self.screen.readonly = False
@@ -71,29 +84,23 @@ class Preference(NoModal):
         self.screen.display(set_cursor=True)
 
         self.screen.widget.show()
-        self.win.vbox.pack_start(self.screen.widget)
+        self.win.vbox.pack_start(
+            self.screen.widget, expand=True, fill=True, padding=0)
         self.win.set_title(_('Preference'))
 
-        width, height = self.parent.get_size()
-        self.win.set_default_size(int(width * 0.9), int(height * 0.9))
+        self.win.set_default_size(*self.default_size())
 
         self.register()
         self.win.show()
 
     def response(self, win, response_id):
-        if response_id == gtk.RESPONSE_OK:
+        if response_id == Gtk.ResponseType.OK:
             if self.screen.current_record.validate():
                 vals = copy.copy(self.screen.get())
-                context = rpc.CONTEXT.copy()
-                func = lambda parameters: rpc.execute(
-                    'model', 'res.user', 'set_preferences', vals, parameters,
-                    context)
                 try:
-                    Login(func)
-                except TrytonError, exception:
-                    if exception.faultCode == 'QueryCanceled':
-                        return
-                    raise
+                    RPCExecute('model', 'res.user', 'set_preferences', vals)
+                except RPCException:
+                    return
         self.parent.present()
         self.destroy()
         self.callback()

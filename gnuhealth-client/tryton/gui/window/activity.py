@@ -1,5 +1,5 @@
-#  Copyright (C) 2017 - 2018 Luis Falcon <falcon@gnu.org>
-#  Copyright (C) 2017 - 2018 GNU Solidario <health@gnusolidario.org>
+#  Copyright (C) 2017 - 2019 Luis Falcon <falcon@gnuhealth.org>
+#  Copyright (C) 2017 - 2019 GNU Solidario <health@gnusolidario.org>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -18,26 +18,24 @@
 #  
 
 from tryton.config import GNUHEALTH_ICON
-import gtk
+from gi.repository import Gtk
 
 class Activity():
     "GNU Health client Activity Logger"
-    
-    activity_window = gtk.Window()
+    activity_window = Gtk.Window()
     activity_window.set_default_size(500, 500)
     activity_window.set_title("Activity log - GNU Health ")
     activity_window.set_icon(GNUHEALTH_ICON)
 
-    sw = gtk.ScrolledWindow()
-    sw.set_policy(gtk.POLICY_AUTOMATIC, False)
+    sw = Gtk.ScrolledWindow()
+    sw.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
 
     # TextView
-    activity = gtk.TextView()
+    activity = Gtk.TextView()
     sw.add(activity)
-    
+
     # Make it read-only
     activity.set_editable(False) 
     textbuffer = activity.get_buffer()
-    
-    activity_window.add(sw)
 
+    activity_window.add(sw)

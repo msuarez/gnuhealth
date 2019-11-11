@@ -1,20 +1,23 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
-import gtk
-import gobject
 import gettext
 
+from gi.repository import Gdk, GLib, Gtk
+
 import tryton.common as common
-from tryton.gui.window.nomodal import NoModal
-from tryton.common import GNUHEALTH_ICON
 from tryton.common import RPCExecute, RPCException
+from tryton.common import GNUHEALTH_ICON
+from tryton.common.underline import set_underline
 from tryton.common.widget_style import widget_class
+from tryton.gui import Main
+from tryton.gui.window.nomodal import NoModal
 
 _ = gettext.gettext
 
 
 class Widget(object):
     expand = False
+    default_width_chars = 25
 
     def __init__(self, view, attrs):
         super(Widget, self).__init__()
@@ -35,12 +38,13 @@ class Widget(object):
 
     @property
     def record(self):
-        return self.view.screen.current_record
+        return self.view.record
 
     @property
     def field(self):
         if self.record:
             return self.record.group.fields[self.field_name]
+        return None
 
     def destroy(self):
         pass
@@ -59,6 +63,14 @@ class Widget(object):
         return self.widget
 
     @property
+    def _invalid_widget(self):
+        return self.widget
+
+    @property
+    def _required_widget(self):
+        return self.widget
+
+    @property
     def modified(self):
         return False
 
@@ -72,9 +84,9 @@ class Widget(object):
         def get_value():
             if not self.widget.props.window:
                 return
-            gobject.timeout_add(300, send, self.get_value())
+            GLib.timeout_add(300, send, self.get_value())
         # Wait the current event is finished to retreive the value
-        gobject.idle_add(get_value)
+        GLib.idle_add(get_value)
         return False
 
     def invisible_set(self, value):
@@ -91,15 +103,15 @@ class Widget(object):
             return False
         if not self.visible:
             return False
-        self.set_value(self.record, self.field)
+        self.set_value()
 
-    def display(self, record, field):
-        if not field:
+    def display(self):
+        if not self.field:
             self._readonly_set(self.attrs.get('readonly', True))
             self.invisible_set(self.attrs.get('invisible', False))
             self._required_set(False)
             return
-        states = field.get_state_attrs(record)
+        states = self.field.get_state_attrs(self.record)
         readonly = self.attrs.get('readonly', states.get('readonly', False))
         if self.view.screen.readonly:
             readonly = True
@@ -107,14 +119,14 @@ class Widget(object):
         widget_class(self.widget, 'readonly', readonly)
         self._required_set(not readonly and states.get('required', False))
         widget_class(
-            self.widget, 'required',
+            self._required_widget, 'required',
             not readonly and states.get('required', False))
         invalid = states.get('invalid', False)
-        widget_class(self.widget, 'invalid', not readonly and invalid)
+        widget_class(self._invalid_widget, 'invalid', not readonly and invalid)
         self.invisible_set(self.attrs.get(
                 'invisible', states.get('invisible', False)))
 
-    def set_value(self, record, field):
+    def set_value(self):
         pass
 
 
@@ -123,33 +135,44 @@ class TranslateDialog(NoModal):
     def __init__(self, widget, languages, readonly):
         NoModal.__init__(self)
         self.widget = widget
-        self.win = gtk.Dialog(_('Translation'), self.parent,
-            gtk.DIALOG_DESTROY_WITH_PARENT)
-        self.win.set_position(gtk.WIN_POS_CENTER_ON_PARENT)
+        self.win = Gtk.Dialog(
+            title=_('Translation'), transient_for=self.parent,
+            destroy_with_parent=True)
+        Main().add_window(self.win)
+        self.win.set_position(Gtk.WindowPosition.CENTER_ON_PARENT)
         self.win.set_icon(GNUHEALTH_ICON)
         self.win.connect('response', self.response)
+        self.win.set_default_size(*self.default_size())
 
-        self.accel_group = gtk.AccelGroup()
+        self.accel_group = Gtk.AccelGroup()
         self.win.add_accel_group(self.accel_group)
 
-        self.win.add_button(gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL)
-        self.win.add_button(gtk.STOCK_OK, gtk.RESPONSE_OK).add_accelerator(
-            'clicked', self.accel_group, gtk.keysyms.Return,
-            gtk.gdk.CONTROL_MASK, gtk.ACCEL_VISIBLE)
+        cancel_button = self.win.add_button(
+            set_underline(_("Cancel")), Gtk.ResponseType.CANCEL)
+        cancel_button.set_image(
+            common.IconFactory.get_image('tryton-cancel', Gtk.IconSize.BUTTON))
+        cancel_button.set_always_show_image(True)
+        ok_button = self.win.add_button(
+            set_underline(_("OK")), Gtk.ResponseType.OK)
+        ok_button.set_image(
+            common.IconFactory.get_image('tryton-ok', Gtk.IconSize.BUTTON))
+        ok_button.set_always_show_image(True)
+        ok_button.add_accelerator(
+            'clicked', self.accel_group, Gdk.KEY_Return,
+            Gdk.ModifierType.CONTROL_MASK, Gtk.AccelFlags.VISIBLE)
 
         tooltips = common.Tooltips()
 
         self.widgets = {}
-        table = gtk.Table(len(languages), 4)
-        table.set_homogeneous(False)
-        table.set_col_spacings(3)
-        table.set_row_spacings(2)
-        table.set_border_width(1)
+        grid = Gtk.Grid(column_spacing=3, row_spacing=3)
         for i, language in enumerate(languages):
             label = language['name'] + _(':')
-            label = gtk.Label(label)
-            label.set_alignment(1.0, 0.0 if self.widget.expand else 0.5)
-            table.attach(label, 0, 1, i, i + 1, xoptions=gtk.FILL)
+            label = Gtk.Label(
+                label=label,
+                halign=Gtk.Align.END,
+                valign=(Gtk.Align.START if self.widget.expand
+                    else Gtk.Align.FILL))
+            grid.attach(label, 0, i, 1, 1)
 
             context = dict(
                 language=language['code'],
@@ -176,49 +199,46 @@ class TranslateDialog(NoModal):
             label.set_mnemonic_widget(widget)
             self.widget.translate_widget_set(widget, fuzzy_value)
             self.widget.translate_widget_set_readonly(widget, True)
-            yopt = 0
-            if self.widget.expand:
-                yopt = gtk.EXPAND | gtk.FILL
-            table.attach(widget, 1, 2, i, i + 1, yoptions=yopt)
-            editing = gtk.CheckButton()
+            widget.set_vexpand(self.widget.expand)
+            widget.set_hexpand(True)
+            grid.attach(widget, 1, i, 1, 1)
+            editing = Gtk.CheckButton()
             editing.connect('toggled', self.editing_toggled, widget)
             editing.props.sensitive = not readonly
             tooltips.set_tip(editing, _('Edit'))
-            table.attach(editing, 2, 3, i, i + 1, xoptions=gtk.FILL)
-            fuzzy = gtk.CheckButton()
+            grid.attach(editing, 2, i, 1, 1)
+            fuzzy = Gtk.CheckButton()
             fuzzy.set_active(value != fuzzy_value)
             fuzzy.props.sensitive = False
             tooltips.set_tip(fuzzy, _('Fuzzy'))
-            table.attach(fuzzy, 4, 5, i, i + 1, xoptions=gtk.FILL)
+            grid.attach(fuzzy, 4, i, 1, 1)
             self.widgets[language['code']] = (widget, editing, fuzzy)
 
         tooltips.enable()
-        vbox = gtk.VBox()
-        vbox.pack_start(table, self.widget.expand, True)
-        viewport = gtk.Viewport()
-        viewport.set_shadow_type(gtk.SHADOW_NONE)
+        vbox = Gtk.VBox()
+        vbox.pack_start(grid, expand=self.widget.expand, fill=True, padding=0)
+        viewport = Gtk.Viewport()
+        viewport.set_shadow_type(Gtk.ShadowType.NONE)
         viewport.add(vbox)
-        scrolledwindow = gtk.ScrolledWindow()
-        scrolledwindow.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-        scrolledwindow.set_shadow_type(gtk.SHADOW_NONE)
+        scrolledwindow = Gtk.ScrolledWindow()
+        scrolledwindow.set_policy(
+            Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
+        scrolledwindow.set_shadow_type(Gtk.ShadowType.NONE)
         scrolledwindow.add(viewport)
-        self.win.vbox.pack_start(scrolledwindow, True, True)
-
-        sensible_allocation = self.sensible_widget.get_allocation()
-        self.win.set_default_size(int(sensible_allocation.width * 0.9),
-            int(sensible_allocation.height * 0.9))
+        self.win.vbox.pack_start(
+            scrolledwindow, expand=True, fill=True, padding=0)
+        self.win.show_all()
 
         self.register()
-        self.win.show_all()
-        common.center_window(self.win, self.parent, self.sensible_widget)
+        self.show()
 
     def editing_toggled(self, editing, widget):
         self.widget.translate_widget_set_readonly(widget,
             not editing.get_active())
 
     def response(self, win, response):
-        if response == gtk.RESPONSE_OK:
-            for code, widget in self.widgets.iteritems():
+        if response == Gtk.ResponseType.OK:
+            for code, widget in self.widgets.items():
                 widget, editing, fuzzy = widget
                 if not editing.get_active():
                     continue
@@ -242,15 +262,20 @@ class TranslateDialog(NoModal):
         self.win.destroy()
         NoModal.destroy(self)
 
+    def show(self):
+        self.win.show()
+
+    def hide(self):
+        self.win.hide()
+
 
 class TranslateMixin:
 
     def translate_button(self):
-        button = gtk.Button()
-        img = gtk.Image()
-        img.set_from_stock('tryton-locale', gtk.ICON_SIZE_SMALL_TOOLBAR)
-        button.set_image(img)
-        button.set_relief(gtk.RELIEF_NONE)
+        button = Gtk.Button()
+        button.set_image(common.IconFactory.get_image(
+                'tryton-translate', Gtk.IconSize.SMALL_TOOLBAR))
+        button.set_relief(Gtk.ReliefStyle.NONE)
         button.connect('clicked', self.translate)
         return button
 
@@ -277,19 +302,19 @@ class TranslateMixin:
         except RPCException:
             return
 
+        self.translate_dialog(languages)
+
+    def translate_dialog(self, languages):
         TranslateDialog(self, languages, self._readonly)
 
     def translate_widget(self):
-        raise NotImplemented
+        raise NotImplementedError
 
-    @staticmethod
-    def translate_widget_set(widget, value):
-        raise NotImplemented
+    def translate_widget_set(self, widget, value):
+        raise NotImplementedError
 
-    @staticmethod
-    def translate_widget_get(widget):
-        raise NotImplemented
+    def translate_widget_get(self, widget):
+        raise NotImplementedError
 
-    @staticmethod
-    def translate_widget_set_readonly(widget, value):
-        raise NotImplemented
+    def translate_widget_set_readonly(self, widget, value):
+        raise NotImplementedError

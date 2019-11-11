@@ -1,34 +1,32 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 # This code is inspired by the pycha project
 # (http://www.lorenzogil.com/projects/pycha/)
-import gtk
-
-from functools import reduce
-from tryton.common import hex2rgb, generateColorscheme, \
-        COLOR_SCHEMES, datetime_strftime
-from tryton.pyson import PYSONDecoder
+import datetime
 import locale
 import math
-import datetime
 from dateutil.relativedelta import relativedelta
-import tryton.rpc as rpc
-import cairo
-from tryton.action import Action
-from tryton.gui.window import Window
+from functools import reduce
 
-gtk_version = getattr(gtk, 'get_major_version', lambda: 2)()
+import cairo
+from gi.repository import Gdk, Gtk
+
+import tryton.rpc as rpc
+from tryton.action import Action
+from tryton.common import hex2rgb, generateColorscheme, COLOR_SCHEMES
+from tryton.gui.window import Window
+from tryton.pyson import PYSONDecoder
 
 
 class Popup(object):
 
     def __init__(self, widget):
-        self.win = gtk.Window(gtk.WINDOW_POPUP)
+        self.win = Gtk.Window(type=Gtk.WindowType.POPUP)
         self.win.set_name('gtk-tooltips')
         self.win.set_resizable(False)
         self.win.set_border_width(1)
-        self.win.set_transient_for(widget.window)
-        self.label = gtk.Label()
+        self.win.set_transient_for(widget.props.window)
+        self.label = Gtk.Label()
         self.win.add(self.label)
         self.win.connect('enter-notify-event', self.enter)
 
@@ -36,7 +34,7 @@ class Popup(object):
         self.label.set_text(text)
 
     def set_position(self, widget, x, y):
-        widget_x, widget_y = widget.window.get_origin()
+        origin = widget.props.window.get_origin()
         allocation = widget.get_allocation()
         width, height = allocation.width, allocation.height
         popup_width, popup_height = self.win.get_size()
@@ -44,14 +42,14 @@ class Popup(object):
             x = popup_width // 2
         if x > width - popup_width // 2:
             x = width - popup_width // 2
-        pos_x = widget_x + x - popup_width // 2
+        pos_x = origin.x + x - popup_width // 2
         if pos_x < 0:
             pos_x = 0
         if y < popup_height + 5:
             y = popup_height + 5
         if y > height:
             y = height
-        pos_y = widget_y + y - popup_height - 5
+        pos_y = origin.y + y - popup_height - 5
         if pos_y < 0:
             pos_y = 0
         self.win.move(int(pos_x), int(pos_y))
@@ -69,13 +67,10 @@ class Popup(object):
         self.win.hide()
 
 
-class Graph(gtk.DrawingArea):
+class Graph(Gtk.DrawingArea):
     'Graph'
 
-    if gtk_version == 2:
-        __gsignals__ = {"expose-event": "override"}
-    else:
-        __gsignals__ = {"draw": "override"}
+    __gsignals__ = {"draw": "override"}
 
     def __init__(self, view, xfield, yfields):
         super(Graph, self).__init__()
@@ -87,7 +82,7 @@ class Graph(gtk.DrawingArea):
         self.bottomPadding = 15
         self.rightPadding = 30
         self.leftPadding = 30
-        self.set_events(gtk.gdk.POINTER_MOTION_MASK)
+        self.set_events(Gdk.EventMask.POINTER_MOTION_MASK)
         self.connect('motion-notify-event', self.motion)
         self.connect('leave-notify-event', self.leave)
         self.popup = Popup(self)
@@ -110,36 +105,16 @@ class Graph(gtk.DrawingArea):
     def leave(self, widget, event):
         self.popup.hide()
 
-    if gtk_version == 2:
-        # Handle the expose-event by drawing
-        def do_expose_event(self, event):
+    def do_draw(self, cr):
+        width = self.get_allocated_width()
+        height = self.get_allocated_height()
 
-            # Create the cairo context
-            cr = self.window.cairo_create()
-
-            # Restrict Cairo to the exposed area; avoid extra work
-            cr.rectangle(event.area.x, event.area.y,
-                    event.area.width, event.area.height)
-            cr.clip()
-
-            self.updateArea(cr, *self.window.get_size())
-            self.drawBackground(cr, *self.window.get_size())
-            self.drawLines(cr, *self.window.get_size())
-            self.drawGraph(cr, *self.window.get_size())
-            self.drawAxis(cr, *self.window.get_size())
-            self.drawLegend(cr, *self.window.get_size())
-    else:
-        def do_draw(self, cr):
-            cr = self.window.cairo_create()
-            width = self.get_allocated_width()
-            height = self.get_allocated_height()
-
-            self.updateArea(cr, width, height)
-            self.drawBackground(cr, width, height)
-            self.drawLines(cr, width, height)
-            self.drawGraph(cr, width, height)
-            self.drawAxis(cr, width, height)
-            self.drawLegend(cr, width, height)
+        self.updateArea(cr, width, height)
+        self.drawBackground(cr, width, height)
+        self.drawLines(cr, width, height)
+        self.drawGraph(cr, width, height)
+        self.drawAxis(cr, width, height)
+        self.drawLegend(cr, width, height)
 
     def export_png(self, filename, width, height):
         surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, width, height)
@@ -151,7 +126,7 @@ class Graph(gtk.DrawingArea):
         self.drawGraph(cx, width, height)
         self.drawAxis(cx, width, height)
         self.drawLegend(cx, width, height)
-        surface.write_to_png(filename.encode('utf-8'))
+        surface.write_to_png(filename)
 
         self.queue_draw()
 
@@ -161,15 +136,15 @@ class Graph(gtk.DrawingArea):
     def action_keyword(self, ids):
         if not ids:
             return
-        ctx = self.group.context.copy()
+        ctx = self.group._context.copy()
         if 'active_ids' in ctx:
             del ctx['active_ids']
         if 'active_id' in ctx:
             del ctx['active_id']
-        event = gtk.get_current_event()
+        event = Gtk.get_current_event()
         allow_similar = False
-        if (event.state & gtk.gdk.CONTROL_MASK
-                or event.state & gtk.gdk.MOD1_MASK):
+        if (event.state & Gdk.ModifierType.CONTROL_MASK
+                or event.state & Gdk.ModifierType.MOD1_MASK):
             allow_similar = True
         with Window(hide_current=True, allow_similar=allow_similar):
             return Action.exec_keyword('graph_open', {
@@ -200,7 +175,7 @@ class Graph(gtk.DrawingArea):
             base = 1
         else:
             base = 10 ** int(math.log(self.yrange, 10))
-        for i in xrange(int(self.yrange / base) + 1):
+        for i in range(int(self.yrange / base) + 1):
             val = int(self.minyval / base) * base + i * base
             h = (val - self.minyval) * self.yscale
             label = locale.format('%.2f', val, True)
@@ -210,7 +185,7 @@ class Graph(gtk.DrawingArea):
     def XLabels(self):
         xlabels = []
         i = 0.0
-        keys = self.datas.keys()
+        keys = list(self.datas.keys())
         keys.sort()
         for key in keys:
             if self.xrange == 0:
@@ -415,7 +390,7 @@ class Graph(gtk.DrawingArea):
         if isinstance(minx, datetime.datetime):
             date = minx
             while date <= maxx:
-                self.labels[date] = datetime_strftime(date, datetime_format)
+                self.labels[date] = date.strftime(datetime_format)
                 self.datas.setdefault(date, {})
                 for yfield in self.yfields:
                     self.datas[date].setdefault(
@@ -424,7 +399,7 @@ class Graph(gtk.DrawingArea):
         elif isinstance(minx, datetime.date):
             date = minx
             while date <= maxx:
-                self.labels[date] = datetime_strftime(date, date_format)
+                self.labels[date] = date.strftime(date_format)
                 self.datas.setdefault(date, {})
                 for yfield in self.yfields:
                     self.datas[date].setdefault(
@@ -463,7 +438,7 @@ class Graph(gtk.DrawingArea):
         else:
             self.xscale = 1.0 / self.xrange
 
-        if not self.datas.values():
+        if not list(self.datas.values()):
             self.maxyval = 0.0
             self.minyval = 0.0
         else:

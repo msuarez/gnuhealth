@@ -1,10 +1,40 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 
+import re
 import operator
-import types
 import datetime
 from collections import defaultdict
+from functools import reduce, partial
+
+
+def sql_like(value, pattern, ignore_case=True):
+    flag = re.IGNORECASE if ignore_case else 0
+
+    escape = False
+    chars = []
+    for char in re.split(r'(\\|.)', pattern)[1::2]:
+        if escape:
+            if char in ('%', '_'):
+                chars.append(char)
+            else:
+                chars.extend(['\\', char])
+            escape = False
+        elif char == '\\':
+            escape = True
+        elif char == '_':
+            chars.append('.')
+        elif char == '%':
+            chars.append('.*')
+        else:
+            chars.append(re.escape(char))
+
+    regexp = re.compile(''.join(chars), flag)
+    return bool(regexp.fullmatch(value))
+
+
+like = partial(sql_like, ignore_case=False)
+ilike = partial(sql_like, ignore_case=True)
 
 
 def in_(a, b):
@@ -16,6 +46,7 @@ def in_(a, b):
     else:
         return operator.contains(b, a)
 
+
 OPERATORS = defaultdict(lambda: lambda a, b: True)
 OPERATORS.update({
         '=': operator.eq,
@@ -26,6 +57,10 @@ OPERATORS.update({
         '!=': operator.ne,
         'in': in_,
         'not in': lambda a, b: not in_(a, b),
+        'ilike': ilike,
+        'not ilike': lambda a, b: not ilike(a, b),
+        'like': like,
+        'not like': lambda a, b: not like(a, b),
         })
 
 
@@ -41,7 +76,7 @@ def locale_part(expression, field_name, locale_name='id'):
 def is_leaf(expression):
     return (isinstance(expression, (list, tuple))
         and len(expression) > 2
-        and isinstance(expression[1], basestring))
+        and isinstance(expression[1], str))
 
 
 def constrained_leaf(part, boolop=operator.and_):
@@ -72,14 +107,14 @@ def eval_leaf(part, context, boolop=operator.and_):
             context_field = datetime.date.min
     if isinstance(context_field, (list, tuple)) and value is None:
         value = type(context_field)()
-    if (isinstance(context_field, basestring)
+    if (isinstance(context_field, str)
             and isinstance(value, (list, tuple))):
         try:
             value = '%s,%s' % tuple(value)
         except TypeError:
             pass
     elif (isinstance(context_field, (list, tuple))
-            and isinstance(value, basestring)):
+            and isinstance(value, str)):
         try:
             context_field = '%s,%s' % tuple(context_field)
         except TypeError:
@@ -90,7 +125,7 @@ def eval_leaf(part, context, boolop=operator.and_):
         value = list(value)
     if (operand in ('=', '!=')
             and isinstance(context_field, (list, tuple))
-            and isinstance(value, (int, long))):
+            and isinstance(value, int)):
         operand = {
             '=': 'in',
             '!=': 'not in',
@@ -112,7 +147,7 @@ def inverse_leaf(domain):
                 return [domain[3]] + list(domain[1:])
         return domain
     else:
-        return map(inverse_leaf, domain)
+        return list(map(inverse_leaf, domain))
 
 
 def filter_leaf(domain, field, model):
@@ -188,7 +223,7 @@ def localize_domain(domain, field_name=None, strip_target=False):
             else:
                 return [domain[3]] + list(domain[1:-1])
         locale_name = 'id'
-        if isinstance(domain[2], basestring):
+        if isinstance(domain[2], str):
             locale_name = 'rec_name'
         n = 3 if strip_target else 4
         return [locale_part(domain[0], field_name, locale_name)] \
@@ -246,12 +281,18 @@ def concat(*domains, **kwargs):
 def unique_value(domain):
     "Return if unique, the field and the value"
     if (isinstance(domain, list)
-            and len(domain) == 1
-            and '.' not in domain[0][0]
-            and domain[0][1] == '='):
-        return True, domain[0][1], domain[0][2]
-    else:
-        return False, None, None
+            and len(domain) == 1):
+        domain, = domain
+        name = domain[0]
+        value = domain[2]
+        count = 0
+        if len(domain) == 4 and name[-3:] == '.id':
+            count = 1
+            model = domain[3]
+            value = [model, value]
+        if name.count('.') == count and domain[1] == '=':
+            return True, domain[1], value
+    return False, None, None
 
 
 def parse(domain):
@@ -279,7 +320,7 @@ def domain_inversion(domain, symbol, context=None):
 class And(object):
 
     def __init__(self, expressions):
-        self.branches = map(parse, expressions)
+        self.branches = list(map(parse, expressions))
         self.variables = set()
         for expression in self.branches:
             if is_leaf(expression):
@@ -298,7 +339,7 @@ class And(object):
         for part in self.branches:
             if isinstance(part, And):
                 part_inversion = part.inverse(symbol, context)
-                evaluated = isinstance(part_inversion, types.BooleanType)
+                evaluated = isinstance(part_inversion, bool)
                 if not evaluated:
                     result.append(part_inversion)
                 elif part_inversion:
@@ -317,7 +358,7 @@ class And(object):
                 else:
                     return False
 
-        result = filter(lambda e: e is not True, result)
+        result = [e for e in result if e is not True]
         if result == []:
             return True
         else:
@@ -338,7 +379,7 @@ class Or(And):
         for part in self.branches:
             if isinstance(part, And):
                 part_inversion = part.inverse(symbol, context)
-                evaluated = isinstance(part_inversion, types.BooleanType)
+                evaluated = isinstance(part_inversion, bool)
                 if symbol not in part.variables:
                     if evaluated and part_inversion:
                         return True
@@ -362,7 +403,7 @@ class Or(And):
                         and not eval_leaf(part, context, operator.or_)):
                     result.append(False)
 
-        result = filter(lambda e: e is not False, result)
+        result = [e for e in result if e is not False]
         if result == []:
             return False
         else:
@@ -423,7 +464,7 @@ def test_or_inversion():
     assert domain_inversion(domain, 'y', {'z': 4}) == [['y', '<', 3]]
     assert domain_inversion(domain, 'y', {'x': 3}) is True
 
-    domain = [u'OR', [u'length', u'>', 5], [u'language.code', u'=', u'de_DE']]
+    domain = ['OR', ['length', '>', 5], ['language.code', '=', 'de_DE']]
     assert domain_inversion(domain, 'length', {'length': 0, 'name': 'n'}) ==\
         [['length', '>', 5]]
 
@@ -551,6 +592,10 @@ def test_unique_value():
     assert unique_value(domain)[0] is False
     domain = [['a.b', '=', 1]]
     assert unique_value(domain)[0] is False
+    domain = [['a.id', '=', 1, 'model']]
+    assert unique_value(domain) == (True, '=', ['model', 1])
+    domain = [['a.b.id', '=', 1, 'model']]
+    assert unique_value(domain) == (False, None, None)
 
 
 def test_evaldomain():
@@ -580,6 +625,59 @@ def test_evaldomain():
     assert not eval_domain(domain, {'x': [3]})
     assert not eval_domain(domain, {'x': [3, 4]})
     assert eval_domain(domain, {'x': [1, 2]})
+
+    domain = [['x', 'like', 'abc']]
+    assert eval_domain(domain, {'x': 'abc'})
+    assert not eval_domain(domain, {'x': ''})
+    assert not eval_domain(domain, {'x': 'xyz'})
+    assert not eval_domain(domain, {'x': 'abcd'})
+
+    domain = [['x', 'not like', 'abc']]
+    assert eval_domain(domain, {'x': 'xyz'})
+    assert eval_domain(domain, {'x': 'ABC'})
+    assert not eval_domain(domain, {'x': 'abc'})
+
+    domain = [['x', 'not ilike', 'abc']]
+    assert eval_domain(domain, {'x': 'xyz'})
+    assert not eval_domain(domain, {'x': 'ABC'})
+    assert not eval_domain(domain, {'x': 'abc'})
+
+    domain = [['x', 'like', 'a%']]
+    assert eval_domain(domain, {'x': 'a'})
+    assert eval_domain(domain, {'x': 'abcde'})
+    assert not eval_domain(domain, {'x': ''})
+    assert not eval_domain(domain, {'x': 'ABCDE'})
+    assert not eval_domain(domain, {'x': 'xyz'})
+
+    domain = [['x', 'ilike', 'a%']]
+    assert eval_domain(domain, {'x': 'a'})
+    assert eval_domain(domain, {'x': 'A'})
+    assert not eval_domain(domain, {'x': ''})
+    assert not eval_domain(domain, {'x': 'xyz'})
+
+    domain = [['x', 'like', 'a_']]
+    assert eval_domain(domain, {'x': 'ab'})
+    assert not eval_domain(domain, {'x': 'a'})
+    assert not eval_domain(domain, {'x': 'abc'})
+
+    domain = [['x', 'like', 'a\\%b']]
+    assert eval_domain(domain, {'x': 'a%b'})
+    assert not eval_domain(domain, {'x': 'ab'})
+    assert not eval_domain(domain, {'x': 'a123b'})
+
+    domain = [['x', 'like', '\\%b']]
+    assert eval_domain(domain, {'x': '%b'})
+    assert not eval_domain(domain, {'x': 'b'})
+    assert not eval_domain(domain, {'x': '123b'})
+
+    domain = [['x', 'like', 'a\\_c']]
+    assert eval_domain(domain, {'x': 'a_c'})
+    assert not eval_domain(domain, {'x': 'abc'})
+    assert not eval_domain(domain, {'x': 'ac'})
+
+    domain = [['x', 'like', 'a\\\\_c']]
+    assert eval_domain(domain, {'x': 'a\\bc'})
+    assert not eval_domain(domain, {'x': 'abc'})
 
     domain = ['OR', ['x', '>', 10], ['x', '<', 0]]
     assert eval_domain(domain, {'x': 11})
@@ -715,6 +813,7 @@ if __name__ == '__main__':
     test_oror_inversion()
     test_parse()
     test_simplify()
+    test_unique_value()
     test_evaldomain()
     test_localize()
     test_prepare_reference_domain()

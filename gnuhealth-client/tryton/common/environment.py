@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 
 
@@ -35,7 +35,7 @@ class EvalEnvironment(dict):
             pass
         return super(EvalEnvironment, self).get(item, default)
 
-    def __nonzero__(self):
+    def __bool__(self):
         return True
 
     def __str__(self):

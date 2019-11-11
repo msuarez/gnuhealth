@@ -1,10 +1,9 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import logging
 import gettext
 
-import gtk
-import pango
+from gi.repository import Gdk, Gtk, Pango
 
 from tryton.signal_event import SignalEvent
 import tryton.common as common
@@ -13,9 +12,11 @@ from tryton.gui import Main
 from tryton.exceptions import TrytonServerError
 from tryton.gui.window.nomodal import NoModal
 from tryton.common.button import Button
-from tryton.common import RPCExecute, RPCException
+from tryton.common import RPCExecute, RPCException, RPCContextReload
 from tryton.common import GNUHEALTH_ICON
+from tryton.common.widget_style import widget_class
 from .infobar import InfoBar
+from .tabcontent import TabContent
 
 _ = gettext.gettext
 logger = logging.getLogger(__name__)
@@ -25,7 +26,7 @@ class Wizard(InfoBar):
 
     def __init__(self, name=''):
         super(Wizard, self).__init__()
-        self.widget = gtk.VBox(spacing=3)
+        self.widget = Gtk.VBox(spacing=3)
         self.toolbar_box = None
         self.widget.show()
         self.name = name or ''
@@ -58,7 +59,11 @@ class Wizard(InfoBar):
         self.direct_print = direct_print
         self.email_print = email_print
         self.email = email
-        self.context = context
+        self.context = context.copy() if context is not None else {}
+        self.context['active_id'] = self.id
+        self.context['active_ids'] = self.ids
+        self.context['active_model'] = self.model
+        self.context['action_id'] = self.action_id
 
         def callback(result):
             try:
@@ -78,10 +83,6 @@ class Wizard(InfoBar):
         self.__processing = True
 
         ctx = self.context.copy()
-        ctx['active_id'] = self.id
-        ctx['active_ids'] = self.ids
-        ctx['active_model'] = self.model
-        ctx['action_id'] = self.action_id
         if self.screen:
             data = {
                 self.screen_state: self.screen.get_on_change_value(),
@@ -92,7 +93,7 @@ class Wizard(InfoBar):
         def callback(result):
             try:
                 result = result()
-            except RPCException, rpc_exception:
+            except RPCException as rpc_exception:
                 if (not isinstance(rpc_exception.exception,
                         TrytonServerError)
                         or not self.screen):
@@ -104,8 +105,13 @@ class Wizard(InfoBar):
             if 'view' in result:
                 self.clean()
                 view = result['view']
-                self.update(view['fields_view'], view['defaults'],
-                    view['buttons'])
+                self.update(view['fields_view'], view['buttons'])
+
+                self.screen.new(default=False)
+                self.screen.current_record.set_default(view['defaults'])
+                self.update_buttons(self.screen.current_record)
+                self.screen.set_cursor()
+
                 self.screen_state = view['state']
                 self.__waiting_response = True
             else:
@@ -119,7 +125,13 @@ class Wizard(InfoBar):
                             ('email', self.email),
                             ]:
                         action[0].setdefault(k, v)
-                    Action._exec_action(*action, context=self.context.copy())
+                    context = self.context.copy()
+                    # Remove wizard keys added by run
+                    del context['active_id']
+                    del context['active_ids']
+                    del context['active_model']
+                    del context['action_id']
+                    Action._exec_action(*action, context=context)
 
             if self.state == self.end_state:
                 self.end(lambda *a: execute_actions())
@@ -130,14 +142,18 @@ class Wizard(InfoBar):
         RPCExecute('wizard', self.action, 'execute', self.session_id, data,
             self.state, context=ctx, callback=callback)
 
-    def destroy(self):
+    def destroy(self, action=None):
         if self.screen:
             self.screen.destroy()
 
     def end(self, callback=None):
+        def end_callback(action):
+            self.destroy(action=action())
+            if callback:
+                callback()
         try:
             RPCExecute('wizard', self.action, 'delete', self.session_id,
-                process_exception=False, callback=callback)
+                process_exception=False, callback=end_callback)
         except Exception:
             logger.warn(
                 _("Unable to delete wizard %s") % self.session_id,
@@ -155,7 +171,8 @@ class Wizard(InfoBar):
         if (not self.screen.current_record.validate()
                 and state != self.end_state):
             self.screen.display(set_cursor=True)
-            self.message_info(self.screen.invalid_message(), gtk.MESSAGE_ERROR)
+            self.message_info(
+                self.screen.invalid_message(), Gtk.MessageType.ERROR)
             return
         self.message_info()
         self.state = state
@@ -173,10 +190,11 @@ class Wizard(InfoBar):
         self.update_buttons(record)
 
     def update_buttons(self, record):
-        for button in self.states.itervalues():
+        for button in self.states.values():
             button.state_set(record)
 
-    def update(self, view, defaults, buttons):
+    def update(self, view, buttons):
+        tooltips = common.Tooltips()
         for button in buttons:
             self._get_button(button)
 
@@ -187,67 +205,61 @@ class Wizard(InfoBar):
         self.screen.signal_connect(self, 'group-changed',
             self._record_changed)
 
-        title = gtk.Label()
-        title.modify_font(pango.FontDescription("bold 14"))
-        title.set_label(self.name)
-        title.set_padding(20, 4)
-        title.set_alignment(0.0, 0.5)
+        title = Gtk.Label(
+            label=common.ellipsize(self.name, 80),
+            halign=Gtk.Align.START, margin=5,
+            ellipsize=Pango.EllipsizeMode.END)
+        tooltips.set_tip(title, self.name)
         title.set_size_request(0, -1)  # Allow overflow
-        title.modify_fg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#000000"))
         title.show()
 
-        hbox = gtk.HBox()
-        hbox.pack_start(title, expand=True, fill=True)
+        hbox = Gtk.HBox()
+        hbox.pack_start(title, expand=True, fill=True, padding=0)
         hbox.show()
 
-        frame = gtk.Frame()
-        frame.set_shadow_type(gtk.SHADOW_ETCHED_IN)
+        frame = Gtk.Frame()
+        frame.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
+        widget_class(frame, 'wizard-title', True)
         frame.add(hbox)
         frame.show()
 
-        eb = gtk.EventBox()
-        eb.add(frame)
-        eb.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#ffffff"))
-        eb.show()
-
-        self.widget.pack_start(eb, expand=False, fill=True, padding=3)
+        self.widget.pack_start(frame, expand=False, fill=True, padding=3)
 
         if self.toolbar_box:
-            self.widget.pack_start(self.toolbar_box, False, True)
+            self.widget.pack_start(
+                self.toolbar_box, expand=False, fill=True, padding=0)
 
-        viewport = gtk.Viewport()
-        viewport.set_shadow_type(gtk.SHADOW_NONE)
+        viewport = Gtk.Viewport()
+        viewport.set_shadow_type(Gtk.ShadowType.NONE)
         viewport.add(self.screen.widget)
         viewport.show()
-        self.scrolledwindow = gtk.ScrolledWindow()
-        self.scrolledwindow.set_shadow_type(gtk.SHADOW_NONE)
-        self.scrolledwindow.set_policy(gtk.POLICY_AUTOMATIC,
-                gtk.POLICY_AUTOMATIC)
+        self.scrolledwindow = Gtk.ScrolledWindow()
+        self.scrolledwindow.set_shadow_type(Gtk.ShadowType.NONE)
+        self.scrolledwindow.set_policy(
+            Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
         self.scrolledwindow.add(viewport)
         self.scrolledwindow.show()
 
-        self.widget.pack_start(self.scrolledwindow, expand=True, fill=True)
+        self.widget.pack_start(
+            self.scrolledwindow, expand=True, fill=True, padding=0)
 
         self.create_info_bar()
-        self.widget.pack_start(self.info_bar, False, True)
-
-        self.screen.new(default=False)
-        self.screen.current_record.set_default(defaults)
-        self.update_buttons(self.screen.current_record)
-        self.screen.set_cursor()
+        self.widget.pack_start(
+            self.info_bar, expand=False, fill=True, padding=0)
 
 
-class WizardForm(Wizard, SignalEvent):
+class WizardForm(Wizard, TabContent, SignalEvent):
     "Wizard"
 
     def __init__(self, name=''):
         super(WizardForm, self).__init__(name=name)
-        self.toolbar_box = gtk.HBox()
-        self.hbuttonbox = gtk.HButtonBox()
+        self.toolbar_box = Gtk.HBox()
+        self.hbuttonbox = Gtk.HButtonBox()
         self.hbuttonbox.set_spacing(5)
-        self.hbuttonbox.set_layout(gtk.BUTTONBOX_END)
+        self.hbuttonbox.set_layout(Gtk.ButtonBoxStyle.END)
         self.hbuttonbox.show()
-        self.widget.pack_start(self.toolbar_box, False, True)
+        self.widget.pack_start(
+            self.toolbar_box, expand=False, fill=True, padding=0)
         self.dialogs = []
 
         self.handlers = {
@@ -263,27 +275,32 @@ class WizardForm(Wizard, SignalEvent):
         button = super(WizardForm, self)._get_button(state)
         response = len(self.states)
         button.connect('clicked', self.response, response)
-        self.hbuttonbox.pack_start(button)
+        self.hbuttonbox.pack_start(button, expand=True, fill=True, padding=0)
         return button
 
-    def update(self, view, defaults, buttons):
-        super(WizardForm, self).update(view, defaults, buttons)
-        self.widget.pack_start(self.hbuttonbox, expand=False, fill=True)
+    def update(self, view, buttons):
+        super(WizardForm, self).update(view, buttons)
+        self.widget.pack_start(
+            self.hbuttonbox, expand=False, fill=True, padding=0)
 
     def sig_close(self):
         if self.end_state in self.states:
             self.states[self.end_state].clicked()
         return self.state == self.end_state
 
-    def destroy(self):
+    def destroy(self, action=None):
         if self.toolbar_box.get_children():
             toolbar = self.toolbar_box.get_children()[0]
             self.toolbar_box.remove(toolbar)
-        super(WizardForm, self).destroy()
+        super(WizardForm, self).destroy(action=action)
+        if action == 'reload menu':
+            RPCContextReload(Main().sig_win_menu)
+        elif action == 'reload context':
+            RPCContextReload()
 
     def end(self, callback=None):
         super(WizardForm, self).end(callback=callback)
-        Main.get_main()._win_del(self.widget)
+        Main()._win_del(self.widget)
 
     def set_cursor(self):
         if self.screen:
@@ -297,56 +314,64 @@ class WizardDialog(Wizard, NoModal):
             name = _('Wizard')
         Wizard.__init__(self, name=name)
         NoModal.__init__(self)
-        self.dia = gtk.Dialog(self.name, self.parent,
-            gtk.DIALOG_DESTROY_WITH_PARENT)
-        self.dia.set_position(gtk.WIN_POS_CENTER_ON_PARENT)
+        self.dia = Gtk.Dialog(
+            title=self.name, transient_for=self.parent,
+            destroy_with_parent=True)
+        Main().add_window(self.dia)
+        self.dia.set_position(Gtk.WindowPosition.CENTER_ON_PARENT)
         self.dia.set_icon(GNUHEALTH_ICON)
         self.dia.set_deletable(False)
         self.dia.connect('delete-event', lambda *a: True)
         self.dia.connect('close', self.close)
         self.dia.connect('response', self.response)
 
-        self.accel_group = gtk.AccelGroup()
+        self.accel_group = Gtk.AccelGroup()
         self.dia.add_accel_group(self.accel_group)
 
-        self.dia.vbox.pack_start(self.widget, expand=True, fill=True)
+        self._buttons = set()
+
+        self.dia.vbox.pack_start(
+            self.widget, expand=True, fill=True, padding=0)
 
         self.register()
 
     def clean(self):
         super(WizardDialog, self).clean()
-        hbuttonbox = self.dia.get_action_area()
-        for button in hbuttonbox.get_children():
-            hbuttonbox.remove(button)
+        while self._buttons:
+            button = self._buttons.pop()
+            button.get_parent().remove(button)
 
     def _get_button(self, definition):
         button = super(WizardDialog, self)._get_button(definition)
         response = len(self.states)
         self.dia.add_action_widget(button, response)
+        self._buttons.add(button)
         if definition['default']:
-            button.add_accelerator('clicked', self.accel_group,
-                gtk.keysyms.Return, gtk.gdk.CONTROL_MASK,
-                gtk.ACCEL_VISIBLE)
+            button.add_accelerator(
+                'clicked', self.accel_group, Gdk.KEY_Return,
+                Gdk.ModifierType.CONTROL_MASK, Gtk.AccelFlags.VISIBLE)
+            button.get_style_context().add_class(
+                Gtk.STYLE_CLASS_SUGGESTED_ACTION)
             button.set_can_default(True)
             button.grab_default()
             self.dia.set_default_response(response)
         return button
 
-    def update(self, view, defaults, buttons):
-        # Dialog must be shown before the screen is displayed
-        # to get the treeview realized when displayed
-        sensible_allocation = self.sensible_widget.get_allocation()
-        self.dia.set_default_size(int(sensible_allocation.width * 0.9),
-            int(sensible_allocation.height * 0.9))
-        self.dia.show()
-        common.center_window(self.dia, self.parent, self.sensible_widget)
-        super(WizardDialog, self).update(view, defaults, buttons)
+    def update(self, view, buttons):
+        super(WizardDialog, self).update(view, buttons)
+        current_view = self.screen.current_view
+        self.scrolledwindow.set_policy(
+            Gtk.PolicyType.NEVER, Gtk.PolicyType.NEVER)
+        if current_view.scroll:
+            current_view.scroll.set_policy(
+                Gtk.PolicyType.NEVER, Gtk.PolicyType.NEVER)
+        self.show()
 
     def destroy(self, action=None):
-        super(WizardDialog, self).destroy()
+        super(WizardDialog, self).destroy(action=action)
         self.dia.destroy()
         NoModal.destroy(self)
-        main = Main.get_main()
+        main = Main()
         if self.parent == main.window:
             current_form = main.get_page()
             if current_form:
@@ -371,20 +396,33 @@ class WizardDialog(Wizard, NoModal):
             if action:
                 screen.client_action(action)
 
-    def end(self, callback=None):
-        def end_callback(action):
-            self.destroy(action=action())
-            if callback:
-                callback()
-        super(WizardDialog, self).end(callback=end_callback)
-
     def close(self, widget, event=None):
-        widget.emit_stop_by_name('close')
+        widget.stop_emission_by_name('close')
         if self.end_state in self.states:
             self.states[self.end_state].clicked()
         return True
 
     def show(self):
+        view = self.screen.current_view
+        if view.view_type == 'form':
+            expand = False
+            for name in view.get_fields():
+                for widget in view.widgets[name]:
+                    if widget.expand:
+                        expand = True
+                        break
+                if expand:
+                    break
+        else:
+            expand = True
+        if expand:
+            width, height = self.default_size()
+        else:
+            width, height = -1, -1
+        self.dia.set_default_size(max(200, width), height)
+        width, height = self.dia.get_default_size()
+        if width > 0 and height > 0:
+            self.dia.resize(*self.dia.get_default_size())
         self.dia.show()
 
     def hide(self):

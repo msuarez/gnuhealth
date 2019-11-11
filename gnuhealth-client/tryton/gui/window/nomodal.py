@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import tryton.common as common
 
@@ -17,7 +17,7 @@ class NoModal(object):
 
     def register(self):
         from tryton.gui.main import Main
-        main = Main.get_main()
+        main = Main()
         self.page = main.get_page()
         if not self.page:
             self.page = main
@@ -25,6 +25,8 @@ class NoModal(object):
         self.sensible_widget.props.sensitive = False
 
     def destroy(self):
+        if not self.page:
+            return
         self.page.dialogs.remove(self)
         self.parent.present()
         self.sensible_widget.props.sensitive = True
@@ -32,3 +34,10 @@ class NoModal(object):
             if focus and focus.is_ancestor(self.parent):
                 focus.grab_focus()
                 break
+
+    def default_size(self):
+        from tryton.gui.main import Main
+        main = Main()
+        allocation = main.window.get_allocation()
+        width, height = allocation.width, allocation.height
+        return max(width - 150, 0), max(height - 150, 0)

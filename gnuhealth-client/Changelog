@@ -1,57 +1,137 @@
-changeset:   3308:1d22c3ad3303
-branch:      stable
-tag:         tip
-user:        Luis Falcon <falcon@gnu.org>
-date:        Fri Apr 19 14:52:33 2019 +0100
-summary:     gnuhealth client : use black as the text color in the GNU Health command line
+changeset:   3448:99b5be2ea73c
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sun Nov 10 19:37:02 2019 +0000
+summary:     GNU Health client : Update copyright header
 
-changeset:   3307:ff8521d939f1
-branch:      stable
-user:        Luis Falcon <falcon@gnu.org>
-date:        Fri Apr 19 13:10:48 2019 +0100
-summary:     gnuhealth client: Apply Tryton changeset 4516: Do not override exception variable in 'except as'
+changeset:   3446:c74c66e5ac2c
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sun Nov 10 16:16:26 2019 +0000
+summary:     GNU Health client . Update to 3.6.0
 
-changeset:   3306:15d4997faa4f
-branch:      stable
-user:        Luis Falcon <falcon@gnu.org>
-date:        Fri Apr 19 13:06:56 2019 +0100
-summary:     gnuhealth client: Apply Tryton changeset 4514: Allow to click button on readonly record in tree view
+changeset:   3445:7996fbb48f9e
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sun Nov 10 16:15:48 2019 +0000
+summary:     GH HMIS GTK client : Update README.rst
 
-changeset:   3305:a4ccfe557104
-branch:      stable
-user:        Luis Falcon <falcon@gnu.org>
-date:        Fri Apr 19 13:05:59 2019 +0100
-summary:     gnuhealth client: Apply Tryton changeset 4510: Use string from node attribute
+changeset:   3443:55407603ff19
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sun Nov 10 15:41:06 2019 +0000
+summary:     Update Changelog and README files
 
-changeset:   3304:d6b6ae8ebb80
-branch:      stable
-user:        Luis Falcon <falcon@gnu.org>
-date:        Fri Apr 19 13:04:49 2019 +0100
-summary:     gnuhealth client: Apply Tryton changeset 4509: Use idle_add to set active on combobox from match selected of dropdown
+changeset:   3442:8c8b27fa3b8f
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 09 18:11:02 2019 +0000
+summary:     GH HMIS client plugins : Update version to 3.6
 
-changeset:   3303:6c5836c9cf2f
-branch:      stable
-user:        Luis Falcon <falcon@gnu.org>
-date:        Fri Apr 19 13:03:33 2019 +0100
-summary:     gnuhealth client: Apply Tryton changeset 4508: Do not use set_text of Many2One and Reference when setting only string
+changeset:   3440:26a7a43ad340
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Fri Nov 08 06:56:01 2019 +0000
+summary:     HMIS server : update URL and to version RC3
 
-changeset:   3302:fc69cc78f43f
-branch:      stable
-user:        Luis Falcon <falcon@gnu.org>
-date:        Fri Apr 19 13:02:11 2019 +0100
-summary:     gnuhealth client: Apply Tryton changeset 4507: Clean active_* keys from context when executing an action
+changeset:   3439:88f4b17dc530
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Wed Nov 06 21:10:43 2019 +0000
+summary:     GNU Health GTK Client. Set focus on GH command line - CLI
 
-changeset:   3301:d3c1b46768ca
-branch:      stable
-user:        Luis Falcon <falcon@gnu.org>
-date:        Fri Apr 19 13:01:07 2019 +0100
-summary:     gnuhealth client: Apply Tryton changeset 4506: Delay execution of CellRendererBinary callbacks
+changeset:   3437:c13e27b3bd0f
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Wed Nov 06 19:14:27 2019 +0000
+summary:     HMIS : health_caldav . log error when the patient ID coming from the caldav client is not found
 
-changeset:   3300:a70ccc5f6bdd
-branch:      stable
+changeset:   3418:1445baaedd14
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Oct 26 19:26:33 2019 +0100
+summary:     GH client : Update version to 3.6RC2
+
+changeset:   3409:1ee4bb02a6ca
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Thu Oct 24 18:49:07 2019 +0100
+summary:     GNU Health GTK Client : Include in the plugins search path the gnuhealth_plugins dir on users local dir
+
+changeset:   3401:3da3fbeaff90
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Tue Oct 08 21:46:24 2019 +0100
+summary:     GNU Health GTK Client : Update to 3.6 Release Candidate 1
+
+changeset:   3398:74ca22400b75
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Fri Oct 04 22:54:42 2019 +0100
+summary:     gnuhealth client : Include activity window
+
+changeset:   3397:c5a007d7f4a9
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Fri Oct 04 21:56:47 2019 +0100
+summary:     Update Luis email to falcon@gnuhealth.org
+
+changeset:   3380:ea6255706780
 user:        Luis Falcon <falcon@gnu.org>
-date:        Fri Apr 19 12:59:58 2019 +0100
-summary:     gnuhealth client: Apply Tryton changeset 4502: Ensure sort key always return an integer
+date:        Thu Aug 08 11:24:08 2019 +0100
+summary:     gnuhealth client : Use GNU Health standard action icon
+
+changeset:   3379:8304de6e2416
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Aug 08 11:07:21 2019 +0100
+summary:     gnuhealth client : use gh prefix for header and footer to avoid conflicts with current hader
+
+changeset:   3378:4da4a673c76a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 07 22:51:24 2019 +0100
+summary:     gnuhealth client : update form and fix traceback for buttons
+
+changeset:   3374:52c5a9cf51a4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 07 15:40:10 2019 +0100
+summary:     gnuhealth client : Use original rpc.py
+
+changeset:   3373:82e024078d95
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 07 15:39:12 2019 +0100
+summary:     gnuhealth client: Return error dialog // Remove check version
+
+changeset:   3372:bbecc7c1d8d8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 07 12:36:02 2019 +0100
+summary:     gnuhealth-client : Add gnuhealth_plugins dir at HOME if it does not exist
+
+changeset:   3370:707e9981f138
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 02 12:34:40 2019 +0100
+summary:     gnuhealth-client: Remove check version
+
+changeset:   3369:b8d14c3a7980
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 02 12:28:48 2019 +0100
+summary:     gnuhealth-client: Remove PDA mode entries
+
+changeset:   3368:22bf4a525855
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 02 12:13:15 2019 +0100
+summary:     gnuhealth-client : Remove roundup / bug button
+
+changeset:   3367:c9e8f725df7f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 31 22:47:31 2019 +0100
+summary:     gnuhealth-client : Initial port based on Tryton 5.2 GTK client // remove pygtkcompat dependency
+
+changeset:   3366:17038493267f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 28 11:24:50 2019 +0100
+summary:     gnuhealth-client : use gnuhealth-client.conf file
+
+changeset:   3363:084a88dd91c0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jul 25 18:06:10 2019 +0100
+summary:     gnuhealth-client: Always use the user / host / DB information on the client subtitle, instead of the profile name
+
+changeset:   3362:3ff88a888e7f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 24 19:17:33 2019 +0100
+summary:     Add GNU Health CLI
+
+changeset:   3361:ead649b3eb39
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jul 18 18:58:21 2019 +0100
+summary:     Initial update to GNU Health client 3.5, based on Tryton GTK client 5.0.12
 
 changeset:   3179:c30614e0d942
 branch:      stable

@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 from shlex import shlex
 from types import GeneratorType
@@ -10,7 +10,7 @@ import datetime
 import io
 from collections import OrderedDict
 
-from tryton.common import untimezoned_date, timezoned_date, datetime_strftime
+from tryton.common import untimezoned_date, timezoned_date
 from tryton.common.datetime_ import date_parse
 from tryton.common.timedelta import parse as timedelta_parse
 from tryton.common.timedelta import format as timedelta_format
@@ -42,8 +42,8 @@ class udlex(shlex):
         class DummyWordchars(object):
             "Simulate str that contains all chars except somes"
             def __contains__(self, item):
-                return item not in (u':', u'>', u'<', u'=', u'!', u'"', u';',
-                    u'(', u')')
+                return item not in (':', '>', '<', '=', '!', '"', ';',
+                    '(', ')')
 
         self.wordchars = DummyWordchars()
 
@@ -81,7 +81,10 @@ def simplify(value):
 
 def group_operator(tokens):
     "Group token of operators"
-    cur = next(tokens)
+    try:
+        cur = next(tokens)
+    except StopIteration:
+        return
     nex = None
     for nex in tokens:
         if nex == '=' and cur and cur + nex in OPERATORS:
@@ -116,7 +119,7 @@ def likify(value):
 
 def quote(value):
     "Quote string if needed"
-    if not isinstance(value, basestring):
+    if not isinstance(value, str):
         return value
     if '\\' in value:
         value = value.replace('\\', '\\\\')
@@ -158,7 +161,7 @@ def append_ending_clause(domain, clause, deep):
     "Append clause after the ending clause"
     if not domain:
         yield clause
-        raise StopIteration
+        return
     for dom in domain[:-1]:
         yield dom
     if isinstance(domain[-1], list):
@@ -196,7 +199,7 @@ def split_target_value(field, value):
     "Split the reference value into target and value"
     assert field['type'] == 'reference'
     target = None
-    if isinstance(value, basestring):
+    if isinstance(value, str):
         for key, text in field['selection']:
             if value.lower().startswith(text.lower() + ','):
                 target = key
@@ -230,33 +233,36 @@ def convert_value(field, value, context=None):
         context = {}
 
     def convert_boolean():
-        if isinstance(value, basestring):
-            return any(test.decode('utf-8').lower().startswith(value.lower())
+        if isinstance(value, str):
+            return any(test.lower().startswith(value.lower())
                 for test in (
                     _('y'), _('Yes'), _('True'), _('t'), '1'))
         else:
             return bool(value)
 
     def convert_float():
+        factor = float(field.get('factor', 1))
         try:
-            return locale.atof(value)
+            return locale.atof(value) / factor
         except (ValueError, AttributeError):
             return
 
     def convert_integer():
+        factor = float(field.get('factor', 1))
         try:
-            return int(locale.atof(value))
+            return int(locale.atof(value) / factor)
         except (ValueError, AttributeError):
             return
 
     def convert_numeric():
+        factor = Decimal(field.get('factor', 1))
         try:
-            return locale.atof(value, Decimal)
+            return locale.atof(value, Decimal) / factor
         except (decimal.InvalidOperation, AttributeError):
             return
 
     def convert_selection():
-        if isinstance(value, basestring):
+        if isinstance(value, str):
             for key, text in field['selection']:
                 if value.lower() == text.lower():
                     return key
@@ -345,6 +351,14 @@ def test_convert_float():
         assert convert_value(field, value) == result
 
 
+def test_convert_float_factor():
+    field = {
+        'type': 'float',
+        'factor': '100',
+        }
+    assert convert_value(field, '42') == 0.42
+
+
 def test_convert_integer():
     field = {
         'type': 'integer',
@@ -359,6 +373,14 @@ def test_convert_integer():
         assert convert_value(field, value) == result
 
 
+def test_convert_integer_factor():
+    field = {
+        'type': 'integer',
+        'factor': '2',
+        }
+    assert convert_value(field, '6') == 3
+
+
 def test_convert_numeric():
     field = {
         'type': 'numeric',
@@ -371,6 +393,14 @@ def test_convert_numeric():
             (None, None),
             ):
         assert convert_value(field, value) == result
+
+
+def test_convert_numeric_factor():
+    field = {
+        'type': 'numeric',
+        'factor': '5',
+        }
+    assert convert_value(field, '1') == Decimal('0.2')
 
 
 def test_convert_selection():
@@ -460,8 +490,9 @@ def format_value(field, value, target=None, context=None):
         return _('True') if value else _('False')
 
     def format_integer():
+        factor = float(field.get('factor', 1))
         if value or value is 0 or isinstance(value, float):
-            return str(int(value))
+            return str(int(value * factor))
         return ''
 
     def format_float():
@@ -469,11 +500,16 @@ def format_value(field, value, target=None, context=None):
                 and value is not 0
                 and not isinstance(value, (float, Decimal))):
             return ''
+        if isinstance(value, Decimal):
+            cast = Decimal
+        else:
+            cast = float
+        factor = cast(field.get('factor', 1))
         try:
-            digit = len(str(value).split('.')[1])
+            digit = len(str(value * factor).rstrip('0').split('.')[1])
         except IndexError:
             digit = 0
-        return locale.format('%.*f', (digit, value or 0), True)
+        return locale.format('%.*f', (digit, value * factor or 0), True)
 
     def format_selection():
         selections = dict(field['selection'])
@@ -495,13 +531,13 @@ def format_value(field, value, target=None, context=None):
             time = timezoned_date(value)
         if time.time() == datetime.time.min:
             format_ = '%x'
-        return datetime_strftime(time, format_)
+        return time.strftime(format_)
 
     def format_date():
         if not value:
             return ''
         format_ = context.get('date_format', '%x')
-        return datetime_strftime(value, format_)
+        return value.strftime(format_)
 
     def format_time():
         if not value:
@@ -564,6 +600,14 @@ def test_format_integer():
         assert format_value(field, value) == result
 
 
+def test_format_integer_factor():
+    field = {
+        'type': 'integer',
+        'factor': '2',
+        }
+    assert format_value(field, 3) == '6'
+
+
 def test_format_float():
     field = {
         'type': 'float',
@@ -574,11 +618,19 @@ def test_format_float():
             (1.50, '1.5'),
             (150.79, '150.79'),
             (0, '0'),
-            (0.0, '0.0'),
+            (0.0, '0'),
             (False, ''),
             (None, ''),
             ):
         assert format_value(field, value) == result
+
+
+def test_format_float_factor():
+    field = {
+        'type': 'float',
+        'factor': '100',
+        }
+    assert format_value(field, 0.42) == '42'
 
 
 def test_format_numeric():
@@ -588,14 +640,22 @@ def test_format_numeric():
     for value, result in (
             (Decimal(1), '1'),
             (Decimal('1.5'), '1.5'),
-            (Decimal('1.50'), '1.50'),
+            (Decimal('1.50'), '1.5'),
             (Decimal('150.79'), '150.79'),
             (Decimal(0), '0'),
-            (Decimal('0.0'), '0.0'),
+            (Decimal('0.0'), '0'),
             (False, ''),
             (None, ''),
             ):
         assert format_value(field, value) == result
+
+
+def test_format_numeric_factor():
+    field = {
+        'type': 'numeric',
+        'factor': '5',
+        }
+    assert format_value(field, Decimal('0.2')) == '1'
 
 
 def test_format_selection():
@@ -808,9 +868,12 @@ def test_parenthesize():
 def operatorize(tokens, operator='or'):
     "Convert operators"
     test = (operator, (operator,))
-    cur = next(tokens)
-    while cur in test:
+    try:
         cur = next(tokens)
+        while cur in test:
+            cur = next(tokens)
+    except StopIteration:
+        return
     if isgenerator(cur):
         cur = operatorize(cur, operator)
     nex = None
@@ -883,10 +946,10 @@ class DomainParser(object):
 
     def __init__(self, fields, context=None):
         self.fields = OrderedDict((name, f)
-            for name, f in fields.iteritems()
+            for name, f in fields.items()
             if f.get('searchable', True))
         self.strings = dict((f['string'].lower(), f)
-            for f in fields.itervalues()
+            for f in fields.values()
             if f.get('searchable', True))
         self.context = context
 
@@ -901,8 +964,8 @@ class DomainParser(object):
             tokens = operatorize(tokens, 'and')
             tokens = self.parse_clause(tokens)
             return simplify(rlist(tokens))
-        except ValueError, exception:
-            if exception.message == 'No closing quotation':
+        except ValueError as exception:
+            if str(exception) == 'No closing quotation':
                 return self.parse(input_ + '"')
 
     def stringable(self, domain):
@@ -947,7 +1010,7 @@ class DomainParser(object):
         def string_(clause):
             if not clause:
                 return ''
-            if (not isinstance(clause[0], basestring)
+            if (not isinstance(clause[0], str)
                     or clause[0] in ('AND', 'OR')):
                 return '(%s)' % self.string(clause)
             name, operator, value = clause[:3]
@@ -1012,7 +1075,7 @@ class DomainParser(object):
         "Return completion for the input string"
         domain = self.parse(input_)
         closing = 0
-        for i in xrange(1, len(input_)):
+        for i in range(1, len(input_)):
             if input_[-i] not in (')', ' '):
                 break
             if input_[-i] == ')':
@@ -1035,7 +1098,7 @@ class DomainParser(object):
                 return
             if len(input_) >= 2 and input_[-2] == ':':
                 return
-        for field in self.strings.itervalues():
+        for field in self.strings.values():
             operator = default_operator(field)
             value = ''
             if 'ilike' in operator:
@@ -1069,7 +1132,7 @@ class DomainParser(object):
             name = ''
         if (name.lower() not in self.strings
                 and name not in self.fields):
-            for field in self.strings.itervalues():
+            for field in self.strings.values():
                 if field['string'].lower().startswith(name.lower()):
                     operator = default_operator(field)
                     value = ''
@@ -1100,7 +1163,7 @@ class DomainParser(object):
             except ValueError:
                 for part in parts:
                     yield (part,)
-                raise StopIteration
+                return
             for j in range(i):
                 name = ' '.join(parts[j:i])
                 if name.lower() in self.strings:
@@ -1342,81 +1405,81 @@ def test_group():
                 'string': '(Sur)Name',
                 },
             })
-    assert rlist(dom.group(udlex(u'Name: Doe'))) == [('Name', None, 'Doe')]
-    assert rlist(dom.group(udlex(u'"(Sur)Name": Doe'))) == [
+    assert rlist(dom.group(udlex('Name: Doe'))) == [('Name', None, 'Doe')]
+    assert rlist(dom.group(udlex('"(Sur)Name": Doe'))) == [
         ('(Sur)Name', None, 'Doe'),
         ]
-    assert rlist(dom.group(udlex(u'Name: Doe Name: John'))) == [
+    assert rlist(dom.group(udlex('Name: Doe Name: John'))) == [
         ('Name', None, 'Doe'),
         ('Name', None, 'John')]
-    assert rlist(dom.group(udlex(u'Name: Name: John'))) == [
+    assert rlist(dom.group(udlex('Name: Name: John'))) == [
         ('Name', None, None),
         ('Name', None, 'John')]
-    assert rlist(dom.group(udlex(u'First Name: John'))) == [
+    assert rlist(dom.group(udlex('First Name: John'))) == [
         ('First Name', None, 'John'),
         ]
-    assert rlist(dom.group(udlex(u'Name: Doe First Name: John'))) == [
+    assert rlist(dom.group(udlex('Name: Doe First Name: John'))) == [
         ('Name', None, 'Doe'),
         ('First Name', None, 'John'),
         ]
-    assert rlist(dom.group(udlex(u'First Name: John Name: Doe'))) == [
+    assert rlist(dom.group(udlex('First Name: John Name: Doe'))) == [
         ('First Name', None, 'John'),
         ('Name', None, 'Doe'),
         ]
-    assert rlist(dom.group(udlex(u'First Name: John First Name: Jane'))) == [
+    assert rlist(dom.group(udlex('First Name: John First Name: Jane'))) == [
         ('First Name', None, 'John'),
         ('First Name', None, 'Jane'),
         ]
-    assert rlist(dom.group(udlex(u'Name: John Doe'))) == [
+    assert rlist(dom.group(udlex('Name: John Doe'))) == [
         ('Name', None, 'John'),
         ('Doe',),
         ]
-    assert rlist(dom.group(udlex(u'Name: "John Doe"'))) == [
+    assert rlist(dom.group(udlex('Name: "John Doe"'))) == [
         ('Name', None, 'John Doe'),
         ]
-    assert rlist(dom.group(udlex(u'Name: =Doe'))) == [('Name', '=', 'Doe')]
-    assert rlist(dom.group(udlex(u'Name: =Doe Name: >John'))) == [
+    assert rlist(dom.group(udlex('Name: =Doe'))) == [('Name', '=', 'Doe')]
+    assert rlist(dom.group(udlex('Name: =Doe Name: >John'))) == [
         ('Name', '=', 'Doe'),
         ('Name', '>', 'John'),
         ]
-    assert rlist(dom.group(udlex(u'First Name: =John First Name: =Jane'))) == [
+    assert rlist(dom.group(udlex('First Name: =John First Name: =Jane'))) == [
         ('First Name', '=', 'John'),
         ('First Name', '=', 'Jane'),
         ]
-    assert rlist(dom.group(udlex(u'Name: John;Jane'))) == [
+    assert rlist(dom.group(udlex('Name: John;Jane'))) == [
         ('Name', None, ['John', 'Jane'])
         ]
-    assert rlist(dom.group(udlex(u'Name: John;'))) == [
+    assert rlist(dom.group(udlex('Name: John;'))) == [
         ('Name', None, ['John'])
         ]
-    assert rlist(dom.group(udlex(u'Name: John;Jane Name: Doe'))) == [
+    assert rlist(dom.group(udlex('Name: John;Jane Name: Doe'))) == [
         ('Name', None, ['John', 'Jane']),
         ('Name', None, 'Doe'),
         ]
-    assert rlist(dom.group(udlex(u'Name: John; Name: Doe'))) == [
+    assert rlist(dom.group(udlex('Name: John; Name: Doe'))) == [
         ('Name', None, ['John']),
         ('Name', None, 'Doe'),
         ]
-    assert rlist(dom.group(udlex(u'Name:'))) == [
+    assert rlist(dom.group(udlex('Name:'))) == [
         ('Name', None, None),
         ]
-    assert rlist(dom.group(udlex(u'Name: ='))) == [
+    assert rlist(dom.group(udlex('Name: ='))) == [
         ('Name', '=', None),
         ]
-    assert rlist(dom.group(udlex(u'Name: =""'))) == [
+    assert rlist(dom.group(udlex('Name: =""'))) == [
         ('Name', '=', ''),
         ]
-    assert rlist(dom.group(udlex(u'Name: = ""'))) == [
+    assert rlist(dom.group(udlex('Name: = ""'))) == [
         ('Name', '=', ''),
         ]
-    assert rlist(dom.group(udlex(u'Name: = Name: Doe'))) == [
+    assert rlist(dom.group(udlex('Name: = Name: Doe'))) == [
         ('Name', '=', None),
         ('Name', None, 'Doe'),
         ]
-    assert rlist(dom.group(udlex(u'Name: \\"foo\\"'))) == [
+    assert rlist(dom.group(udlex('Name: \\"foo\\"'))) == [
         ('Name', None, '"foo"'),
         ]
-    assert rlist(dom.group(udlex(u'Name: "" <'))) == [
+    assert rlist(dom.group(udlex('Name: "" <'))) == [
         ('Name', '', '<'),
         ]
 
@@ -1517,6 +1580,8 @@ def test_parse_clause():
     assert rlist(dom.parse_clause([('Many2One', None, ['John', 'Jane'])])) == [
         ('many2one.rec_name', 'in', ['John', 'Jane']),
         ]
+    assert rlist(dom.parse_clause(iter([iter([['John']])]))) == [
+        [('rec_name', 'ilike', '%John%')]]
 
 
 def test_completion():
@@ -1527,10 +1592,17 @@ def test_completion():
                 'type': 'char',
                 },
             })
-    assert list(dom.completion(u'Nam')) == ['Name: ']
-    assert list(dom.completion(u'Name:')) == ['Name: ']
-    assert list(dom.completion(u'Name: foo')) == []
-    assert list(dom.completion(u'Name: !=')) == []
-    assert list(dom.completion(u'Name: !=foo')) == []
-    assert list(dom.completion(u'')) == ['Name: ']
-    assert list(dom.completion(u' ')) == ['', 'Name: ']
+    assert list(dom.completion('Nam')) == ['Name: ']
+    assert list(dom.completion('Name:')) == ['Name: ']
+    assert list(dom.completion('Name: foo')) == []
+    assert list(dom.completion('Name: !=')) == []
+    assert list(dom.completion('Name: !=foo')) == []
+    assert list(dom.completion('')) == ['Name: ']
+    assert list(dom.completion(' ')) == ['', 'Name: ']
+
+
+if __name__ == '__main__':
+    for name in list(globals()):
+        if name.startswith('test_'):
+            func = globals()[name]
+            func()

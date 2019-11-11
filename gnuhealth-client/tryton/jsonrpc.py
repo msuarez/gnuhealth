@@ -1,46 +1,46 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
-import xmlrpclib
+import copy
+import xmlrpc.client
 import json
 import ssl
-import httplib
+import http.client
 from decimal import Decimal
 import datetime
 import socket
-import gzip
-import StringIO
 import hashlib
 import base64
 import threading
 import errno
+import logging
 from functools import partial
+from collections import defaultdict
 from contextlib import contextmanager
-import string
+from functools import reduce
+from urllib.parse import urljoin, quote
 
 __all__ = ["ResponseError", "Fault", "ProtocolError", "Transport",
     "ServerProxy", "ServerPool"]
 CONNECT_TIMEOUT = 5
 DEFAULT_TIMEOUT = None
+logger = logging.getLogger(__name__)
 
 
-class ResponseError(xmlrpclib.ResponseError):
+class ResponseError(xmlrpc.client.ResponseError):
     pass
 
 
-class Fault(xmlrpclib.Fault):
+class Fault(xmlrpc.client.Fault):
 
     def __init__(self, faultCode, faultString='', **extra):
         super(Fault, self).__init__(faultCode, faultString, **extra)
         self.args = faultString
 
-    def __repr__(self):
-        return (
-            "<Fault %s: %s>" %
-            (repr(self.faultCode), repr(self.faultString))
-            )
+    def __str__(self):
+        return str(self.faultCode)
 
 
-class ProtocolError(xmlrpclib.ProtocolError):
+class ProtocolError(xmlrpc.client.ProtocolError):
     pass
 
 
@@ -57,8 +57,7 @@ def object_hook(dct):
         elif dct['__class__'] == 'timedelta':
             return datetime.timedelta(seconds=dct['seconds'])
         elif dct['__class__'] == 'bytes':
-            cast = bytearray if bytes == str else bytes
-            return cast(base64.decodestring(dct['base64']))
+            return base64.decodebytes(dct['base64'].encode('utf-8'))
         elif dct['__class__'] == 'Decimal':
             return Decimal(dct['decimal'])
     return dct
@@ -94,9 +93,9 @@ class JSONEncoder(json.JSONEncoder):
             return {'__class__': 'timedelta',
                 'seconds': obj.total_seconds(),
                 }
-        elif isinstance(obj, (bytes, bytearray)):
+        elif isinstance(obj, bytes):
             return {'__class__': 'bytes',
-                'base64': base64.encodestring(obj),
+                'base64': base64.encodebytes(obj).decode('utf-8'),
                 }
         elif isinstance(obj, Decimal):
             return {'__class__': 'Decimal',
@@ -122,19 +121,20 @@ class JSONUnmarshaller(object):
         self.data = []
 
     def feed(self, data):
-        self.data.append(data)
+        self.data.append(data.decode('utf-8'))
 
     def close(self):
         return json.loads(''.join(self.data), object_hook=object_hook)
 
 
-class Transport(xmlrpclib.Transport, xmlrpclib.SafeTransport):
+class Transport(xmlrpc.client.SafeTransport):
 
     accept_gzip_encoding = True
     encode_threshold = 1400  # common MTU
 
-    def __init__(self, fingerprints=None, ca_certs=None, session=None):
-        xmlrpclib.Transport.__init__(self)
+    def __init__(
+            self, fingerprints=None, ca_certs=None, session=None):
+        xmlrpc.client.Transport.__init__(self)
         self._connection = (None, None)
         self.__fingerprints = fingerprints
         self.__ca_certs = ca_certs
@@ -145,36 +145,38 @@ class Transport(xmlrpclib.Transport, xmlrpclib.SafeTransport):
         parser = JSONParser(target)
         return parser, target
 
+    def parse_response(self, response):
+        cache = None
+        if hasattr(response, 'getheader'):
+            cache = int(response.getheader('X-Tryton-Cache', 0))
+        response = super().parse_response(response)
+        if cache:
+            try:
+                response['cache'] = int(cache)
+            except ValueError:
+                pass
+        return response
+
     def get_host_info(self, host):
-        host, extra_headers, x509 = xmlrpclib.Transport.get_host_info(
+        host, extra_headers, x509 = xmlrpc.client.Transport.get_host_info(
             self, host)
         if extra_headers is None:
             extra_headers = []
         if self.session:
-            auth = base64.encodestring(self.session)
-            auth = string.join(string.split(auth), "")  # get rid of whitespace
+            auth = base64.encodebytes(
+                self.session.encode('utf-8')).decode('ascii')
+            auth = ''.join(auth.split())  # get rid of whitespace
             extra_headers.append(
                 ('Authorization', 'Session ' + auth),
                 )
         extra_headers.append(('Connection', 'keep-alive'))
         return host, extra_headers, x509
 
-    def send_content(self, connection, request_body):
-        connection.putheader("Content-Type", "application/json")
-        if (self.encode_threshold is not None and
-                self.encode_threshold < len(request_body) and
-                gzip):
-            connection.putheader("Content-Encoding", "gzip")
-            buffer = StringIO.StringIO()
-            output = gzip.GzipFile(mode='wb', fileobj=buffer)
-            output.write(request_body)
-            output.close()
-            buffer.seek(0)
-            request_body = buffer.getvalue()
-        connection.putheader("Content-Length", str(len(request_body)))
-        connection.endheaders()
-        if request_body:
-            connection.send(request_body)
+    def send_headers(self, connection, headers):
+        for key, val in headers:
+            if key == 'Content-Type':
+                val = 'application/json'
+            connection.putheader(key, val)
 
     def make_connection(self, host):
         if self._connection and host == self._connection[0]:
@@ -183,7 +185,7 @@ class Transport(xmlrpclib.Transport, xmlrpclib.SafeTransport):
 
         ssl_ctx = ssl.create_default_context(cafile=self.__ca_certs)
 
-        class HTTPSConnection(httplib.HTTPSConnection):
+        class HTTPSConnection(http.client.HTTPSConnection):
 
             def connect(self):
                 sock = socket.create_connection((self.host, self.port),
@@ -195,7 +197,7 @@ class Transport(xmlrpclib.Transport, xmlrpclib.SafeTransport):
                     sock, server_hostname=self.host)
 
         def http_connection():
-            self._connection = host, httplib.HTTPConnection(host,
+            self._connection = host, http.client.HTTPConnection(host,
                 timeout=CONNECT_TIMEOUT)
             self._connection[1].connect()
             sock = self._connection[1].sock
@@ -220,7 +222,7 @@ class Transport(xmlrpclib.Transport, xmlrpclib.SafeTransport):
                         ((y[0] % 2 and y[0] + 1 < len(value)) and ':' or ''),
                         enumerate(value), '')
                 return format_hash(hashlib.sha1(peercert).hexdigest())
-            except ssl.SSLError:
+            except (socket.error, ssl.SSLError, ssl.CertificateError):
                 if allow_http:
                     http_connection()
                 else:
@@ -242,27 +244,35 @@ class Transport(xmlrpclib.Transport, xmlrpclib.SafeTransport):
         return self._connection[1]
 
 
-class ServerProxy(xmlrpclib.ServerProxy):
+class ServerProxy(xmlrpc.client.ServerProxy):
     __id = 0
 
     def __init__(self, host, port, database='', verbose=0,
-            fingerprints=None, ca_certs=None, session=None):
+            fingerprints=None, ca_certs=None, session=None, cache=None):
         self.__host = '%s:%s' % (host, port)
         if database:
+            database = quote(database)
             self.__handler = '/%s/' % database
         else:
             self.__handler = '/'
         self.__transport = Transport(fingerprints, ca_certs, session)
         self.__verbose = verbose
+        self.__cache = cache
 
     def __request(self, methodname, params):
+        dumper = partial(json.dumps, cls=JSONEncoder, separators=(',', ':'))
         self.__id += 1
         id_ = self.__id
-        request = json.dumps({
+        if self.__cache and self.__cache.cached(methodname):
+            try:
+                return self.__cache.get(methodname, dumper(params))
+            except KeyError:
+                pass
+        request = dumper({
                 'id': id_,
                 'method': methodname,
                 'params': params,
-                }, cls=JSONEncoder, separators=(',', ':'))
+                }).encode('utf-8')
 
         try:
             try:
@@ -272,7 +282,7 @@ class ServerProxy(xmlrpclib.ServerProxy):
                     request,
                     verbose=self.__verbose
                     )
-            except (socket.error, httplib.HTTPException), v:
+            except (socket.error, http.client.HTTPException) as v:
                 if (isinstance(v, socket.error)
                         and v.args[0] == errno.EPIPE):
                     raise
@@ -284,17 +294,20 @@ class ServerProxy(xmlrpclib.ServerProxy):
                     request,
                     verbose=self.__verbose
                     )
-        except xmlrpclib.ProtocolError, e:
+        except xmlrpc.client.ProtocolError as e:
             raise Fault(str(e.errcode), e.errmsg)
-        except:
+        except Exception:
             self.__transport.close()
             raise
-
         if response['id'] != id_:
             raise ResponseError('Invalid response id (%s) excpected %s' %
                 (response['id'], id_))
         if response.get('error'):
             raise Fault(*response['error'])
+        if self.__cache and response.get('cache'):
+            self.__cache.set(
+                methodname, dumper(params), response['cache'],
+                response['result'])
         return response['result']
 
     def close(self):
@@ -303,18 +316,27 @@ class ServerProxy(xmlrpclib.ServerProxy):
     @property
     def ssl(self):
         return isinstance(self.__transport.make_connection(self.__host),
-            httplib.HTTPSConnection)
+            http.client.HTTPSConnection)
 
 
 class ServerPool(object):
     keep_max = 4
+    _cache = None
 
-    def __init__(self, *args, **kwargs):
-        self.ServerProxy = partial(ServerProxy, *args, **kwargs)
+    def __init__(self, host, port, database, *args, **kwargs):
+        if kwargs.get('cache'):
+            self._cache = kwargs['cache'] = _Cache()
+        self.ServerProxy = partial(
+            ServerProxy, host, port, database, *args, **kwargs)
+
+        self._host = host
+        self._port = port
+        self._database = database
+
         self._lock = threading.Lock()
         self._pool = []
         self._used = {}
-        self.session = None
+        self.session = kwargs.get('session')
 
     def getconn(self):
         with self._lock:
@@ -337,19 +359,66 @@ class ServerPool(object):
 
     def close(self):
         with self._lock:
-            for conn in self._pool + self._used.values():
+            for conn in self._pool + list(self._used.values()):
                 conn.close()
             self._pool = []
             self._used.clear()
 
     @property
     def ssl(self):
-        for conn in self._pool + self._used.values():
+        for conn in self._pool + list(self._used.values()):
             return conn.ssl
-        return False
+        return None
+
+    @property
+    def url(self):
+        if self.ssl is None:
+            return None
+        scheme = 'https' if self.ssl else 'http'
+        return urljoin(
+            scheme + '://' + self._host + ':' + str(self._port),
+            self._database)
 
     @contextmanager
     def __call__(self):
         conn = self.getconn()
         yield conn
         self.putconn(conn)
+
+    def clear_cache(self, prefix=None):
+        if self._cache:
+            self._cache.clear(prefix)
+
+
+class _Cache:
+
+    def __init__(self):
+        self.store = defaultdict(dict)
+
+    def cached(self, prefix):
+        return prefix in self.store
+
+    def set(self, prefix, key, expire, value):
+        if isinstance(expire, (int, float)):
+            expire = datetime.timedelta(seconds=expire)
+        if isinstance(expire, datetime.timedelta):
+            expire = datetime.datetime.now() + expire
+        self.store[prefix][key] = (expire, copy.deepcopy(value))
+
+    def get(self, prefix, key):
+        now = datetime.datetime.now()
+        try:
+            expire, value = self.store[prefix][key]
+        except ValueError:
+            raise KeyError
+        if expire < now:
+            self.store.pop(key)
+            raise KeyError
+        logger.info('(cached) %s %s', prefix, key)
+        return copy.deepcopy(value)
+
+    def clear(self, prefix=None):
+        if prefix:
+            self.store[prefix].clear()
+        else:
+            self.store.clear()

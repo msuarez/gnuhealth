@@ -1,19 +1,18 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
-import gobject
-from cellrenderertext import CellRendererText
 import locale
+
+from gi.repository import GObject
+
+from .cellrenderertext import CellRendererText
 
 
 class CellRendererInteger(CellRendererText):
 
-    def do_start_editing(self, event, widget, path, background_area,
-            cell_area, flags):
-        editable = super(CellRendererInteger, self).do_start_editing(event,
-                widget, path, background_area, cell_area, flags)
+    def on_editing_started(self, editable, path):
+        super().on_editing_started(editable, path)
         editable.set_alignment(1.0)
         editable.connect('insert_text', self.sig_insert_text)
-        return editable
 
     def sig_insert_text(self, entry, new_text, new_text_length, position):
         value = entry.get_text()
@@ -24,6 +23,7 @@ class CellRendererInteger(CellRendererText):
         try:
             locale.atoi(new_value)
         except ValueError:
-            entry.stop_emission('insert-text')
+            entry.stop_emission_by_name('insert-text')
 
-gobject.type_register(CellRendererInteger)
+
+GObject.type_register(CellRendererInteger)

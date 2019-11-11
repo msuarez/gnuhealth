@@ -1,41 +1,31 @@
 The GNU Health GTK Client
 =======================================================================
 
-The GTK client allows to connect to the GNU Health server from the
+The GTK client allows to connect to the GNU Health HMIS server from the
 desktop.
 
-Starting from GNU Health version 3.2, you can directly download the
-gnuhealth client from GNU.org or pypi.
 
 Installation
 ------------
 
-For a system-wide installation (you need to be root)
-
-  # pip2 install gnuhealth-client
-
-Alternatively, you can do a local installation :
-
-  $ pip2 install --user gnuhealth-client
+  $ pip3 install --user gnuhealth-client
 
 
 Technology
 ----------
-The GNU Health GTK client derives from the Tryton GTK client, with specific
-features of GNU Health and healthcare sector
-
-GNU Health client series 3.2.x use GTK2+ and Python2 . This is a 
-transition series for the upcoming 3.4, that will use GTK3+ and Python3
+The GNU Health GTK client is a Python 3 application that derives from the Tryton GTK client, with specific
+features of GNU Health and healthcare sector.
 
 The default profile
 -------------------
 The GNU Health client comes with a pre-defined profile, which points to
-the GNU Health community demo server 
+the GNU Health community demo server::
 
-| Server : federation.gnuhealth.org
-| Port : 8000
-| User : admin
-| Passwd : gnusolidario
+ Server : federation.gnuhealth.org
+ Port : 8000
+ User : admin
+ Passwd : gnusolidario
+
 
 GNU Health Plugins
 ------------------
@@ -56,9 +46,9 @@ https://en.wikibooks.org/wiki/GNU_Health/Plugins
 
 The GNU Health client configuration file
 ----------------------------------------
-The default configuration file resides in
+The default configuration file resides in::
 
-$HOME/.config/gnuhealth/gnuhealth-client.conf
+ $HOME/.config/gnuhealth/<version>/gnuhealth-client.conf
 
 Using a custom greeter / banner
 -------------------------------
@@ -67,10 +57,10 @@ You can customize the login greeter banner to fit your institution.
 In the section [client] include the banner param with the absolute path
 of the png file.
 
-Something like
+Something like::
 
-| [client]
-| banner = /home/yourlogin/myhospitalbanner.png
+ [client]
+ banner = /home/yourlogin/myhospitalbanner.png
 
 The default resolution of the banner is 500 x 128 pixels. Adjust yours
 to approximately this size.
@@ -86,7 +76,7 @@ General questions can be done on health@gnu.org mailing list.
 
 Homepage
 --------
-http://health.gnu.org
+https://www.gnuhealth.org
 
 
 Documentation

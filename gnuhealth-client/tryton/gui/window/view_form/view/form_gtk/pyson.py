@@ -1,7 +1,9 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
-import gtk
+from gi.repository import Gtk
+
 from .char import Char
+from tryton.common import IconFactory
 from tryton.pyson import CONTEXT, PYSONEncoder, PYSONDecoder
 
 
@@ -22,20 +24,29 @@ class PYSON(Char):
         except Exception:
             return None
 
-    def set_value(self, record, field):
-        field.set_client(record, self.get_encoded_value())
+    def set_value(self):
+        # avoid modification because different encoding
+        value = self.get_encoded_value()
+        previous = self.field.get_client(self.record)
+        if (previous
+                and value == self.encoder.encode(
+                    self.decoder.decode(previous))):
+            value = previous
+        self.field.set_client(self.record, value)
 
-    def get_client_value(self, record, field):
-        value = super(PYSON, self).get_client_value(record, field)
+    def get_client_value(self):
+        value = super(PYSON, self).get_client_value()
         if value:
             value = repr(self.decoder.decode(value))
         return value
 
     def validate_pyson(self, *args):
-        icon = gtk.STOCK_OK
+        icon = 'tryton-ok'
         if self.get_encoded_value() is None:
-            icon = gtk.STOCK_CANCEL
-        self.entry.set_icon_from_stock(gtk.ENTRY_ICON_SECONDARY, icon)
+            icon = 'tryton-error'
+        pixbuf = IconFactory.get_pixbuf(icon, Gtk.IconSize.MENU)
+        self.entry.set_icon_from_pixbuf(
+            Gtk.EntryIconPosition.SECONDARY, pixbuf)
 
     def _focus_out(self):
         self.validate_pyson()
