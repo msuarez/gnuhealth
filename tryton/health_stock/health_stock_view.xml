@@ -15,11 +15,13 @@
 
 <!-- Main views -->
 
+<!-- Deprecated. Use now relate functionality at the product level
         <record model="ir.ui.view" id="gnuhealth_medicament_tree_stock">
             <field name="model">gnuhealth.medicament</field>
             <field name="inherit" ref="health.gnuhealth_medicament_tree"/>
             <field name="name">gnuhealth_medicament_tree_stock</field>
         </record>
+-->
 
         <record model="ir.ui.view" id="view_party_form">
             <field name="model">party.party</field>

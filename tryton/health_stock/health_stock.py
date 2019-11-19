@@ -30,7 +30,7 @@ from trytond.transaction import Transaction
 from trytond.pool import Pool, PoolMeta
 from functools import reduce
 
-__all__ = ['Medicament', 'Party', 'Lot', 'Move',
+__all__ = ['Party', 'Lot', 'Move',
     'PatientAmbulatoryCare', 'PatientAmbulatoryCareMedicament',
     'PatientAmbulatoryCareMedicalSupply',
     'PatientRounding', 'PatientRoundingMedicament',
@@ -43,30 +43,15 @@ _STATES = {
 _DEPENDS = ['state']
 
 
+"""
+Deprecated : Using now the quantity related to the product
 class Medicament(metaclass=PoolMeta):
     __name__ = 'gnuhealth.medicament'
     quantity = fields.Function(fields.Float('Quantity'), 'get_quantity')
 
-    def get_quantity(self, name):
-        pool = Pool()
-        Date = pool.get('ir.date')
-        Location = pool.get('stock.location')
-        Product = pool.get('product.product')
-
-        locations = Location.search([('type', '=', 'storage')])
-        Transaction().set_context({'locations': [l.id for l in locations]})
-        context = {}
-        context['stock_date_end'] = Date.today()
-        Transaction().set_context(context)
-
-        pbl = Product.products_by_location(
-                location_ids=Transaction().context['locations'],
-                product_ids=[self.name.id], with_childs=True)
-        quantity = 0.00
-        if list(pbl.values()):
-            quantity = reduce(lambda x, y: x + y, list(pbl.values()))
-        return quantity
-
+    def get_quantity(self,name):
+        return self.name.quantity
+"""
 
 class Party(metaclass=PoolMeta):
     __name__ = 'party.party'
