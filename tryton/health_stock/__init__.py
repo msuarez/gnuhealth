@@ -28,7 +28,6 @@ from .wizard import *
 
 def register():
     Pool.register(
-        Medicament,
         Party,
         Lot,
         Move,
