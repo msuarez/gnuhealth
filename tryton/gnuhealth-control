@@ -385,9 +385,6 @@ install_updates()
         wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/trytond ${TRYTON_URL}/${TRYTON_MAJOR_MINOR}/${LATEST_TRYTOND} || bailout
         message "INFO" "--> Uncompressing TRYTON SERVER $LATEST_TRYTOND"
         tar -xzf ${UPDATE_DOWNLOAD_DIR}/trytond/${LATEST_TRYTOND} --directory ${GNUHEALTH_DIR}/tryton/server || bailout
-        message "INFO" "--> Converting to Python3"
-        cd ${GNUHEALTH_DIR}/tryton/server
-        find ./trytond-* -name "*.py" -exec 2to3 -wn {} \; || bailout
     fi
 
     if [ $NEED_UPDATE_MODULES -eq 1 ]; then
@@ -397,10 +394,6 @@ install_updates()
             wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/modules ${TRYTON_URL}/${TRYTON_MAJOR_MINOR}/${mod} || bailout
             message "INFO" "--> Uncompressing ${mod}"
             tar -xzf ${UPDATE_DOWNLOAD_DIR}/modules/${mod} --directory ${GNUHEALTH_DIR}/tryton/server/modules || bailout
-            message "INFO" "--> Converting to Python3... ${mod}"
-            cd ${GNUHEALTH_DIR}/tryton/server/modules
-            local moddir=$(basename ${mod} .tar.gz)
-            find ${moddir} -name "*.py" -exec 2to3 -wn {} \; || bailout
         done
     fi
 
