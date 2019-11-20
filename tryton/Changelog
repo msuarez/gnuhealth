@@ -1,3 +1,16 @@
+changeset:   3454:4b50e27fd11a
+tag:         tip
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Tue Nov 19 08:33:28 2019 +0000
+summary:     fix bug #57266: Remove the 2to3 conversion in updates
+
+changeset:   3453:226d4f2fc702
+parent:      3450:5ca9a99474fa
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Tue Nov 19 08:02:47 2019 +0000
+summary:     Fix bug task #15470: Crash when listing the medicaments
+
+
 changeset:   3442:8c8b27fa3b8f
 tag:         tip
 user:        Luis Falcon <falcon@gnuhealth.org>
