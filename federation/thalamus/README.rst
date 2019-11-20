@@ -21,7 +21,7 @@ Installation
 ------------
 Thalamus is pip-installable::
 
-  $ pip3 install --user thalamus 
+  $ pip3 install --upgrade --user thalamus 
  
 Technology
 ----------
@@ -73,7 +73,7 @@ The default configuration file uses secure (SSL) connections::
 
 For development, ff you want to run it directly from the Flask Werkzeug server,::
 
-  $ python ./thalamus.py
+  $ python3 ./thalamus.py
 
 
 Examples
@@ -199,7 +199,7 @@ General questions can be done on health@gnu.org mailing list.
 
 Homepage
 --------
-www.gnuhealth.org
+https://www.gnuhealth.org
 
 
 Release Cycle
