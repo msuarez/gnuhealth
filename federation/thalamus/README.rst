@@ -21,7 +21,7 @@ Installation
 ------------
 Thalamus is pip-installable::
 
-  $ pip install --user thalamus 
+  $ pip3 install --upgrade --user thalamus 
  
 Technology
 ----------
@@ -58,24 +58,22 @@ Some resources and end-points are:
 
 * PersonalDocs (/personal_docs)
 
+
 Running Thalamus from a WSGI Container
 --------------------------------------
 In production settings, for performance reasons you should use a HTTP server.
-We have chosen `Gunicorn <http://gunicorn.org>`_ , but you can use any WSGI server.
+We have chosen `uWSGI <http://projects.unbit.it/uwsgi>`_ , but you can use any WSGI server. We have
+also included the configuration file for Gunicorn if you prefer it instead of uWSGI.
 
-Gunicorn supports WSGI natively and it comes as Python package. We have 
-included a simple, default config file (``etc/gunicorn.cfg``) to run Thalamus from 
-Gunicorn with SSL enabled.
-
-For example, you can run the Thalamus application from Gunicorn as follows.
+For example, you can run the Thalamus application from uWSGI as follows.
 The default configuration file uses secure (SSL) connections::
 
-  $ gunicorn --config etc/gunicorn.cfg thalamus:app
+  $ uwsgi --ini etc/thalamus_uwsgi.ini
 
 
-If you want to run it directly from the Flask Werkzeug server,::
+For development, ff you want to run it directly from the Flask Werkzeug server,::
 
-  $ python ./thalamus.py
+  $ python3 ./thalamus.py
 
 
 Examples
@@ -180,9 +178,14 @@ Yields to::
     'name': 'Ana', 'password': '$2b$12$cjrKVGYEKUwCmVDCtEnwcegcrmECTmeBz526AAD/ZqMGPWFpHJ4FW', 'profession': 'teacher',
     'roles': ['end_user']}
 
-*Note*: The demo user "ITAPYT999HON" is a health professional (health_professional role),
-so she has global access to demographic information. Check the ``roles.cfg`` file for
-examples information about roles and ACLs.
+**Note on roles**
+The demo user "ITAPYT999HON" is a health professional (health_professional role),
+so she has global access to demographic information. 
+
+The user "ARGBUE111FAV", password "freedom". This is the "root" user for the demo database. 
+
+Check the ``roles.cfg`` file for examples information about roles and ACLs.
+
 
 Development
 -----------
@@ -196,7 +199,7 @@ General questions can be done on health@gnu.org mailing list.
 
 Homepage
 --------
-http://health.gnu.org
+https://www.gnuhealth.org
 
 
 Release Cycle
@@ -211,4 +214,4 @@ chapter in the GNU Health Wikibook
 
 https://en.wikibooks.org/wiki/GNU_Health
 
-:Author: Luis Falcon <lfalcon@gnusolidario.org>
+:Author: Luis Falcon <falcon@gnuhealth.org>
