@@ -121,7 +121,7 @@ class PatientPregnancy(ModelSQL, ModelView):
             'invisible': Bool(Eval('current_pregnancy')),
             })
 
-    pregnancy_end_age = fields.Function(fields.Char('Weeks', help='Weeks at'
+    pregnancy_end_age = fields.Function(fields.Integer('Weeks', help='Weeks at'
         ' the end of pregnancy'), 'get_pregnancy_data')
     iugr = fields.Selection([
         (None, ''),
@@ -142,7 +142,6 @@ class PatientPregnancy(ModelSQL, ModelView):
         'patient_obstetric_info')
     premature = fields.Function(fields.Integer('Premature',
      help="Preterm < 37 wks live births"),'patient_obstetric_info')
-     
     abortions = fields.Function(fields.Integer('Abortions'),
         'patient_obstetric_info')
     stillbirths = fields.Function(fields.Integer('Stillbirths'),
@@ -236,11 +235,10 @@ class PatientPregnancy(ModelSQL, ModelView):
         pregnancy = Table('gnuhealth_patient_pregnancy')
         cursor = Transaction().connection.cursor()
         patient_id = int(self.name.id)
-        
         cursor.execute (*pregnancy.select(Count(pregnancy.name),
             where=(pregnancy.current_pregnancy == 'true') &
             (pregnancy.name == patient_id))) 
-                                       
+
         records = cursor.fetchone()[0]
         if records > 1:
             self.raise_user_error('patient_already_pregnant')
@@ -270,8 +268,8 @@ class PatientPregnancy(ModelSQL, ModelView):
         if (self.reverse_weeks and self.pregnancy_end_date):
             estimated_lmp = datetime.datetime.date(self.pregnancy_end_date - 
                 datetime.timedelta(self.reverse_weeks*7))
-                        
-            return estimated_lmp 
+
+            return estimated_lmp
 
     def get_pregnancy_data(self, name):
         """ Calculate the Pregnancy Due Date and the Number of
@@ -281,12 +279,11 @@ class PatientPregnancy(ModelSQL, ModelView):
         """
         if name == 'pdd':
                 return self.lmp + datetime.timedelta(days=280)
-                
         if name == 'pregnancy_end_age':
             if self.pregnancy_end_date:
                 gestational_age = datetime.datetime.date(
                     self.pregnancy_end_date) - self.lmp
-                return (gestational_age.days) / 7
+                return int((gestational_age.days) / 7)
             else:
                 return 0
 
@@ -639,7 +636,6 @@ class GnuHealthPatient(ModelSQL, ModelView):
 
         counter=0
         pregnancies = len(self.pregnancy_history)
-         
         if (name == "gravida"):
             return pregnancies 
 
