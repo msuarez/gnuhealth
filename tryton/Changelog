@@ -1,5 +1,21 @@
-changeset:   3454:4b50e27fd11a
+changeset:   3464:c168199e9f18
 tag:         tip
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 23 11:49:32 2019 +0000
+summary:     HMIS . health_gyneco: Fix bug bug #57292: OBS command generates a traceback
+
+changeset:   3463:68120e929bd1
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Wed Nov 20 22:21:31 2019 +0000
+summary:     Added tag 3.6.1 for changeset 688abb336e4b
+
+changeset:   3462:2e95079efbc3
+parent:      3460:b4d0c64afadb
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Wed Nov 20 08:19:14 2019 +0000
+summary:     GH HMIS server. health_federation.  Enforce unicode on setup read method
+
+changeset:   3454:4b50e27fd11a
 user:        Luis Falcon <falcon@gnuhealth.org>
 date:        Tue Nov 19 08:33:28 2019 +0000
 summary:     fix bug #57266: Remove the 2to3 conversion in updates
