@@ -227,14 +227,26 @@ export default {
                 },
 
             })
-            .then(response => {this.accounts = response.data})
-            .catch(e => { this.axios_errors.push(e)} );
+
+            .then((response) => {
+                console.log ("User found:",
+                    this.account_id,
+                    response.data);
+                }
+            )
+            .catch((response) => {
+                console.log ("User NOT found",
+                    this.account_id,
+                    response.data);
+                alert("User NOT FOUND");
+            }
+             )
         },
 
         /**
             # Add a default random string in the ref field.
             # The STRSIZE constant provides the length of the PUID
-            # The format of the PUID is XXXNNNXXX
+            # The format of the PUID is COUNTRY CODE + XXXNNNXXX
         */
         generate_fedid() {
             const STRSIZE = 9;

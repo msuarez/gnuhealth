@@ -54,7 +54,7 @@ export default {
       Leftmenu
     },
 
-    // Using Axios 
+    // Using Axios
     methods: {
         demographics () {
             axios({
