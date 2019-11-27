@@ -121,7 +121,7 @@
                         <input class="u-full-width" type="search" :value="account_id.toUpperCase()"
                             placeholder="Federation Account" name="account_id"
                             v-validate="'required'"
-                            @input="account_id = $event.target.value.toUpperCase()"/>                    
+                            @input="account_id = $event.target.value.toUpperCase()"/>
                         </div>
                         <div class="six columns">
                         <label class="hide-sm">&nbsp;</label>
@@ -201,6 +201,7 @@ export default {
                 console.log ("User created:",
                     this.account_id, this.account_info,
                     response.data);
+                alert("User created SUCCESSFULLY !");
                 }
             )
             .catch((response) => {
