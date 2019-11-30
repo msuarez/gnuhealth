@@ -296,7 +296,7 @@ class TreeXMLViewParser(XMLViewParser):
         column.name = name
 
         prefixes = []
-        suffixes = []
+        suffixes = list(widget.suffixes)
         if attributes['widget'] in ['url', 'email', 'callto', 'sip']:
             prefixes.append(
                 Affix(self.view, attributes, protocol=attributes['widget']))
