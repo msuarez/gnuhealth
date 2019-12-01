@@ -1,4 +1,65 @@
+changeset:   3488:54adb0f36d0b
 tag:         tip
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 30 17:49:36 2019 +0000
+summary:     GNU Health GTK Client . Apply Tryton patch 6571. Guess encoding when sending bytes to a Char widget
+
+changeset:   3487:c2287c30f36c
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 30 17:48:20 2019 +0000
+summary:     GNU Health GTK Client . Apply Tryton patch 6569. Manage cancelling FileChooser in the Binary
+
+changeset:   3486:06395a422358
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 30 17:45:57 2019 +0000
+summary:     GNU Health GTK Client . Apply Tryton patch 6567. Set alignment on widget and do not override with [x,y]fill
+
+changeset:   3485:3644018dbb3a
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 30 17:40:59 2019 +0000
+summary:     GNU Health GTK Client . Apply Tryton patch 6564. Convert to float when parsing timedelta
+
+changeset:   3484:82168806a0f3
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 30 17:38:24 2019 +0000
+summary:     GNU Health GTK Client . Apply Tryton patch 6532. Always delete One2Many record when add_remove attribute is not set
+
+changeset:   3483:e3a36c5b3801
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 30 17:36:30 2019 +0000
+summary:     GNU Health GTK Client . Apply Tryton patch 6527. Do not fail when get_visible_range return None
+
+changeset:   3482:9302814a8776
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 30 17:35:08 2019 +0000
+summary:     GNU Health GTK Client . Apply Tryton patch 6523. Search for '..' only on string value in domain parser
+
+changeset:   3481:256d5451fe13
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 30 17:32:01 2019 +0000
+summary:     GNU Health GTK Client . Apply Tryton patch 6522.Do not use record in __init__ of form widget
+
+changeset:   3480:76233b324bce
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 30 17:26:11 2019 +0000
+summary:     GNU Health GTK Client . Apply Tryton patch 6507. Add widget suffixes to the list of suffixes to render
+
+changeset:   3479:0e7447288ee8
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 30 17:16:45 2019 +0000
+summary:     GNU Health GTK Client . Apply Tryton patch 6480 . Replace child_of target only if it is not a related field
+
+changeset:   3478:2eba1505530c
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 30 17:14:24 2019 +0000
+summary:     GNU Health GTK Client . Apply Tryton patch 6478 . Do not test NumericEntry digits for non numeric values
+
+changeset:   3477:fe951359c9dd
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 30 17:09:55 2019 +0000
+summary:     GNU Health GTK Client . Apply patch 6457 . Add local context to get context without session context
+
+
 user:        Luis Falcon <falcon@gnuhealth.org>
 date:        Mon Nov 25 13:05:39 2019 +0000
 summary:     HMIS GTK client . Fix issue with empty icons in tree view as in http://hg.tryton.org/tryton/raw-rev/89cc38a42e14

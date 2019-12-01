@@ -256,7 +256,7 @@ class Screen(SignalEvent):
                 self.clear()
                 self.context_screen.display(set_cursor=True)
                 return False
-            context = self.group._context.copy()
+            context = self.local_context
             context.update(self.context_screen.get_on_change_value())
             self.new_group(context)
 
@@ -362,6 +362,13 @@ class Screen(SignalEvent):
             context['context_model'] = self.context_screen.model_name
         return context
 
+    @property
+    def local_context(self):
+        context = self.group.local_context
+        if self.context_screen:
+            context['context_model'] = self.context_screen.model_name
+        return context
+
     def __get_group(self):
         return self.__group
 
@@ -404,8 +411,8 @@ class Screen(SignalEvent):
 
     def _group_cleared(self, group, signal):
         for view in self.views:
-            if hasattr(view, 'reload'):
-                view.reload = True
+            if view.view_type == 'tree':
+                view.display(force=True)
 
     def _group_list_changed(self, group, signal):
         for view in self.views:
@@ -467,7 +474,7 @@ class Screen(SignalEvent):
                 'model': self.model_name,
                 'id': self.current_record.id if self.current_record else None,
                 'ids': [r.id for r in self.selected_records],
-                }, context=self.group._context.copy(), warning=False)
+                }, context=self.local_context, warning=False)
         else:
             if not self.modified():
                 self.switch_view(view_type='form')
@@ -911,14 +918,16 @@ class Screen(SignalEvent):
         view.set_value()
         self.set_cursor(reset_view=False)
         if view.view_type == 'tree' and len(self.group):
-            start, end = view.treeview.get_visible_range()
-            vadjustment = view.treeview.get_vadjustment()
-            vadjustment.props.value = min(
-                vadjustment.props.value + vadjustment.props.page_increment,
-                vadjustment.props.upper)
-            model = view.treeview.get_model()
-            iter_ = model.get_iter(end)
-            self.current_record = model.get_value(iter_, 0)
+            range_ = view.treeview.get_visible_range()
+            if range_:
+                start, end = range_
+                vadjustment = view.treeview.get_vadjustment()
+                vadjustment.props.value = min(
+                    vadjustment.props.value + vadjustment.props.page_increment,
+                    vadjustment.props.upper)
+                model = view.treeview.get_model()
+                iter_ = model.get_iter(end)
+                self.current_record = model.get_value(iter_, 0)
         elif (view.view_type == 'form'
                 and self.current_record
                 and self.current_record.group):
@@ -987,14 +996,16 @@ class Screen(SignalEvent):
         view.set_value()
         self.set_cursor(reset_view=False)
         if view.view_type == 'tree' and len(self.group):
-            start, end = view.treeview.get_visible_range()
-            vadjustment = view.treeview.get_vadjustment()
-            vadjustment.props.value = min(
-                vadjustment.props.value - vadjustment.props.page_increment,
-                vadjustment.props.lower)
-            model = view.treeview.get_model()
-            iter_ = model.get_iter(start)
-            self.current_record = model.get_value(iter_, 0)
+            range_ = view.treeview.get_visible_range()
+            if range_:
+                start, end = range_
+                vadjustment = view.treeview.get_vadjustment()
+                vadjustment.props.value = min(
+                    vadjustment.props.value - vadjustment.props.page_increment,
+                    vadjustment.props.lower)
+                model = view.treeview.get_model()
+                iter_ = model.get_iter(start)
+                self.current_record = model.get_value(iter_, 0)
         elif (view.view_type == 'form'
                 and self.current_record
                 and self.current_record.group):
@@ -1199,7 +1210,7 @@ class Screen(SignalEvent):
         if self.domain:
             query_string.append(('domain', json.dumps(
                         self.domain, cls=JSONEncoder, separators=(',', ':'))))
-        context = self.group._context  # Avoid rpc context
+        context = self.local_context  # Avoid rpc context
         if context:
             query_string.append(('context', json.dumps(
                         context, cls=JSONEncoder, separators=(',', ':'))))

@@ -3,6 +3,7 @@
 import os
 from itertools import chain
 import tempfile
+import logging
 import locale
 from tryton.common import \
         domain_inversion, eval_domain, localize_domain, \
@@ -15,8 +16,11 @@ import decimal
 from decimal import Decimal
 import math
 from tryton.common import RPCExecute, RPCException
+from tryton.common.htmltextbuffer import guess_decode
 from tryton.pyson import PYSONDecoder
 from tryton.config import CONFIG
+
+logger = logging.getLogger(__name__)
 
 
 class Field(object):
@@ -61,11 +65,11 @@ class Field(object):
     def validation_domains(self, record, pre_validate=None):
         return concat(*self.domains_get(record, pre_validate))
 
-    def get_context(self, record, record_context=None):
+    def get_context(self, record, record_context=None, local=False):
         if record_context is not None:
             context = record_context.copy()
         else:
-            context = record.get_context()
+            context = record.get_context(local=local)
         context.update(record.expr_eval(self.attrs.get('context', {})))
         return context
 
@@ -202,6 +206,17 @@ class CharField(Field):
 
     def get(self, record):
         return super(CharField, self).get(record) or self._default
+
+    def set_client(self, record, value, force_change=False):
+        if isinstance(value, bytes):
+            try:
+                value = guess_decode(value)
+            except UnicodeDecodeError:
+                logger.warning(
+                    "The encoding can not be guessed for field '%(name)s'",
+                    {'name': self.name})
+                value = None
+        super().set_client(record, value, force_change)
 
 
 class SelectionField(Field):
@@ -444,8 +459,9 @@ class M2OField(Field):
         record.value.setdefault(self.name + '.', {})['rec_name'] = rec_name
         record.value[self.name] = value
 
-    def get_context(self, record, record_context=None):
-        context = super(M2OField, self).get_context(record, record_context)
+    def get_context(self, record, record_context=None, local=False):
+        context = super(M2OField, self).get_context(
+            record, record_context=record_context, local=local)
         if self.attrs.get('datetime_field'):
             context['_datetime'] = record.get_eval(
                 )[self.attrs.get('datetime_field')]
@@ -866,9 +882,9 @@ class ReferenceField(Field):
         record.value[self.name] = ref_model, ref_id
         record.value.setdefault(self.name + '.', {})['rec_name'] = rec_name
 
-    def get_context(self, record, record_context=None):
+    def get_context(self, record, record_context=None, local=False):
         context = super(ReferenceField, self).get_context(
-            record, record_context)
+            record, record_context, local=local)
         if self.attrs.get('datetime_field'):
             context['_datetime'] = record.get_eval(
                 )[self.attrs.get('datetime_field')]
