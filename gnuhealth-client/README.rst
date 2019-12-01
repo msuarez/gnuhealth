@@ -7,8 +7,9 @@ desktop.
 
 Installation
 ------------
+You can install the GNU Health HMIS client via pip::
 
-  $ pip3 install --user gnuhealth-client
+ $ pip3 install --user --upgrade gnuhealth-client
 
 
 Technology
