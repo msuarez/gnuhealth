@@ -1,3 +1,14 @@
+changeset:   3492:b8b1a0305bed
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Mon Dec 02 17:47:27 2019 +0000
+summary:     gnuhealth GTK client: Revert to traditional API to read related fields for performance optimization
+
+changeset:   3491:d3d4a9d25337
+parent:      3489:e4f9f3205785
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sun Dec 01 13:13:30 2019 +0000
+summary:     GNU Health GTK Client : Update documentation
+
 changeset:   3488:54adb0f36d0b
 tag:         tip
 user:        Luis Falcon <falcon@gnuhealth.org>
