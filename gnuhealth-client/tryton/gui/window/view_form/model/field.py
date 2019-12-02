@@ -428,27 +428,26 @@ class M2OField(Field):
         return self.get(record) is None
 
     def get_client(self, record):
-        rec_name = record.value.get(self.name + '.', {}).get('rec_name')
+        rec_name = record.value.get(self.name + '.rec_name')
         if rec_name is None:
             self.set(record, self.get(record))
-            rec_name = record.value.get(self.name + '.', {}).get('rec_name')
-        return rec_name or ''
+            rec_name = record.value.get(self.name + '.rec_name') or ''
+        return rec_name
 
     def set_client(self, record, value, force_change=False):
         if isinstance(value, (tuple, list)):
             value, rec_name = value
         else:
             if value == self.get(record):
-                rec_name = record.value.get(
-                    self.name + '.', {}).get('rec_name', '')
+                rec_name = record.value.get(self.name + '.rec_name', '')
             else:
                 rec_name = ''
-        record.value.setdefault(self.name + '.', {})['rec_name'] = rec_name
+        record.value[self.name + '.rec_name'] = rec_name
         super(M2OField, self).set_client(record, value,
             force_change=force_change)
 
     def set(self, record, value):
-        rec_name = record.value.get(self.name + '.', {}).get('rec_name') or ''
+        rec_name = record.value.get(self.name + '.rec_name') or ''
         if not rec_name and value is not None and value >= 0:
             try:
                 result, = RPCExecute('model', self.attrs['relation'], 'read',
@@ -456,7 +455,7 @@ class M2OField(Field):
             except RPCException:
                 return
             rec_name = result['rec_name'] or ''
-        record.value.setdefault(self.name + '.', {})['rec_name'] = rec_name
+        record.value[self.name + '.rec_name'] = rec_name
         record.value[self.name] = value
 
     def get_context(self, record, record_context=None, local=False):
@@ -815,7 +814,7 @@ class ReferenceField(Field):
     def get_client(self, record):
         if record.value.get(self.name):
             model, _ = record.value[self.name]
-            name = record.value.get(self.name + '.', {}).get('rec_name') or ''
+            name = record.value.get(self.name + '.rec_name') or ''
             return model, name
         else:
             return None
@@ -842,11 +841,10 @@ class ReferenceField(Field):
                     except ValueError:
                         pass
                 if '%s,%s' % (ref_model, ref_id) == self.get(record):
-                    rec_name = record.value.get(
-                        self.name + '.', {}).get('rec_name', '')
+                    rec_name = record.value.get(self.name + '.rec_name', '')
                 else:
                     rec_name = ''
-            record.value.setdefault(self.name + '.', {})['rec_name'] = rec_name
+            record.value[self.name + '.rec_name'] = rec_name
             value = (ref_model, ref_id)
         super(ReferenceField, self).set_client(record, value,
             force_change=force_change)
@@ -866,7 +864,7 @@ class ReferenceField(Field):
                     pass
         else:
             ref_model, ref_id = value
-        rec_name = record.value.get(self.name + '.', {}).get('rec_name') or ''
+        rec_name = record.value.get(self.name + '.rec_name') or ''
         if ref_model and ref_id is not None and ref_id >= 0:
             if not rec_name and ref_id >= 0:
                 try:
@@ -880,7 +878,7 @@ class ReferenceField(Field):
         else:
             rec_name = str(ref_id)
         record.value[self.name] = ref_model, ref_id
-        record.value.setdefault(self.name + '.', {})['rec_name'] = rec_name
+        record.value[self.name + '.rec_name'] = rec_name
 
     def get_context(self, record, record_context=None, local=False):
         context = super(ReferenceField, self).get_context(
