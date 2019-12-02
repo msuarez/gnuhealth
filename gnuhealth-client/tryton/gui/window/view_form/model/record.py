@@ -443,6 +443,8 @@ class Record(SignalEvent):
         else:
             return self.group.local_context
 
+
+
     def set_default(self, val, signal=True, validate=True):
         fieldnames = []
         for fieldname, value in list(val.items()):
@@ -452,8 +454,11 @@ class Record(SignalEvent):
                 continue
             if isinstance(self.group.fields[fieldname], (fields.M2OField,
                         fields.ReferenceField)):
-                related = fieldname + '.'
-                self.value[related] = val.get(related) or {}
+                field_rec_name = fieldname + '.rec_name'
+                if field_rec_name in val:
+                    self.value[field_rec_name] = val[field_rec_name]
+                elif field_rec_name in self.value:
+                    del self.value[field_rec_name]
             self.group.fields[fieldname].set_default(self, value)
             self._loaded.add(fieldname)
             fieldnames.append(fieldname)
@@ -482,8 +487,11 @@ class Record(SignalEvent):
                 continue
             if isinstance(self.group.fields[fieldname], (fields.M2OField,
                         fields.ReferenceField)):
-                related = fieldname + '.'
-                self.value[related] = val.get(related) or {}
+                field_rec_name = fieldname + '.rec_name'
+                if field_rec_name in val:
+                    self.value[field_rec_name] = val[field_rec_name]
+                elif field_rec_name in self.value:
+                    del self.value[field_rec_name]
             self.group.fields[fieldname].set(self, value)
             self._loaded.add(fieldname)
             fieldnames.append(fieldname)
@@ -501,8 +509,12 @@ class Record(SignalEvent):
                 continue
             if isinstance(self.group.fields[fieldname], (fields.M2OField,
                         fields.ReferenceField)):
-                related = fieldname + '.'
-                self.value[related] = values.get(related) or {}
+                field_rec_name = fieldname + '.rec_name'
+                if field_rec_name in val:
+                    self.value[field_rec_name] = val[field_rec_name]
+                elif field_rec_name in self.value:
+                    del self.value[field_rec_name]
+
             self.group.fields[fieldname].set_on_change(self, value)
 
     def reload(self, fields=None):
@@ -601,7 +613,9 @@ class Record(SignalEvent):
             values.update(self._get_on_change_args(on_change_with))
             if isinstance(self.group.fields[fieldname], (fields.M2OField,
                         fields.ReferenceField)):
-                self.value.pop(fieldname + '.', None)
+                field_rec_name = fieldname + '.rec_name'
+                if field_rec_name in self.value:
+                    del self.value[field_rec_name]
         if fieldnames:
             try:
                 if len(fieldnames) == 1:
