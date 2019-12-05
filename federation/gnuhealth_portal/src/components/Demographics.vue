@@ -7,10 +7,14 @@
         <leftmenu/>
     </div>
 </div>
+
 <div class="nine columns">
     <div class="mainarea mt-4">
         <button class='ghbutton'
             v-on:click="toggle_form()">Show users</button>
+        <button class='ghbutton'
+            v-on:click="toggle_analytics()">Analytics</button>
+
         <div v-if="render_form">
             <table class="u-full-width">
                 <th>ID</th><th>Name</th><th>Lastname</th><th>Gender</th><th>DoB</th>
@@ -26,6 +30,10 @@
                     <td > {{ person[0].active }} </td>
                 </tr>
             </table>
+        </div>
+
+        <div v-if="render_analytics">
+            {{ this.msg }}
         </div>
     </div>
 </div>
@@ -44,6 +52,8 @@ export default {
     data() {
         return {
             render_form:false,
+            render_analytics:false,
+            msg: "",
             people: [],
             pfields: [],
             axios_errors: [],
@@ -71,10 +81,21 @@ export default {
             .then(response => {this.people = response.data})
             .catch(e => { this.axios_errors.push(e)} );
         },
+
+        demographics_analytics () {
+            this.msg = "Space reserved for demographics"
+        },
         toggle_form () {
             this.render_form = !this.render_form;
             if (this.render_form == true) {
                 this.demographics();
+            }
+        },
+
+        toggle_analytics () {
+            this.render_analytics = !this.render_analytics;
+            if (this.render_analytics == true) {
+                this.demographics_analytics();
             }
         }
 

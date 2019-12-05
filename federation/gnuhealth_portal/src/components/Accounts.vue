@@ -118,7 +118,8 @@
                         <div class="row">
                         <div class="six columns">
                         <label>Account<span class="red">*</span></label>
-                        <input class="u-full-width" type="search" :value="account_id.toUpperCase()"
+                        <input class="u-full-width" type="search"
+                            :value="account_id.toUpperCase()"
                             placeholder="Federation Account" name="account_id"
                             v-validate="'required'"
                             @input="account_id = $event.target.value.toUpperCase()"/>
