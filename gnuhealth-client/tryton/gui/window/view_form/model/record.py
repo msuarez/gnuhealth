@@ -510,7 +510,7 @@ class Record(SignalEvent):
             if isinstance(self.group.fields[fieldname], (fields.M2OField,
                         fields.ReferenceField)):
                 field_rec_name = fieldname + '.rec_name'
-                if field_rec_name in val:
+                if field_rec_name in values:
                     self.value[field_rec_name] = val[field_rec_name]
                 elif field_rec_name in self.value:
                     del self.value[field_rec_name]
