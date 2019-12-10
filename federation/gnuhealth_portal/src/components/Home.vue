@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <Welcome msg="Welcome to the GNU Health Federation Portal"/>
-    
   </div>
 </template>
 

@@ -13,7 +13,13 @@
         <button class='ghbutton'
             v-on:click="toggle_form()">Show users</button>
         <button class='ghbutton'
-            v-on:click="toggle_analytics()">Analytics</button>
+            v-on:click="update_demographics_chart()">Analytics</button>
+
+        <div v-if="render_charts">
+            <table class="u-full-width">
+                <canvas id="gender-chart"></canvas>
+            </table>
+        </div>
 
         <div v-if="render_form">
             <table class="u-full-width">
@@ -32,9 +38,6 @@
             </table>
         </div>
 
-        <div v-if="render_analytics">
-            {{ this.msg }}
-        </div>
     </div>
 </div>
 
@@ -43,20 +46,27 @@
 </template>
 
 <script>
+// Import Axios library
 import axios from 'axios';
+// Import Chart.js library
+import Chart from 'chart.js';
+
+// Import chart templates
+import GenderChartTemplate from '../charts/chart-templates.js'
+
 import Leftmenu from '@/components/Leftmenu.vue'
 
 export default {
     name: "Demographics",
-    // Data
+
     data() {
         return {
             render_form:false,
-            render_analytics:false,
-            msg: "",
+            render_charts:false,
             people: [],
             pfields: [],
             axios_errors: [],
+            GenderChart: GenderChartTemplate,
         }
     },
 
@@ -64,9 +74,30 @@ export default {
       Leftmenu
     },
 
-    // Using Axios
     methods: {
-        demographics () {
+        update_demographics_chart() {
+            // Reset the array
+            this.GenderChart.data.datasets[0].data.splice(0,2);
+
+            this.render_form = false;
+            this.render_charts = true;
+
+            // TODO: Automate info from this.people
+            this.GenderChart.data.datasets[0].data.push(12,65);
+            this.demographics_analytics('gender-chart', this.GenderChart);
+        },
+
+        // Create the Chart with updated data
+        demographics_analytics(context, chartData) {
+            this.gchart= new Chart(context, {
+                type: chartData.type,
+                data: chartData.data,
+                options: chartData.options,
+            });
+        },
+
+        demographics() {
+            // Using Axios
             axios({
                 headers: {
                     'Content-Type': 'application/json',
@@ -78,27 +109,20 @@ export default {
                     password: this.$store.state.credentials.password
                 },
             })
-            .then(response => {this.people = response.data})
+            .then(response => {this.people = response.data; return response.data;})
             .catch(e => { this.axios_errors.push(e)} );
         },
 
-        demographics_analytics () {
-            this.msg = "Space reserved for demographics"
-        },
         toggle_form () {
             this.render_form = !this.render_form;
+            this.render_charts = false;
+
             if (this.render_form == true) {
                 this.demographics();
             }
         },
 
-        toggle_analytics () {
-            this.render_analytics = !this.render_analytics;
-            if (this.render_analytics == true) {
-                this.demographics_analytics();
-            }
-        }
-
     },
+
 }
 </script>
