@@ -511,7 +511,7 @@ class Record(SignalEvent):
                         fields.ReferenceField)):
                 field_rec_name = fieldname + '.rec_name'
                 if field_rec_name in values:
-                    self.value[field_rec_name] = val[field_rec_name]
+                    self.value[field_rec_name] = values[field_rec_name]
                 elif field_rec_name in self.value:
                     del self.value[field_rec_name]
 
