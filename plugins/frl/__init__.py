@@ -183,7 +183,9 @@ class FederationResourceLocator():
             #string of the form field:fed_resource:fed_field
             field, fed_resource, fed_field = val.split(':')
 
-            local_vals[field] = fed_data[fed_field]
+            #Make sure that the element has a value 
+            if (fed_data[fed_field]):
+                local_vals[field] = fed_data[fed_field]
         return local_vals
 
     # Get the values from the selection on the FRL list view
