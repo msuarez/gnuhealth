@@ -31,7 +31,7 @@
 #-----------------------------------------------------------------------------
 
 #GNU Health HMIS installer version
-VERSION="3.6.0"
+VERSION="3.6.1"
 
 # Colors constants
 NONE="$(tput sgr0)"
@@ -45,7 +45,8 @@ INSTDIR="$PWD"
 GNUHEALTH_INST_DIR="$PWD"
 GNUHEALTH_VERSION=$(cat version)
 TRYTON_VERSION="5.0"
-TRYTON_BASE_URL="http://downloads.tryton.org"
+
+TRYTON_BASE_URL="https://downloads-cdn.tryton.org"
 
 GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
 TRANSLATE_URL="http://translate.gnusolidario.org"
