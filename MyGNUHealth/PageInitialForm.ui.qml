@@ -24,53 +24,21 @@ Item {
         }
     }
 
-    Rectangle {
-        id: rectangle
-        x: 0
-        y: 52
-        width: 400
-        height: 148
-        color: "#eff0f0"
-        z: -1
-        Image {
-            id: image
-            anchors.centerIn: parent.center
-            anchors.fill: parent
-            fillMode: Image.PreserveAspectFit
-            source: "images/my-gnu-health.png"
-        }
-    }
-
     MouseArea {
         id: mousearea1
+        x: 0
         y: 252
-        width: 125
-        height: 125
+        width: 400
+        height: 148
         anchors.horizontalCenter: parent.horizontalCenter
         Image {
             id: image_phr
             anchors.fill: parent
             anchors.centerIn: parent.center
             fillMode: Image.PreserveAspectFit
-            source: "images/index-phr.png"
+            source: "images/my-gnu-health.png"
         }
     }
 
-    property alias mousearea2: mousearea2
     property alias mousearea1: mousearea1
-    MouseArea {
-        id: mousearea2
-        anchors.centerIn: item1.center
-        y: 440
-        width: 125
-        height: 125
-        anchors.horizontalCenter: parent.horizontalCenter
-        Image {
-            id: image_healthsystem
-            anchors.fill: parent
-            anchors.centerIn: parent.center
-            fillMode: Image.PreserveAspectFit
-            source: "images/index-health_system.png"
-        }
-    }
 }

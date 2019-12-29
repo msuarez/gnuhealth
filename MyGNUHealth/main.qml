@@ -1,8 +1,8 @@
 /***********************************************************************
  * MyGNUHealth 
  * 
- * Copyright 2008-2017 Luis Falcon <falcon@gnu.org>
- * Copyright 2008-2017 GNU Solidario <health@gnusolidario.org>
+ * Copyright 2008-2019 Luis Falcon <falcon@gnuhealth.org>
+ * Copyright 2008-2019 GNU Solidario <health@gnusolidario.org>
  * 
  *
  * This program is free software; you can redistribute it and/or modify
