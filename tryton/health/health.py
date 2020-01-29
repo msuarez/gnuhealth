@@ -5342,12 +5342,15 @@ class PatientEvaluation(ModelSQL, ModelView):
         Pol = Pool().get('gnuhealth.pol')
         pol = []
 
+        assessment = (evaluation.diagnosis and
+            evaluation.diagnosis.rec_name) or ''
+
         # Summarize the encounter note taking as SOAP
         soap = \
             "S: " + evaluation.chief_complaint + "\n--\n" + \
                     evaluation.present_illness +"\n" + \
             "O: " + evaluation.evaluation_summary + "\n" + \
-            "A: " + evaluation.diagnosis.rec_name + "\n" + \
+            "A: " + assessment + "\n" + \
             "P: " + evaluation.directions
 
         vals = {
