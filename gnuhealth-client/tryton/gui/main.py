@@ -623,6 +623,8 @@ class Main(Gtk.Application):
         section.add(group)
 
         for action, title in [
+                ('app.gh_cli', _("GNU Health CLI")),
+                ('app.activity', _("GNU Health Activity Window")),
                 ('app.menu-search', _("Search menu")),
                 ('app.menu-toggle', _("Toggle menu")),
                 ('app.tab-previous', _("Previous tab"), ),
@@ -1101,7 +1103,6 @@ class Main(Gtk.Application):
         notification.set_priority(_PRIORITIES[priority])
         if sys.platform != 'win32' or GLib.glib_version >= (2, 57, 0):
             self.send_notification(None, notification)
-            
 
 # GNUHEALTH block
     # Initialize GNU Health environment
