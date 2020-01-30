@@ -22,32 +22,14 @@
  * 
  **********************************************************************/
  
-import QtQuick 2.7
 import QtQuick.Controls 2.0
-import QtQuick.Layouts 1.0
+import org.kde.kirigami 2.3 as Kirigami
 
-ApplicationWindow {
-    readonly property alias pageStack: stackView
-
+Kirigami.ApplicationWindow {
     visible: true
     width: 400
     height: 600
     title: qsTr("MyGNUHealth")
 
-    StackView {
-        id: stackView
-        anchors.fill: parent
-        initialItem: PageInitial {}
-
-    }
-
-    onClosing: {
-    if (Qt.platform.os == "android") {
-    if (stackView.depth > 1) {
-    close.accepted = false
-    stackView.pop()
-        }
-        }
-
-    }
+    pageStack.initialPage: PageInitial {}
 }

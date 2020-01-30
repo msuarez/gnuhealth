@@ -1,71 +1,35 @@
-import QtQuick 2.7
+import org.kde.kirigami 2.5 as Kirigami
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 
-Page {
+Kirigami.Page
+{
    id: loginPage
    title: qsTr("Login")
 
-   // Login area
-   Rectangle {
-     id: loginForm
-     anchors.centerIn: parent
-     color: "white"
-     width: 300
-     height: 200
-     radius: 4
-   }
+    Kirigami.FormLayout {
+        id: content
+        anchors.fill: parent
 
-   GridLayout {
-     id: content
-     anchors.centerIn: loginForm
-     columnSpacing: 20
-     rowSpacing: 10
-     columns: 2
+        TextField {
+            id: txtFedacct
+            Kirigami.FormData.label: qsTr("GH Acct")
+        }
 
-     Text {
-       Layout.topMargin: 8
-       Layout.bottomMargin: 12
-       Layout.alignment: Qt.AlignHCenter
-       text: "GH Acct"
-     }
+        TextField {
+            id: txtPassword
+            Kirigami.FormData.label: qsTr("Password")
+            echoMode: TextInput.Password
+        }
 
-     TextField {
-       id: txtFedacct
-       Layout.preferredWidth: 200
-       font.pixelSize: 15
-     }
-
-     Text {
-       text: qsTr("Password")
-       font.pixelSize: 12
-     }
-
-     TextField {
-       id: txtPassword
-       Layout.preferredWidth: 200
-       font.pixelSize: 15
-       echoMode: TextInput.Password
-     }
-
-     Column {
-       Layout.fillWidth: true
-       Layout.columnSpan: 2
-       Layout.topMargin: 12
-
-       // buttons
-       Button {
-         text: qsTr("Login")
-         flat: false
-         anchors.horizontalCenter: parent.horizontalCenter
-         onClicked: {
-           loginPage.forceActiveFocus()
-
-           // call login action
-           fedLogin.login(txtFedacct.text, txtPassword.text)
-         }
-       }
-
-     }
-   }
+        Button {
+            text: qsTr("Login")
+            flat: false
+            Layout.alignment: Qt.AlignHCenter
+            onClicked: {
+                // call login action
+                fedLogin.login(txtFedacct.text, txtPassword.text)
+            }
+        }
+    }
 }
