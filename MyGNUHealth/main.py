@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
@@ -8,8 +9,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2019 Luis Falcon <falcon@gnuhealth.org>
-#    Copyright (C) 2011-2019 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2020 Luis Falcon <falcon@gnuhealth.org>
+#    Copyright (C) 2011-2020 GNU Solidario <health@gnusolidario.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -80,7 +81,7 @@ if __name__ == "__main__":
 
     fed_login = FedLogin()
 
-    url = QUrl("main.qml")
+    url = QUrl("qml/main.qml")
     engine.load(url)
 
     #Expose fedLogin var to QML
