@@ -12,14 +12,14 @@ title: qsTr("Login")
     FedLogin { // FedLogin object registered at main.py to be used here
         id: fedlogin
 
-        onLoginRC: {
+        onLoginOK: {
             pageStack.push(Qt.resolvedUrl("PagePhr.qml"))
         }
     }
 
     Item {
         id: logininfo
-        property variant accountinfo: ({"account":'',"password":''})
+        property var accountinfo: ({"account":'',"password":''})
     }
 
     Kirigami.FormLayout {
@@ -42,11 +42,11 @@ title: qsTr("Login")
             flat: false
             Layout.alignment: Qt.AlignHCenter
             onClicked: {
-                //fedlogin.credentials = txtFedacct.text
-                logininfo.accountinfo.acct = txtFedacct.text
-                logininfo.accountinfo.passwd = txtPassword.text
-                fedlogin.credentials = logininfo.accountinfo
-                console.log (fedlogin.credentials.account)
+                logininfo.accountinfo.account = txtFedacct.text
+                logininfo.accountinfo.password = txtPassword.text
+
+                fedlogin.getCredentials(logininfo.accountinfo.account,
+                    logininfo.accountinfo.password);
             }
         }
     }

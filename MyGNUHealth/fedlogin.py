@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject, Signal, Property
+from PySide2.QtCore import QObject, Signal, Slot, Property
 import requests
 
 class FederationLogin(QObject):
@@ -6,14 +6,11 @@ class FederationLogin(QObject):
         QObject.__init__(self)
         self.creds = {"account":'',"password":''}
 
-    def getCredentials(self):
-        print ("GETTER", self.creds)
-
-    def setCredentials(self, credentials):
-        self.creds = credentials
-        self.loginRC.emit()
-
-
+    @Slot (str, str)
+    def getCredentials(self,account, password):
+        if (self.test_connection (account, password) == 0):
+            print ("Login correct - Move to main PHR page")
+            self.loginOK.emit()
 
     def test_connection(self,acct, passwd):
         """ Make the connection test to Thalamus Server
@@ -54,11 +51,15 @@ class FederationLogin(QObject):
             print ("##### Wrong credentials ####")
             login_status = -1
 
+        print (login_status)
         return (login_status)
 
-    # Signal to emit to QML as onLoginRC
-    loginRC = Signal()
+    # Signal to emit to QML if the provided credentials are correct
+    loginOK = Signal()
+
 
     # login credentials property from and to QML
-    credentials = Property(dict, getCredentials, setCredentials,
-                           notify=loginRC)
+    # Not used now because Pyside2 issues dealing with dictionaries
+    #
+    #credentials = Property(dict, getCredentials, setCredentials,
+    #                       notify=loginRC)
