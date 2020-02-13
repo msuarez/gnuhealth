@@ -165,7 +165,6 @@ export default {
             render_edit_acct: false,
             pass_confirm: "",
             goptions: [
-                    { text: 'Gender', value: '' },
                     { text: 'Male', value: 'm' },
                     { text: 'Female', value: 'f' }
                 ],
