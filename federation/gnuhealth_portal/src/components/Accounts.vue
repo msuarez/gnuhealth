@@ -54,7 +54,7 @@
                     </div>
                      <div class="row">
                     <div class="six columns">
-                    <label>Gender & DoB</label>
+                    <label>Gender<span class="red">*</span> & DoB</label>
                     <select class="mr-4" name="gender"
                         v-model="account_info.gender"
                         v-validate="'required'">
