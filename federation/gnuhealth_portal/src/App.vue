@@ -196,4 +196,9 @@ div.ghtopbar button.ghbutton:last-child::after {
      content: none;
   
 }
+
+.red {
+color: red;
+font-weight: bold;
+}
 </style>
