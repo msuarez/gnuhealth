@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2019 Luis Falcon <falcon@gnuhealth.org>
-#    Copyright (C) 2011-2019 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2020 Luis Falcon <falcon@gnuhealth.org>
+#    Copyright (C) 2011-2020 GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2015 Cédric Krier
 #    Copyright (C) 2014-2015 Chris Zimmerman <siv@riseup.net>
 #
@@ -80,7 +80,7 @@ __all__ = [
     'PatientVaccination','PatientEvaluation',
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
     'SignsAndSymptoms', 'PatientECG', 'ProductTemplate', 'PageOfLife',
-    'Commands']
+    'Commands','Modules']
 
 
 sequences = ['patient_sequence', 'patient_evaluation_sequence',
@@ -5622,3 +5622,9 @@ class Commands(ModelSQL, ModelView):
         cls.__rpc__.update({
                 'sysinfo': RPC(check_access=False),
                 })
+
+class Modules(ModelSQL, ModelView):
+    __name__ = 'ir.module'
+
+    # Add the module description field
+    description = fields.Char("Description")

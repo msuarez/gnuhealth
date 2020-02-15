@@ -97,6 +97,7 @@ def register():
         ProductTemplate,
         PageOfLife,
         Commands,
+        Modules,
         module='health', type_='model')
     Pool.register(
         OpenAppointmentReport,

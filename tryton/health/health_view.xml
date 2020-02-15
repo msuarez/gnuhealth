@@ -98,7 +98,7 @@
         </record>
 
 <!-- Replace default Tryton module icons -->
-        
+
         <!-- Party -->
         <record model="ir.ui.icon" id="party_icon">
             <field name="name">gnuhealth-party</field>
@@ -2147,6 +2147,21 @@
         <menuitem action="action_gnuhealth_command_view"
             name="GNU Health Commands" id="gnuhealth_conf_commands"
             parent="gnuhealth_conf_misc" icon="gnuhealth-list"/>
+
+
+        <!-- Modules: Include description information for each package -->
+
+        <record model="ir.ui.view" id="view_module_form">
+            <field name="model">ir.module</field>
+            <field name="inherit" ref="ir.module_view_form"/>
+            <field name="name">modules_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="view_module_tree">
+            <field name="model">ir.module</field>
+            <field name="inherit" ref="ir.module_view_tree"/>
+            <field name="name">modules_tree</field>
+        </record>
 
 
 <!-- GNU Health Federation Country Config -->
