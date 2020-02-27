@@ -31,7 +31,7 @@
 #-----------------------------------------------------------------------------
 
 #GNU Health HMIS installer version
-VERSION="3.6.1"
+VERSION="3.6.2"
 
 # Colors constants
 NONE="$(tput sgr0)"
@@ -234,7 +234,7 @@ install_python_dependencies() {
     local PIP_LXML="lxml"
     local PIP_RELATORIO="relatorio"
     local PIP_WRAPT="wrapt"
-    local PIP_WERKZEUG="werkzeug"
+    local PIP_WERKZEUG="werkzeug<1.0"
     local PIP_DATEUTIL="python-dateutil"
     local PIP_PSYCOPG2="psycopg2-binary"
     local PIP_PYTZ="pytz"
