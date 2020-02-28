@@ -58771,6 +58771,12 @@
 	<field name="category" ref="icdcat22"></field>
 	<field name="active">True</field>
 </record>
+<record model="gnuhealth.pathology" id="U071">
+	<field name="name">2019-nCoV acute respiratory disease COVID-19</field>
+	<field name="code">U07.1</field>
+	<field name="category" ref="icdcat22"></field>
+	<field name="active">True</field>
+</record>
 <record model="gnuhealth.pathology" id="V01">
 	<field name="name">Pedestrian injured in collision with pedal cycle</field>
 	<field name="code">V01</field>
