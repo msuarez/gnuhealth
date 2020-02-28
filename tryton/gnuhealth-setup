@@ -7,8 +7,8 @@
 #
 #    GNU Health Installer
 #
-#    Copyright (C) 2008-2019  Luis Falcon <falcon@gnuhealth.org>
-#    Copyright (C) 2008-2019  GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2020  Luis Falcon <falcon@gnuhealth.org>
+#    Copyright (C) 2008-2020  GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2014 Bruno M. Villasanti <bvillasanti@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -31,7 +31,7 @@
 #-----------------------------------------------------------------------------
 
 #GNU Health HMIS installer version
-VERSION="3.6.0"
+VERSION="3.6.2"
 
 # Colors constants
 NONE="$(tput sgr0)"
@@ -45,7 +45,8 @@ INSTDIR="$PWD"
 GNUHEALTH_INST_DIR="$PWD"
 GNUHEALTH_VERSION=$(cat version)
 TRYTON_VERSION="5.0"
-TRYTON_BASE_URL="http://downloads.tryton.org"
+
+TRYTON_BASE_URL="https://downloads-cdn.tryton.org"
 
 GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
 TRANSLATE_URL="http://translate.gnusolidario.org"
@@ -233,7 +234,7 @@ install_python_dependencies() {
     local PIP_LXML="lxml"
     local PIP_RELATORIO="relatorio"
     local PIP_WRAPT="wrapt"
-    local PIP_WERKZEUG="werkzeug"
+    local PIP_WERKZEUG="werkzeug<1.0"
     local PIP_DATEUTIL="python-dateutil"
     local PIP_PSYCOPG2="psycopg2-binary"
     local PIP_PYTZ="pytz"
