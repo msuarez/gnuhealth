@@ -1,7 +1,7 @@
 #  gh_queue_manager.py
 #  
-#  Copyright 2019 Luis Falcon <falcon@gnuhealth.org>
-#  Copyright 2011-2019 GNU Solidario <health@gnusolidario.org>
+#  Copyright 2020 Luis Falcon <falcon@gnuhealth.org>
+#  Copyright 2011-2020 GNU Solidario <health@gnusolidario.org>
 #  
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
